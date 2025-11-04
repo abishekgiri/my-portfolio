@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}My Portfolio{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+</head>
+<body class="min-h-screen bg-slate-900 text-white">
+  <nav class="flex justify-between p-4 bg-slate-800 shadow-md">
+    <h1 class="text-xl font-bold text-cyan-400">My Portfolio</h1>
+    <ul class="flex gap-4">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/skills">Skills</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <footer class="text-center py-6 border-t border-slate-700 mt-16">
+    © 2025 My Portfolio | Built with Flask
+  </footer>
+</body>
+</html>
