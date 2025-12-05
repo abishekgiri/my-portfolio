@@ -1,0 +1,44 @@
+[
+    {
+        "role": "Summer Entrepreneurship and Business Academy (SEBA)",
+        "company": "Stockton University",
+        "duration": "2023, 2024, 2025",
+        "description": "Participated in and contributed to the entrepreneurship academy.",
+        "type": "education"
+    },
+    {
+        "role": "Performing Arts Center Staff",
+        "company": "Stockton University",
+        "duration": "2024 - 2025",
+        "description": "Supported operations at the Performing Arts Center.",
+        "type": "work"
+    },
+    {
+        "role": "Resident Assistant",
+        "company": "Stockton University",
+        "duration": "2023 - Present",
+        "description": "Fostering inclusive environments and managing crisis situations with composure.",
+        "type": "leadership"
+    },
+    {
+        "role": "Math Tutor",
+        "company": "Stockton University",
+        "duration": "2022 - 2024",
+        "description": "Tutored students in mathematics, helping them understand complex concepts.",
+        "type": "work"
+    },
+    {
+        "role": "Dish Washer",
+        "company": "Chartwells Dining",
+        "duration": "2022 - 2023",
+        "description": "Maintained cleanliness and efficiency in a high-volume dining environment.",
+        "type": "work"
+    },
+    {
+        "role": "Teacher",
+        "company": "Birgunj Academy",
+        "duration": "2021 - 2022",
+        "description": "Educated students and managed classroom activities.",
+        "type": "work"
+    }
+]

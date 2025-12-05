@@ -1,27 +1,265 @@
-a {
-  transition: all 0.3s ease;
+/* Prime Video Style Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Prime Palette */
+  --bg-main: #0f171e;
+  /* Prime Dark Blue */
+  --bg-card: #1a242f;
+  /* Lighter Blue for Cards */
+  --bg-hover: #252e39;
+
+  --primary: #00a8e1;
+  /* Prime Blue */
+  --accent: #ffffff;
+  /* White text */
+  --text-muted: #8197a4;
+
+  /* Gradients */
+  --hero-gradient: linear-gradient(to right, #0f171e 40%, rgba(15, 23, 30, 0.8) 60%, transparent 100%);
+  --bottom-gradient: linear-gradient(to top, #0f171e 10%, transparent 100%);
+
+  /* Shadows */
+  --shadow-card: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-a:hover {
-  color: #22d3ee;
-}
+
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #f9fafb;
-  color: #111827;
+  background-color: var(--bg-main);
+  color: var(--accent);
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
-h1, h2, h3, h4, h5, h6 {
-  color: #1f2937;
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
-button {
-  background-color: #3b82f6;
+
+.text-prime-blue {
+  color: var(--primary);
+}
+
+/* Hero Section */
+.hero-container {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+.global-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top center;
+  z-index: -1;
+  opacity: 0.4;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  filter: blur(1.5px);
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--hero-gradient);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5%;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 15px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.prime-btn {
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
-button:hover {
-  background-color: #2563eb;
+
+.prime-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.prime-btn.primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.prime-btn.primary:hover {
+  background-color: #0091c2;
+}
+
+/* Horizontal Rails */
+.rail-container {
+  padding: 20px 0 20px 5%;
+  position: relative;
+  z-index: 10;
+}
+
+.rail-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rail-title span {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.rail-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 40px;
+  /* Space for hover expansion */
+  padding-right: 5%;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.rail-scroll::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+/* Cards */
+.prime-card {
+  flex: 0 0 300px;
+  height: 170px;
+  background-color: var(--bg-card);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.prime-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.prime-card:hover {
+  transform: scale(1.15);
+  z-index: 100;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+}
+
+.prime-card:hover img {
+  opacity: 0.4;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, black, transparent);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.prime-card:hover .card-info {
+  opacity: 1;
+}
+
+/* Skill "Poster" Cards */
+.skill-card {
+  flex: 0 0 140px;
+  height: 200px;
+  /* Portrait aspect ratio */
+  background: var(--bg-card);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-card:hover {
+  transform: scale(1.1);
+  background: var(--bg-hover);
+  border-color: var(--primary);
+}
+
+/* Experience "Episode" Cards */
+.exp-card {
+  flex: 0 0 400px;
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 4px;
+  border-left: 4px solid var(--primary);
+}
+
+/* Utilities */
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-hd {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
 }

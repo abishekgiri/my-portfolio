@@ -1,0 +1,243 @@
+[
+    {
+        "title": "Travel Buddies",
+        "description": "Social travel platform for finding travel companions.",
+        "link": "https://github.com/abishekgiri/Travel-Buddies",
+        "category": "web",
+        "tags": [
+            "React",
+            "Node.js",
+            "MySQL",
+            "Socket.IO",
+            "Tailwind CSS"
+        ]
+    },
+    {
+        "title": "StorePro Fullstack",
+        "description": "Fullstack e-commerce application with React, Node.js, and MongoDB.",
+        "link": "https://github.com/abishekgiri/StorePro_fullstack-main",
+        "category": "web",
+        "tags": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Express"
+        ]
+    },
+    {
+        "title": "NYC Taxi Pipeline",
+        "description": "End-to-end data pipeline for NYC Taxi data analysis using Streamlit.",
+        "link": "https://github.com/abishekgiri/nyc-taxi-pipeline-",
+        "category": "data",
+        "tags": [
+            "Streamlit",
+            "Python",
+            "Parquet",
+            "Data Engineering"
+        ]
+    },
+    {
+        "title": "HighPerf Parquet",
+        "description": "High-performance Parquet writer with SIMD and GPU acceleration.",
+        "link": "https://github.com/abishekgiri/highperf-parquet",
+        "category": "data",
+        "tags": [
+            "C++",
+            "C",
+            "CUDA",
+            "Parquet",
+            "SIMD",
+            "CMake",
+            "Systems Engineering"
+        ]
+    },
+    {
+        "title": "LLM-CODEGEN",
+        "description": "Advanced code generation system using Large Language Models.",
+        "link": "https://github.com/abishekgiri/LLM-CODEGEN",
+        "category": "ai",
+        "tags": [
+            "LLM",
+            "Generative AI",
+            "NLP"
+        ]
+    },
+    {
+        "title": "Data Watermarking Engine",
+        "description": "Secure data watermarking engine for intellectual property protection.",
+        "link": "https://github.com/abishekgiri/data-watermarking-engine-",
+        "category": "data",
+        "tags": [
+            "Python",
+            "Security",
+            "Algorithms"
+        ]
+    },
+    {
+        "title": "PlanetStore Dashboard",
+        "description": "Comprehensive e-commerce dashboard with real-time analytics.",
+        "link": "https://github.com/abishekgiri/PlanetStore-Dashboard",
+        "category": "web",
+        "tags": [
+            "React",
+            "Dashboard",
+            "E-commerce"
+        ]
+    },
+    {
+        "title": "Distributed KV Store",
+        "description": "Fault-tolerant distributed key-value store implementation.",
+        "link": "https://github.com/abishekgiri/distributed-kv-store",
+        "category": "web",
+        "tags": [
+            "Distributed Systems",
+            "Go",
+            "Backend"
+        ]
+    },
+    {
+        "title": "Large-Scale Bug Prediction",
+        "description": "Benchmarking bug prediction across 700k Python projects.",
+        "link": "https://github.com/abishekgiri/Large-Scale-Bug-Prediction-in-Python-Ecosystems-A-Multi-Project-Benchmark-Across-700k",
+        "category": "ai",
+        "tags": [
+            "Big Data",
+            "Research",
+            "Machine Learning"
+        ]
+    },
+    {
+        "title": "Real-Time Chat",
+        "description": "High-performance chat application using WebSockets.",
+        "link": "https://github.com/abishekgiri/Real-Time-Chat",
+        "category": "web",
+        "tags": [
+            "WebSockets",
+            "Socket.IO",
+            "Node.js"
+        ]
+    },
+    {
+        "title": "AI Recommender",
+        "description": "Intelligent recommendation engine for personalized content.",
+        "link": "https://github.com/abishekgiri/AI-Recommender",
+        "category": "ai",
+        "tags": [
+            "Recommender Systems",
+            "Python",
+            "ML"
+        ]
+    },
+    {
+        "title": "Pathfinding Visualizer",
+        "description": "Interactive visualization of complex pathfinding algorithms.",
+        "link": "https://github.com/abishekgiri/Pathfinding-Visualizer",
+        "category": "web",
+        "tags": [
+            "Algorithms",
+            "Visualization",
+            "JavaScript",
+            "Java"
+        ]
+    },
+    {
+        "title": "AI in Software Engineering",
+        "description": "Research on applying AI techniques to software engineering problems.",
+        "link": "https://github.com/abishekgiri/Artificial-Intelligence-in-Software-Engineering",
+        "category": "ai",
+        "tags": [
+            "Research",
+            "AI",
+            "SE"
+        ]
+    },
+    {
+        "title": "Dementia Data Processor",
+        "description": "Data processing pipeline for dementia research analysis.",
+        "link": "https://github.com/abishekgiri/DementiaDataProcessor",
+        "category": "data",
+        "tags": [
+            "Healthcare",
+            "Data Analysis",
+            "Python"
+        ]
+    },
+    {
+        "title": "Python Search Engine",
+        "description": "Custom search engine implementation with indexing algorithms.",
+        "link": "https://github.com/abishekgiri/python_search_engine",
+        "category": "data",
+        "tags": [
+            "Information Retrieval",
+            "Algorithms",
+            "Python"
+        ]
+    },
+    {
+        "title": "BasketMind",
+        "description": "Basketball analytics tool for strategic insights.",
+        "link": "https://github.com/abishekgiri/basketmind",
+        "category": "data",
+        "tags": [
+            "Sports Analytics",
+            "Data Science",
+            "Visualization"
+        ]
+    },
+    {
+        "title": "Navigation System",
+        "description": "Route planning and navigation system logic.",
+        "link": "https://github.com/abishekgiri/Navigation-System",
+        "category": "web",
+        "tags": [
+            "Graph Theory",
+            "Routing",
+            "Python"
+        ]
+    },
+    {
+        "title": "WeatherBuddy",
+        "description": "Real-time weather forecasting application.",
+        "link": "https://github.com/abishekgiri/WeatherBuddy",
+        "category": "web",
+        "tags": [
+            "API Integration",
+            "Frontend",
+            "CSS"
+        ]
+    },
+    {
+        "title": "Bayes Gaussian Plot",
+        "description": "Visualizing Bayesian Gaussian processes.",
+        "link": "https://github.com/abishekgiri/BayesGaussianPlot",
+        "category": "data",
+        "tags": [
+            "Bayesian",
+            "Math",
+            "Matplotlib"
+        ]
+    },
+    {
+        "title": "Statistics Calculator",
+        "description": "Utility for performing statistical computations.",
+        "link": "https://github.com/abishekgiri/StatisticsCalculator",
+        "category": "data",
+        "tags": [
+            "Statistics",
+            "Math",
+            "Tool"
+        ]
+    },
+    {
+        "title": "Portfolio Website",
+        "description": "This personal portfolio website.",
+        "link": "https://github.com/abishekgiri/my-portfolio",
+        "category": "web",
+        "tags": [
+            "Flask",
+            "Tailwind CSS",
+            "HTML",
+            "Design"
+        ]
+    }
+]
