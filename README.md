@@ -4,7 +4,7 @@ A futuristic, high-performance personal portfolio website built with Flask and T
 
 ![Portfolio Preview](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg) *(Replace with actual screenshot)*
 
-## 🚀 Features
+## Features
 
 *   **Futuristic Design**: Glassmorphism, neon accents, and smooth animations.
 *   **Dynamic Content**: Projects and skills are loaded dynamically from JSON data.
@@ -12,7 +12,7 @@ A futuristic, high-performance personal portfolio website built with Flask and T
 *   **Skill Visualization**: Automatic skill categorization and level calculation based on project tags.
 *   **Contact Form**: Functional contact form that saves messages locally (extensible to email).
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 *   **Backend**: Python, Flask
 *   **Frontend**: HTML5, Tailwind CSS, JavaScript
@@ -20,7 +20,7 @@ A futuristic, high-performance personal portfolio website built with Flask and T
 *   **Icons**: Devicon
 *   **Deployment**: Vercel (Ready)
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 my-portfolio/
@@ -36,8 +36,7 @@ my-portfolio/
 ├── requirements.txt    # Python dependencies
 └── vercel.json         # Vercel deployment config
 ```
-
-## ⚡ Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -71,7 +70,7 @@ my-portfolio/
 5.  **Visit the site**
     Open [http://localhost:5050](http://localhost:5050) in your browser.
 
-## 🌍 Deployment
+##  Deployment
 
 This project is configured for easy deployment on **Vercel**.
 
@@ -81,7 +80,7 @@ This project is configured for easy deployment on **Vercel**.
 
 See `deployment_guide.md` for more details.
 
-## 📝 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
 
