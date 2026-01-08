@@ -4,25 +4,35 @@
 
 {% block content %}
 <div class="bento-grid">
-  <!-- Bio Card -->
-  <div class="bento-card col-span-8">
-    <h1 class="display-text text-lg" style="margin-bottom: 32px;">Bridging the gap between<br><span
-        style="color: var(--color-cyan);">Research</span> & <span style="color: var(--color-pink);">Engineering</span>.
+  <!-- Combined Editorial Card -->
+  <div class="bento-card col-span-12 book-container">
+
+    <!-- Profile Image (Floated Right) -->
+    <div class="profile-float">
+      <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Abishek Kumar Giri">
+    </div>
+
+    <!-- Title / Header -->
+    <h1 class="display-text text-lg" style="margin-bottom: 32px; max-width: 800px;">
+      Bridging the gap between<br>
+      <span style="color: var(--color-cyan);">Research</span> &
+      <span style="color: var(--color-pink);">Engineering</span>.
     </h1>
 
-    <div style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);">
-      <p style="margin-bottom: 24px;">
+    <!-- Book-style Text Content -->
+    <div class="book-text">
+      <p>
         I am a software engineer with a strong focus on backend systems, applied machine learning, and data-driven
         problem solving. My work sits at the intersection of software engineering and research, where I design systems
         that prioritize reliability, scalability, and measurable impact.
       </p>
-      <p style="margin-bottom: 24px;">
+      <p>
         I have experience building end-to-end machine learning pipelines, backend services, and research-oriented
         projects that emphasize correctness, performance, and reproducibility. My projects often involve working with
         real-world datasets, implementing evaluation metrics, and translating experimental results into practical system
         designs.
       </p>
-      <p style="margin-bottom: 24px;">
+      <p>
         Alongside development, I am deeply interested in how large software systems fail, how they can be tested more
         effectively, and how data and machine learning can be used to improve software reliability. This interest has
         guided my independent research work in areas such as bug prediction, benchmarking, and applied ML for
@@ -33,14 +43,6 @@
         systems, testing, and applied AI. I value clarity over complexity, systems over scripts, and long-term
         engineering principles over short-term trends.
       </p>
-    </div>
-  </div>
-
-  <!-- Image Card -->
-  <div class="bento-card col-span-4" style="padding: 0; border: none; overflow: hidden;">
-    <!-- Placeholder for profile image if available, using the uploaded one contextually if needed, but keeping simple for now -->
-    <div
-      style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--color-cyan), var(--color-pink)); opacity: 0.1;">
     </div>
   </div>
 
