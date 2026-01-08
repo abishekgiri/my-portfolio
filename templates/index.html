@@ -3,65 +3,54 @@
 {% block content %}
 <section class="hero">
   <h1>Abishek Kumar Giri</h1>
-  <h2 class="hero-role">Backend / ML / Systems / Research</h2>
+  <h2 class="hero-role">Research & Systems</h2>
 
-  <p class="project-desc" style="max-width: 600px; margin-bottom: 24px;">
-    AI Researcher and Full Stack Engineer building the next generation of intelligent systems.
+  <div class="hero-sub">
+    AI Researcher and Engineer building <em style="color: var(--text-main);">intelligent systems</em>.
     Focusing on distributed backends, large-scale ML, and robust data infrastructure.
-  </p>
+  </div>
 
-  <a href="/projects" class="hero-btn">View Projects</a>
+  <a href="/projects" class="btn-text">View Selected Work</a>
 </section>
 
-<section>
+<section style="margin-bottom: var(--spacing-section);">
   <h2>Selected Projects</h2>
 
-  {% for project in projects[:5] %}
-  <a href="{{ project.link }}" target="_blank" class="project-item">
-    <div class="project-header">
-      <span class="project-title">{{ project.title }}</span>
-      <span class="mono text-muted">↗</span>
-    </div>
-    <p class="project-desc">{{ project.description }}</p>
-    <div class="meta-tags">
-      {% for tag in project.tags[:3] %}
-      <span>{{ tag }}</span>
-      {% endfor %}
-    </div>
-  </a>
-  {% endfor %}
+  <div class="project-list">
+    {% for project in projects[:5] %}
+    <a href="{{ project.link }}" target="_blank" class="project-item">
+      <div class="project-left">
+        <span class="project-title">{{ project.title }}</span>
+        <p class="project-desc">{{ project.description }}</p>
+      </div>
+      <div class="project-meta">
+        <span class="arrow-icon">→</span>
+        {% for tag in project.tags[:1] %}
+        <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 
-  <div style="margin-top: 24px;">
-    <a href="/projects" class="hero-btn" style="font-size: 0.85rem;">All Projects →</a>
+  <div style="margin-top: 60px; text-align: center;">
+    <a href="/projects" class="btn-text">Archive</a>
   </div>
 </section>
 
 <section>
   <h2>Experience</h2>
-  {% for job in experience %}
-  <div class="exp-item">
-    <div class="exp-date">{{ job.duration.split('-')[0].strip() }}</div>
-    <div>
-      <div class="exp-role">{{ job.role }}</div>
-      <div class="exp-company">{{ job.company }}</div>
-      <p class="exp-details">{{ job.description }}</p>
+  <div class="exp-list">
+    {% for job in experience %}
+    <div class="exp-item">
+      <div class="exp-period">{{ job.duration.split('-')[0].strip() }}</div>
+      <div>
+        <div class="exp-role">{{ job.role }}</div>
+        <div class="exp-company">{{ job.company }}</div>
+        <p class="exp-desc">{{ job.description }}</p>
+      </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</section>
-
-<section>
-  <h2>Skills</h2>
-  <!-- Flatten skills dictionary for display if needed, or iterate categories -->
-  {% for category, items in skills.items() %}
-  <div class="skill-section">
-    <div class="skill-category">{{ category }}</div>
-    <div class="skill-list">
-      {% for skill in items[:8] %}
-      <span class="skill-item text-muted">{{ skill.name }}</span>
-      {% endfor %}
-    </div>
-  </div>
-  {% endfor %}
 </section>
 {% endblock %}

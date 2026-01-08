@@ -3,23 +3,25 @@
 {% block title %}Projects | Abishek Kumar Giri{% endblock %}
 
 {% block content %}
-<section>
-  <h1>Projects</h1>
-  <p class="text-muted" style="margin-bottom: 40px;">Select open source work and experiments.</p>
+<section style="margin-bottom: var(--spacing-section);">
+  <h1>All Projects</h1>
+  <p class="hero-sub" style="margin-top: 20px;">Open source work, experiments, and research.</p>
 
-  {% for project in projects %}
-  <a href="{{ project.link }}" target="_blank" class="project-item">
-    <div class="project-header">
-      <span class="project-title">{{ project.title }}</span>
-      <span class="mono text-muted">↗</span>
-    </div>
-    <p class="project-desc">{{ project.description }}</p>
-    <div class="meta-tags">
-      {% for tag in project.tags %}
-      <span>{{ tag }}</span>
-      {% endfor %}
-    </div>
-  </a>
-  {% endfor %}
+  <div class="project-list" style="margin-top: 80px;">
+    {% for project in projects %}
+    <a href="{{ project.link }}" target="_blank" class="project-item">
+      <div class="project-left">
+        <span class="project-title">{{ project.title }}</span>
+        <p class="project-desc">{{ project.description }}</p>
+      </div>
+      <div class="project-meta">
+        <span class="arrow-icon">→</span>
+        {% for tag in project.tags[:2] %}
+        <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 </section>
 {% endblock %}
