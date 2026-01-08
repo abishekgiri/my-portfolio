@@ -1,24 +1,30 @@
-/* Ultimate Fusion Design System */
+/* Ultimate Fusion Design System - Liquid Aurora Edition */
 
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap');
 
 :root {
-  /* Colors - Noise Dark */
-  --bg-main: #0a0a0a;
-  --bg-card: #141414;
+  /* Colors - Liquid Dark */
+  --bg-main: #050505;
+  --bg-card: rgba(20, 20, 22, 0.6);
+  /* More transparent for blur */
   --text-main: #ffffff;
-  --text-muted: #888888;
-  --accent: #d4ff00;
-  /* Acid Green for status/pop */
-  --border-dim: rgba(255, 255, 255, 0.08);
+  --text-muted: #94a3b8;
+
+  /* The "Perfect" Liquid Gradient Palette */
+  --color-violet: #7F00FF;
+  --color-cyan: #00D2FF;
+  --color-pink: #FF0080;
+
+  --grad-aurora: linear-gradient(135deg, var(--color-violet), var(--color-cyan), var(--color-pink));
+  --border-dim: rgba(255, 255, 255, 0.1);
 
   /* Fonts */
   --font-display: 'Clash Display', sans-serif;
   --font-body: 'Satoshi', sans-serif;
 
   /* Spacing */
-  --bento-gap: 20px;
-  --container-width: 1100px;
+  --bento-gap: 24px;
+  --container-width: 1200px;
 }
 
 /* Reset & Base */
@@ -27,7 +33,6 @@
   margin: 0;
   padding: 0;
   cursor: none;
-  /* Hide default cursor */
 }
 
 html.has-scroll-smooth {
@@ -43,6 +48,41 @@ body {
   min-height: 100vh;
 }
 
+/* Liquid Mesh Background */
+.mesh-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background:
+    radial-gradient(at 0% 0%, rgba(127, 0, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 0, 128, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(127, 0, 255, 0.15) 0px, transparent 50%);
+  filter: blur(80px);
+  opacity: 0.8;
+  animation: meshFlow 20s infinite alternate;
+}
+
+@keyframes meshFlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
 /* Noise Overlay */
 .noise-overlay {
   position: fixed;
@@ -52,48 +92,47 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 9000;
-  opacity: 0.04;
+  opacity: 0.05;
+  /* Increased slightly for texture */
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Custom Cursor */
-.cursor-dot,
-.cursor-outline {
+.cursor-dot {
   position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-cyan);
   border-radius: 50%;
   z-index: 9999;
   pointer-events: none;
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: white;
+  transform: translate(-50%, -50%);
 }
 
 .cursor-outline {
+  position: fixed;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 210, 255, 0.5);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 body:hover .cursor-outline.hovered {
   width: 60px;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 210, 255, 0.1);
   border-color: transparent;
-  backdrop-filter: invert(1);
 }
 
 /* Layout */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 /* Navbar */
@@ -109,17 +148,22 @@ body:hover .cursor-outline.hovered {
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: uppercase;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: 0.05em;
 }
 
 .nav-links a {
   margin-left: 32px;
   color: var(--text-muted);
   font-size: 0.95rem;
+  text-decoration: none;
   transition: color 0.3s;
+  position: relative;
 }
 
 .nav-links a:hover {
-  color: var(--text-main);
+  color: var(--color-cyan);
 }
 
 /* Bento Grid System */
@@ -127,7 +171,6 @@ body:hover .cursor-outline.hovered {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: minmax(100px, auto);
-  /* Flexible height */
   gap: var(--bento-gap);
   margin-bottom: 80px;
 }
@@ -135,20 +178,22 @@ body:hover .cursor-outline.hovered {
 .bento-card {
   background: var(--bg-card);
   border: 1px solid var(--border-dim);
-  border-radius: 24px;
+  border-radius: 32px;
+  /* Softer rounded corners */
   padding: 32px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  backdrop-filter: blur(20px);
+  /* Heavy glass effect */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease;
 }
 
 .bento-card:hover {
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
 
-/* Bento Card Sizes */
 .col-span-4 {
   grid-column: span 4;
 }
@@ -169,29 +214,16 @@ body:hover .cursor-outline.hovered {
   grid-row: span 2;
 }
 
-/* Mobile Grid */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+
+  .col-span-4,
+  .col-span-6,
+  .col-span-8 {
+    grid-column: span 12;
+  }
+
   .bento-grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .bento-card {
-    min-height: 200px;
-  }
-
-  body {
-    cursor: auto;
-  }
-
-  /* Reset cursor on mobile */
-  .cursor-dot,
-  .cursor-outline {
-    display: none;
-  }
-
-  * {
-    cursor: auto;
+    gap: 16px;
   }
 }
 
@@ -199,11 +231,12 @@ body:hover .cursor-outline.hovered {
 .display-text {
   font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .text-xl {
-  font-size: 4rem;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  letter-spacing: -0.02em;
 }
 
 .text-lg {
@@ -216,11 +249,17 @@ body:hover .cursor-outline.hovered {
 
 .sub-text {
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
-/* Status Dot */
+.text-gradient {
+  background: linear-gradient(to right, var(--color-cyan), var(--color-violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Components */
 .status-badge {
   display: inline-flex;
   align-items: center;
@@ -230,37 +269,84 @@ body:hover .cursor-outline.hovered {
   border-radius: 100px;
   font-size: 0.85rem;
   color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent);
+  background-color: var(--color-pink);
   border-radius: 50%;
+  box-shadow: 0 0 15px var(--color-pink);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(212, 255, 0, 0.4);
+    opacity: 1;
   }
 
-  70% {
-    box-shadow: 0 0 0 10px rgba(212, 255, 0, 0);
+  50% {
+    opacity: 0.5;
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(212, 255, 0, 0);
+    opacity: 1;
   }
 }
 
-/* Magnetic Button */
-.btn-magnetic {
+.skill-tag {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-dim);
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(127, 0, 255, 0.15);
+  border-color: var(--color-violet);
+  transform: translateY(-3px);
+}
+
+.btn-primary {
   display: inline-block;
   padding: 16px 32px;
-  background: var(--text-main);
-  color: var(--bg-main);
+  background: linear-gradient(135deg, var(--color-violet), var(--color-pink));
+  color: white;
   border-radius: 100px;
   font-weight: 600;
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+  transition: transform 0.2s;
+  box-shadow: 0 10px 20px rgba(127, 0, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(127, 0, 255, 0.5);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Publication Card Special */
+.pub-card {
+  background: linear-gradient(135deg, rgba(127, 0, 255, 0.1) 0%, rgba(255, 0, 128, 0.05) 100%);
+  border-color: rgba(127, 0, 255, 0.3);
 }

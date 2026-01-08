@@ -4,13 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Abishek | Creative Developer{% endblock %}</title>
+  <title>{% block title %}Abishek | Backend Engineer{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 
 <body>
-  <!-- Overlay & Cursor -->
+  <!-- Background Layers -->
+  <div class="mesh-background"></div>
   <div class="noise-overlay"></div>
+
+  <!-- Cursor -->
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
@@ -30,8 +33,9 @@
     </main>
 
     <footer
-      style="padding: 80px 0; border-top: 1px solid var(--border-dim); margin-top: 80px; color: var(--text-muted); font-size: 0.9rem;">
-      © 2026 Abishek Kumar Giri.
+      style="padding: 80px 0; border-top: 1px solid var(--border-dim); margin-top: 80px; color: var(--text-muted); font-size: 0.9rem; display: flex; justify-content: space-between;">
+      <div>© 2026 Abishek Kumar Giri.</div>
+      <div>Built with Flask & Aurora CSS.</div>
     </footer>
   </div>
 
