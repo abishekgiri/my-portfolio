@@ -1,146 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Projects | Prime Portfolio{% endblock %}
+
+{% block title %}Projects | Abishek Kumar Giri{% endblock %}
+
 {% block content %}
+<section>
+  <h1>Projects</h1>
+  <p class="text-muted" style="margin-bottom: 40px;">Select open source work and experiments.</p>
 
-<section class="py-24 px-8 min-h-screen relative">
-  <!-- Blurred Header Background -->
-  <img src="{{ url_for('static', filename='img/header-bg.png') }}" class="global-header-bg" alt="Header Background">
-
-  <div class="mb-8 relative z-10">
-    <h2 class="text-2xl font-bold text-white mb-2">All Projects</h2>
-    <p class="text-gray-400 text-sm">Action-packed applications and blockbuster systems.</p>
-  </div>
-
-  <!-- Filter Tabs (Like Genres) -->
-  <div class="flex gap-4 mb-8 overflow-x-auto pb-2 scrollbar-hide">
-    <button onclick="filterProjects('all')"
-      class="filter-btn active px-4 py-1 rounded-full bg-white text-black font-bold text-sm transition hover:bg-gray-200">All</button>
-    <button onclick="filterProjects('web')"
-      class="filter-btn px-4 py-1 rounded-full bg-[#252e39] text-gray-300 font-bold text-sm transition hover:bg-[#425266] hover:text-white">Web
-      Apps</button>
-    <button onclick="filterProjects('ai')"
-      class="filter-btn px-4 py-1 rounded-full bg-[#252e39] text-gray-300 font-bold text-sm transition hover:bg-[#425266] hover:text-white">AI
-      & Research</button>
-    <button onclick="filterProjects('data')"
-      class="filter-btn px-4 py-1 rounded-full bg-[#252e39] text-gray-300 font-bold text-sm transition hover:bg-[#425266] hover:text-white">Data
-      Science</button>
-  </div>
-
-  <!-- Projects Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {% for project in projects %}
-    <div
-      class="prime-card project-card group relative overflow-hidden rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:z-20"
-      data-category="{{ project.category }}">
-
-      <!-- Dynamic Background based on Category -->
-      <div class="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110
-        {% if project.category == 'web' %}bg-gradient-to-br from-blue-900 via-slate-900 to-black
-        {% elif project.category == 'ai' %}bg-gradient-to-br from-purple-900 via-slate-900 to-black
-        {% elif project.category == 'data' %}bg-gradient-to-br from-emerald-900 via-slate-900 to-black
-        {% else %}bg-gradient-to-br from-gray-800 via-slate-900 to-black{% endif %}">
-      </div>
-
-      <!-- Abstract Pattern Overlay -->
-      <div class="absolute inset-0 z-0 opacity-20"
-        style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;">
-      </div>
-
-      <!-- Huge Watermark Icon -->
-      <div
-        class="absolute -right-4 -bottom-4 z-0 opacity-10 transform rotate-12 group-hover:opacity-20 group-hover:rotate-0 transition-all duration-500">
-        <img src="{{ project.logo }}" alt="" class="w-48 h-48 filter grayscale contrast-200">
-      </div>
-
-      <!-- Main Content Container -->
-      <div
-        class="relative z-10 h-full flex flex-col justify-between p-6 bg-gradient-to-t from-black via-transparent to-transparent">
-
-        <!-- Top: Tech Badge -->
-        <div class="flex justify-between items-start">
-          <div
-            class="bg-black/50 backdrop-blur-md border border-white/10 rounded-full p-2 shadow-lg group-hover:border-white/30 transition-colors">
-            <img src="{{ project.logo }}" alt="Tech" class="w-8 h-8">
-          </div>
-          {% if project.category == 'ai' %}
-          <span
-            class="text-[10px] font-bold tracking-widest text-purple-400 border border-purple-500/30 px-2 py-1 rounded bg-purple-500/10">AI
-            SERIES</span>
-          {% elif project.category == 'web' %}
-          <span
-            class="text-[10px] font-bold tracking-widest text-cyan-400 border border-cyan-500/30 px-2 py-1 rounded bg-cyan-500/10">WEB
-            APP</span>
-          {% else %}
-          <span
-            class="text-[10px] font-bold tracking-widest text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded bg-emerald-500/10">DATA
-            DOC</span>
-          {% endif %}
-        </div>
-
-        <!-- Center: Play Button (Only visible on hover) -->
-        <div
-          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <div
-            class="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-            <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- Bottom: Info -->
-        <!-- Bottom: Info -->
-        <div class="transition-transform duration-300">
-          <h3 class="text-xl font-bold text-white mb-1 leading-tight group-hover:text-[#00a8e1] transition-colors">{{
-            project.title }}</h3>
-          <p class="text-gray-400 text-xs line-clamp-2 mb-3 transition-opacity duration-300">
-            {{ project.description }}</p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 opacity-100">
-            {% for tag in project.tags[:2] %}
-            <span class="text-[10px] font-mono text-gray-300 bg-white/5 px-2 py-0.5 rounded border border-white/5">{{
-              tag }}</span>
-            {% endfor %}
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Click Overlay -->
-      <a href="{{ project.link }}" target="_blank" class="absolute inset-0 z-20"></a>
+  {% for project in projects %}
+  <a href="{{ project.link }}" target="_blank" class="project-item">
+    <div class="project-header">
+      <span class="project-title">{{ project.title }}</span>
+      <span class="mono text-muted">↗</span>
     </div>
-    {% endfor %}
-  </div>
-
+    <p class="project-desc">{{ project.description }}</p>
+    <div class="meta-tags">
+      {% for tag in project.tags %}
+      <span>{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </a>
+  {% endfor %}
 </section>
-
-<script>
-  function filterProjects(category) {
-    const cards = document.querySelectorAll('.project-card');
-    const buttons = document.querySelectorAll('.filter-btn');
-
-    // Update buttons
-    buttons.forEach(btn => {
-      // Reset styles
-      if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent === 'All')) {
-        btn.classList.remove('bg-[#252e39]', 'text-gray-300');
-        btn.classList.add('bg-white', 'text-black');
-      } else {
-        btn.classList.add('bg-[#252e39]', 'text-gray-300');
-        btn.classList.remove('bg-white', 'text-black');
-      }
-    });
-
-    // Filter cards
-    cards.forEach(card => {
-      if (category === 'all' || card.dataset.category === category) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-</script>
-
 {% endblock %}

@@ -1,120 +1,67 @@
 {% extends "base.html" %}
-{% block title %}Home | Future Portfolio{% endblock %}
+
 {% block content %}
+<section class="hero">
+  <h1>Abishek Kumar Giri</h1>
+  <h2 class="hero-role">Backend / ML / Systems / Research</h2>
 
-<!-- Prime Video Style Layout -->
+  <p class="project-desc" style="max-width: 600px; margin-bottom: 24px;">
+    AI Researcher and Full Stack Engineer building the next generation of intelligent systems.
+    Focusing on distributed backends, large-scale ML, and robust data infrastructure.
+  </p>
 
-<!-- Hero Section (Featured Content) -->
-<div class="hero-container">
-  <img src="{{ url_for('static', filename='img/header-bg-3.png') }}" alt="Hero Background" class="hero-bg">
+  <a href="/projects" class="hero-btn">View Projects</a>
+</section>
 
-  <div class="hero-content">
-    <h1 class="text-5xl md:text-7xl mb-4 text-white">ABISHEK KUMAR GIRI</h1>
+<section>
+  <h2>Selected Projects</h2>
 
-    <div class="hero-meta">
-      <span class="text-green-400 font-bold">98% Match</span>
-      <span>2025</span>
-      <span class="badge badge-hd">HD</span>
-      <span>5 Seasons</span>
+  {% for project in projects[:5] %}
+  <a href="{{ project.link }}" target="_blank" class="project-item">
+    <div class="project-header">
+      <span class="project-title">{{ project.title }}</span>
+      <span class="mono text-muted">↗</span>
     </div>
+    <p class="project-desc">{{ project.description }}</p>
+    <div class="meta-tags">
+      {% for tag in project.tags[:3] %}
+      <span>{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </a>
+  {% endfor %}
 
-    <p class="text-lg text-gray-300 mb-8 max-w-xl line-clamp-3">
-      A visionary AI Researcher and Full Stack Engineer embarks on a journey to build the next generation of intelligent
-      systems. Starring advanced LLMs, distributed backends, and futuristic interfaces.
-    </p>
+  <div style="margin-top: 24px;">
+    <a href="/projects" class="hero-btn" style="font-size: 0.85rem;">All Projects →</a>
+  </div>
+</section>
 
-    <div class="flex gap-4">
-      <a href="/projects" class="prime-btn primary">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-        <span>Resume</span>
-      </a>
-      <a href="/contact" class="prime-btn">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-        </svg>
-        <span>Contact</span>
-      </a>
+<section>
+  <h2>Experience</h2>
+  {% for job in experience %}
+  <div class="exp-item">
+    <div class="exp-date">{{ job.duration.split('-')[0].strip() }}</div>
+    <div>
+      <div class="exp-role">{{ job.role }}</div>
+      <div class="exp-company">{{ job.company }}</div>
+      <p class="exp-details">{{ job.description }}</p>
     </div>
   </div>
-</div>
+  {% endfor %}
+</section>
 
-<!-- Rail 1: Top Picks (Projects) -->
-<div class="rail-container">
-  <h2 class="rail-title">Top Picks for You <span class="text-prime-blue">See All</span></h2>
-  <div class="rail-scroll">
-    {% for project in projects %}
-    <a href="{{ project.link }}" target="_blank" class="prime-card block">
-      <!-- Placeholder gradient for project thumbnail -->
-      <div class="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-        <span class="text-4xl opacity-20 font-bold">{{ project.title[:1] }}</span>
-      </div>
-
-      <div class="card-info">
-        <h3 class="text-white text-lg mb-1">{{ project.title }}</h3>
-        <p class="text-gray-400 text-xs line-clamp-2 mb-2">{{ project.description }}</p>
-        <div class="flex gap-2">
-          {% for tag in project.tags[:2] %}
-          <span class="badge">{{ tag }}</span>
-          {% endfor %}
-        </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- Rail 2: Because you watched "AI" (Skills) -->
-<div class="rail-container">
-  <h2 class="rail-title">Because you watched "AI"</h2>
-  <div class="rail-scroll">
-    {% for skill in skills['Languages'] %}
-    <div class="skill-card">
-      <!-- Use the icon URL directly as it's now a full URL from app.py -->
-      <img src="{{ skill.icon }}" alt="{{ skill.name }}" class="w-12 h-12 mb-4">
-      <span class="font-bold text-center text-sm">{{ skill.name }}</span>
-      <div class="w-full bg-gray-700 h-1 mt-2 rounded-full overflow-hidden w-3/4">
-        <div class="bg-[#00a8e1] h-full" style="width: {{ skill.level }}%"></div>
-      </div>
+<section>
+  <h2>Skills</h2>
+  <!-- Flatten skills dictionary for display if needed, or iterate categories -->
+  {% for category, items in skills.items() %}
+  <div class="skill-section">
+    <div class="skill-category">{{ category }}</div>
+    <div class="skill-list">
+      {% for skill in items[:8] %}
+      <span class="skill-item text-muted">{{ skill.name }}</span>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
-
-<!-- Rail 3: Season 1 (Experience) -->
-<div class="rail-container">
-  <h2 class="rail-title">Season 1: The Beginning</h2>
-  <div class="rail-scroll">
-    {% for job in experience %}
-    <div class="exp-card">
-      <div class="flex justify-between items-start mb-2">
-        <h3 class="text-xl text-white">{{ job.role }}</h3>
-        <span class="text-prime-blue font-bold">{{ job.duration }}</span>
-      </div>
-      <p class="text-gray-400 font-medium mb-2">{{ job.company }}</p>
-      <p class="text-sm text-gray-500 line-clamp-3">{{ job.description }}</p>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- Bottom Gradient Fade -->
-<div class="fixed bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f171e] to-transparent pointer-events-none z-20">
-</div>
-
-<style>
-  @keyframes scroll {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateY(15px);
-      opacity: 0;
-    }
-  }
-</style>
-
+  {% endfor %}
+</section>
 {% endblock %}

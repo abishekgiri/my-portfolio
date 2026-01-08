@@ -1,57 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Skills | Prime Portfolio{% endblock %}
+
+{% block title %}Skills | Abishek Kumar Giri{% endblock %}
+
 {% block content %}
+<section>
+  <h1>Skills</h1>
+  <p class="text-muted" style="margin-bottom: 40px;">Technical proficiency and toolsets.</p>
 
-<section class="py-24 px-8 min-h-screen relative">
-  <!-- Blurred Header Background -->
-  <img src="{{ url_for('static', filename='img/header-bg-2.png') }}" class="global-header-bg" alt="Header Background">
-
-  <div class="mb-12 relative z-10">
-    <h2 class="text-2xl font-bold text-white mb-2">Cast & Crew (Skills)</h2>
-    <p class="text-gray-400 text-sm">The technologies starring in my projects.</p>
-  </div>
-
-  <!-- Languages Rail -->
-  <div class="mb-12">
-    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-      <span class="text-[#00a8e1]">Languages</span>
-      <span class="text-xs text-gray-500 font-normal uppercase tracking-wider border border-gray-600 px-1 rounded">Main
-        Cast</span>
-    </h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-      {% for skill in skills['Languages'] %}
-      <div class="skill-card">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}" class="w-12 h-12 mb-3">
-        <span class="font-bold text-center text-sm text-gray-200">{{ skill.name }}</span>
-        <div class="w-full bg-gray-700 h-1 mt-2 rounded-full overflow-hidden w-3/4">
-          <div class="bg-[#00a8e1] h-full" style="width: {{ skill.level }}%"></div>
-        </div>
+  {% for category, items in skills.items() %}
+  <div class="skill-section" style="margin-bottom: 48px;">
+    <h3 style="margin-bottom: 24px;">{{ category }}</h3>
+    <div class="skill-list" style="gap: 12px;">
+      {% for skill in items %}
+      <div
+        style="display: flex; align-items: center; gap: 12px; border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 4px;">
+        <img src="{{ skill.icon }}" alt="{{ skill.name }}" style="width: 20px; height: 20px;">
+        <span class="skill-item">{{ skill.name }}</span>
       </div>
       {% endfor %}
     </div>
   </div>
-
-  <!-- Tools Rail -->
-  <div>
-    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-      <span class="text-[#00a8e1]">Tools & Frameworks</span>
-      <span
-        class="text-xs text-gray-500 font-normal uppercase tracking-wider border border-gray-600 px-1 rounded">Supporting
-        Role</span>
-    </h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-      {% for skill in skills['Tools'] %}
-      <div class="skill-card">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}" class="w-12 h-12 mb-3">
-        <span class="font-bold text-center text-sm text-gray-200">{{ skill.name }}</span>
-        <div class="w-full bg-gray-700 h-1 mt-2 rounded-full overflow-hidden w-3/4">
-          <div class="bg-[#00a8e1] h-full" style="width: {{ skill.level }}%"></div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
+  {% endfor %}
 </section>
-
 {% endblock %}
