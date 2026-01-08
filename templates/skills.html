@@ -16,14 +16,13 @@
       <h2 class="display-text text-md" style="margin-bottom: 30px; color: var(--color-cyan);">Languages</h2>
       <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
         {% for skill in skills['Languages'] %}
-        <div class="bento-card"
+        <div class="bento-card skill-card"
           style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
-          <img src="{{ skill.icon }}" style="width: 50px; height: 50px; margin-bottom: 16px;">
+          <!-- Removed grayscale filter -->
+          <img src="{{ skill.icon }}"
+            style="width: 50px; height: 50px; margin-bottom: 16px; transition: transform 0.3s;">
           <span class="sub-text" style="font-weight: 500; font-size: 1rem; color: var(--text-main);">{{ skill.name
             }}</span>
-          <!-- <div style="width: 100%; background: rgba(255,255,255,0.1); height: 4px; border-radius: 2px; margin-top: 12px; overflow: hidden;">
-                        <div style="width: {{ skill.level }}%; background: var(--color-cyan); height: 100%;"></div>
-                    </div> -->
         </div>
         {% endfor %}
       </div>
@@ -35,11 +34,11 @@
       </h2>
       <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
         {% for skill in skills['Tools'] %}
-        <div class="bento-card"
+        <div class="bento-card skill-card"
           style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
+          <!-- Removed grayscale filter -->
           <img src="{{ skill.icon }}"
-            style="width: 40px; height: 40px; margin-bottom: 16px; filter: grayscale(100%); transition: filter 0.3s;"
-            onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+            style="width: 40px; height: 40px; margin-bottom: 16px; transition: transform 0.3s;">
           <span class="sub-text" style="font-size: 0.9rem;">{{ skill.name }}</span>
         </div>
         {% endfor %}
