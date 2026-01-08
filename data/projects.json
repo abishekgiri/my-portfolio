@@ -239,5 +239,156 @@
             "HTML",
             "Design"
         ]
+    },
+    {
+        "title": "Job Orchestrator",
+        "description": "Distributed job orchestration system.",
+        "link": "https://github.com/abishekgiri/job_orchestrator-",
+        "category": "data",
+        "tags": [
+            "Python",
+            "Distributed Systems"
+        ]
+    },
+    {
+        "title": "MIDAS Ledger",
+        "description": "High-throughput ledger system.",
+        "link": "https://github.com/abishekgiri/MIDAS-Ledger",
+        "category": "data",
+        "tags": [
+            "Blockchain",
+            "Ledger",
+            "Python"
+        ]
+    },
+    {
+        "title": "Research Paper",
+        "description": "Academic research paper repository.",
+        "link": "https://github.com/abishekgiri/Research-Paper",
+        "category": "ai",
+        "tags": [
+            "Research",
+            "LaTeX"
+        ]
+    },
+    {
+        "title": "VLM Failure Modes",
+        "description": "Analysis of failure modes in Vision-Language Models.",
+        "link": "https://github.com/abishekgiri/vlm-failure-modes",
+        "category": "ai",
+        "tags": [
+            "VLM",
+            "AI Safety",
+            "Research"
+        ]
+    },
+    {
+        "title": "VLM Adversarial Defense",
+        "description": "Defense mechanisms against adversarial attacks on VLMs.",
+        "link": "https://github.com/abishekgiri/vlm-adversarial-defense",
+        "category": "ai",
+        "tags": [
+            "VLM",
+            "Adversarial ML",
+            "Python"
+        ]
+    },
+    {
+        "title": "Amnesic VLM Defense",
+        "description": "Amnesic defense techniques for Vision-Language Models.",
+        "link": "https://github.com/abishekgiri/Amnesic-VLM-Defense",
+        "category": "ai",
+        "tags": [
+            "VLM",
+            "Defense",
+            "Python"
+        ]
+    },
+    {
+        "title": "s3",
+        "description": "S3-compatible storage implementation or utility.",
+        "link": "https://github.com/abishekgiri/s3",
+        "category": "data",
+        "tags": [
+            "Storage",
+            "AWS",
+            "Go"
+        ]
+    },
+    {
+        "title": "AI Impact on Jobs",
+        "description": "Analysis of AI's impact on the job market.",
+        "link": "https://github.com/abishekgiri/AI_Impact_On_Jobs_Project",
+        "category": "ai",
+        "tags": [
+            "Data Analysis",
+            "Research"
+        ]
+    },
+    {
+        "title": "Streaming Analytics Platform",
+        "description": "Real-time streaming analytics platform.",
+        "link": "https://github.com/abishekgiri/streaming-analytics-platform",
+        "category": "data",
+        "tags": [
+            "Flink",
+            "Kafka",
+            "Java"
+        ]
+    },
+    {
+        "title": "ShardDB",
+        "description": "Sharded database implementation.",
+        "link": "https://github.com/abishekgiri/sharddb",
+        "category": "data",
+        "tags": [
+            "Database",
+            "Sharding",
+            "Go"
+        ]
+    },
+    {
+        "title": "Distributed KV Raft",
+        "description": "Key-value store using Raft consensus.",
+        "link": "https://github.com/abishekgiri/distributed-kv-raft",
+        "category": "web",
+        "tags": [
+            "Distributed Systems",
+            "Raft",
+            "Go"
+        ]
+    },
+    {
+        "title": "Sentiment Steering GPT",
+        "description": "Steering GPT output sentiment.",
+        "link": "https://github.com/abishekgiri/sentiment-steering-gpt",
+        "category": "ai",
+        "tags": [
+            "LLM",
+            "Python",
+            "NLP"
+        ]
+    },
+    {
+        "title": "Adaptive Layout Engine",
+        "description": "Engine for adaptive web layouts.",
+        "link": "https://github.com/abishekgiri/adaptive-layout-engine-",
+        "category": "web",
+        "tags": [
+            "CSS",
+            "Layout",
+            "Design"
+        ]
+    },
+    {
+        "title": "Criteo CTR Pipeline",
+        "description": "Click-through rate prediction pipeline for Criteo dataset.",
+        "link": "https://github.com/abishekgiri/criteo-ctr-pipeline",
+        "category": "data",
+        "tags": [
+            "ML",
+            "CTR",
+            "Python"
+        ]
     }
 ]
