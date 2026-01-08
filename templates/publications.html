@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Publications | Abishek{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 60px;">
+
+    <div class="bento-grid">
+        <div class="col-span-12">
+            <h1 class="display-massive"
+                style="position: relative; transform: none; left: auto; top: auto; width: auto; text-align: left; margin-bottom: 60px; font-size: 6rem;">
+                Research Lab.</h1>
+            <p class="serif-title"
+                style="font-size: 1.5rem; color: var(--accent-olive); max-width: 600px; margin-bottom: 80px;">
+                Investigating safety, robustness, and failure modes in large-scale AI systems.
+            </p>
+        </div>
+
+        <div class="col-span-12">
+            <!-- Table Header -->
+            <div
+                style="display: grid; grid-template-columns: 100px 1fr 150px; padding-bottom: 16px; border-bottom: 2px solid var(--border-strong); margin-bottom: 24px;">
+                <div class="nav-brand">YEAR</div>
+                <div class="nav-brand">TITLE & ABSTRACT</div>
+                <div class="nav-brand" style="text-align: right;">LINK</div>
+            </div>
+
+            <!-- List -->
+            {% for paper in papers %}
+            <div style="display: grid; grid-template-columns: 100px 1fr 150px; padding: 40px 0; border-bottom: 1px solid var(--border-dim); transition: background 0.2s;"
+                onmouseover="this.style.background='rgba(58, 77, 57, 0.05)'"
+                onmouseout="this.style.background='transparent'">
+
+                <div class="body-text" style="font-weight: 700;">2024</div>
+
+                <div style="padding-right: 40px;">
+                    <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <span
+                            style="font-size: 0.75rem; border: 1px solid var(--text-main); padding: 2px 8px; text-transform: uppercase;">PAPER</span>
+                        {% for tag in paper.tags[:3] %}
+                        <span
+                            style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; padding-top: 3px;">{{
+                            tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <h2 class="serif-title" style="font-size: 2rem; margin-bottom: 16px;">{{ paper.title }}</h2>
+                    <p class="body-text" style="max-width: 800px;">{{ paper.description }}</p>
+                </div>
+
+                <div style="text-align: right;">
+                    <a href="{{ paper.link }}" target="_blank" class="nav-brand"
+                        style="border-bottom: 1px solid var(--text-main); padding-bottom: 2px;">READ PDF ↗</a>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

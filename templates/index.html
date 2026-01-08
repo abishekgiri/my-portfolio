@@ -1,117 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Bento Hero Section -->
+<!-- Massive Background Title -->
+<h1 class="display-massive">Abishek</h1>
+
 <div class="bento-grid">
 
-  <!-- Title Card (Wide) without Status/Location -->
-  <div class="bento-card col-span-8 row-span-2"
-    style="display: flex; flex-direction: column; justify-content: flex-end; min-height: 520px; overflow: visible;">
-    <!-- Electric Glow Background -->
-    <div
-      style="position: absolute; top: -100px; right: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(127, 0, 255, 0.25) 0%, transparent 65%); filter: blur(70px);">
-    </div>
-
-    <div style="position: relative; z-index: 2; margin-top: auto;">
-      <h1 class="display-text"
-        style="font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; color: var(--text-main);">
-        Abishek Kumar Giri
-      </h1>
-      <h2 class="display-text text-gradient" style="font-size: 2rem; margin-bottom: 30px; line-height: 1.2;">
-        Backend Software Engineer
-      </h2>
-
-      <p class="sub-text" style="max-width: 500px; margin-bottom: 40px; font-size: 1.15rem;">
-        Based in the <span style="color: var(--text-main);">USA</span>. I architect high-performance distributed systems
-        and conduct AI safety research.
-      </p>
-
-      <div style="display: flex; gap: 20px;">
-        <a href="#work" class="btn-primary">View my Work</a>
-        <a href="/about" class="btn-outline">About Me</a>
+  <!-- Hero Image & Intro -->
+  <div class="col-span-12">
+    <div class="hero-image-container">
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop"
+        class="hero-image" alt="Profile Logic">
+      <div class="hero-badge">Since 2026</div>
+      <div style="position: absolute; bottom: 40px; left: 40px; color: white; max-width: 80%;">
+        <h2 class="serif-title" style="font-size: 4rem; line-height: 1; margin-bottom: 16px;">Backend<br>Software
+          Engineer</h2>
+        <p style="font-family: var(--font-sans); font-size: 1.2rem; opacity: 0.9;">Based in USA. Architecting
+          High-Performance Distributed Systems.</p>
       </div>
     </div>
   </div>
 
-  <!-- Skills Card with Logos (Languages) -->
-  <div class="bento-card col-span-4" style="display: flex; flex-direction: column;">
-    <h3 class="display-text text-md" style="margin-bottom: 24px;">Core Languages</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-      {% for skill in skills['Languages'] %}
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}"
-          style="width: 40px; height: 40px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'"
-          onmouseout="this.style.transform='scale(1)'">
-        <span style="font-size: 0.75rem; color: var(--text-muted);">{{ skill.name }}</span>
+  <!-- Engineering Projects -->
+  <div class="col-span-12" style="margin-top: 40px;">
+    <div class="bento-card" style="border: none;">
+      <div
+        style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; border-bottom: 2px solid var(--border-strong); padding-bottom: 20px;">
+        <h2 class="display-lg serif-title" style="margin: 0;">Selected Works</h2>
+        <a href="/projects" class="nav-brand">VIEW ALL PROJECTS ↗</a>
       </div>
-      {% endfor %}
-    </div>
-  </div>
 
-  <!-- Tools/Stack Card -->
-  <div class="bento-card col-span-4" style="display: flex; flex-direction: column;">
-    <h3 class="display-text text-md" style="margin-bottom: 24px;">Tools & Frameworks</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-      {% for skill in skills['Tools'][:12] %} <!-- Show top tools -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}" style="width: 32px; height: 32px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        {% for project in projects[:4] %}
+        <a href="{{ project.link }}" target="_blank"
+          style="text-decoration: none; color: var(--text-main); display: block; group">
+          <div style="height: 340px; background: #E0DFD5; margin-bottom: 24px; overflow: hidden; border-radius: 8px;">
+            <!-- Placeholder for project image -->
+            <div
+              style="width: 100%; height: 100%; background: var(--accent-olive); opacity: 0.1; mix-blend-mode: multiply;">
+            </div>
+          </div>
+          <div style="border-top: 1px solid var(--border-strong); padding-top: 16px;">
+            <h3 class="display-md serif-title" style="font-size: 2rem;">{{ project.title }}</h3>
+            <p class="body-text">{{ project.description }}</p>
+          </div>
+        </a>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
-    <a href="/about" style="margin-top: auto; color: var(--color-cyan); font-size: 0.9rem; margin-top: 20px;">View full
-      stack →</a>
   </div>
 
 </div>
-
-<!-- Research Publications Section (New) -->
-<section style="margin-bottom: 100px;">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px;">
-    <h2 class="display-text text-lg">Research Lab</h2>
-    <span class="sub-text">Safety & Robustness in AI</span>
-  </div>
-
-  <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-    {% for paper in research_papers %}
-    <a href="{{ paper.link }}" target="_blank" style="text-decoration: none;">
-      <div class="bento-card"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 24px 32px; min-height: auto;">
-        <div>
-          <div style="display: flex; gap: 10px; margin-bottom: 8px;">
-            <span
-              style="font-size: 0.7rem; color: var(--color-pink); border: 1px solid rgba(255,0,128,0.3); padding: 2px 8px; border-radius: 4px;">PAPER</span>
-            {% for tag in paper.tags[:2] %}
-            <span style="font-size: 0.7rem; color: var(--text-muted);">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          <h3 class="display-text text-md" style="color: var(--text-main); margin-bottom: 4px;">{{ paper.title }}</h3>
-          <p class="sub-text" style="font-size: 0.95rem; max-width: 600px;">{{ paper.description }}</p>
-        </div>
-        <div style="color: var(--text-muted);">↗</div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>
-
-<!-- Selected Projects Section -->
-<section id="work" style="margin-bottom: 100px;">
-  <h2 class="display-text text-lg" style="margin-bottom: 40px;">Engineering Projects</h2>
-  <div class="bento-grid">
-    {% for project in projects[:4] %} <!-- Using normal_projects logic from app.py -->
-    <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
-      style="text-decoration: none; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; group">
-      <div>
-        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
-          {% for tag in project.tags[:2] %}
-          <span class="skill-tag" style="font-size: 0.75rem; padding: 4px 12px;">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
-      </div>
-      <p class="sub-text">{{ project.description }}</p>
-    </a>
-    {% endfor %}
-  </div>
-</section>
 {% endblock %}
