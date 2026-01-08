@@ -1,46 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Abishek | Backend Engineer{% endblock %}</title>
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 
-<body>
-  <!-- Background Layers -->
-  <div class="mesh-background"></div>
+<body class="has-scroll-smooth">
+
+  <!-- Grain Overlay -->
   <div class="noise-overlay"></div>
 
-  <!-- Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-
   <div class="container">
-    <header class="nav-header">
-      <a href="/" class="nav-brand">ABISHEK.DEV</a>
-      <nav class="nav-links">
+
+    <!-- Navbar -->
+    <nav class="nav-header">
+      <a href="/" class="nav-brand">ABISHEK K GIRI</a>
+      <div class="nav-links">
         <a href="/">Index</a>
         <a href="/projects">Work</a>
         <a href="/skills">Skills</a>
         <a href="/publications">Publications</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
-    <main>
-      {% block content %}{% endblock %}
-    </main>
+    {% block content %}{% endblock %}
 
     <footer
-      style="padding: 80px 0; border-top: 1px solid var(--border-dim); margin-top: 80px; color: var(--text-muted); font-size: 0.9rem; display: flex; justify-content: space-between;">
-      <div>© 2026 Abishek Kumar Giri.</div>
-      <div>Built with Flask & Aurora CSS.</div>
+      style="margin-top: 120px; padding: 40px 0; border-top: 2px solid var(--border-strong); display: flex; justify-content: space-between;">
+      <div class="body-text">© 2026 Abishek Kumar Giri</div>
+      <div class="nav-links" style="display: flex; gap: 20px;">
+        <a href="https://github.com/abishekgiri" target="_blank" style="margin: 0;">GitHub</a>
+        <a href="https://linkedin.com/in/abishekgiri" target="_blank" style="margin: 0;">LinkedIn</a>
+      </div>
     </footer>
+
   </div>
 
+  <!-- Scripts -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
