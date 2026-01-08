@@ -1,25 +1,51 @@
 {% extends "base.html" %}
 
-{% block title %}Skills | Abishek Kumar Giri{% endblock %}
+{% block title %}Skills | Abishek{% endblock %}
 
 {% block content %}
-<section>
-  <h1>Skills</h1>
-  <p class="text-muted" style="margin-bottom: 40px;">Technical proficiency and toolsets.</p>
+<div class="container" style="padding-top: 60px;">
 
-  {% for category, items in skills.items() %}
-  <div class="skill-section" style="margin-bottom: 48px;">
-    <h3 style="margin-bottom: 24px;">{{ category }}</h3>
-    <div class="skill-list" style="gap: 12px;">
-      {% for skill in items %}
-      <div
-        style="display: flex; align-items: center; gap: 12px; border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 4px;">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}" style="width: 20px; height: 20px;">
-        <span class="skill-item">{{ skill.name }}</span>
-      </div>
-      {% endfor %}
+  <div class="bento-grid">
+    <div class="col-span-12" style="margin-bottom: 40px;">
+      <h1 class="display-text text-lg">Competencies.</h1>
+      <p class="sub-text">A catalog of languages, frameworks, and tools used in production.</p>
     </div>
+
+    <!-- Languages Column -->
+    <div class="col-span-12">
+      <h2 class="display-text text-md" style="margin-bottom: 30px; color: var(--color-cyan);">Languages</h2>
+      <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
+        {% for skill in skills['Languages'] %}
+        <div class="bento-card"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
+          <img src="{{ skill.icon }}" style="width: 50px; height: 50px; margin-bottom: 16px;">
+          <span class="sub-text" style="font-weight: 500; font-size: 1rem; color: var(--text-main);">{{ skill.name
+            }}</span>
+          <!-- <div style="width: 100%; background: rgba(255,255,255,0.1); height: 4px; border-radius: 2px; margin-top: 12px; overflow: hidden;">
+                        <div style="width: {{ skill.level }}%; background: var(--color-cyan); height: 100%;"></div>
+                    </div> -->
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Tools Column -->
+    <div class="col-span-12" style="margin-top: 60px;">
+      <h2 class="display-text text-md" style="margin-bottom: 30px; color: var(--color-pink);">Infrastructure & Tools
+      </h2>
+      <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
+        {% for skill in skills['Tools'] %}
+        <div class="bento-card"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
+          <img src="{{ skill.icon }}"
+            style="width: 40px; height: 40px; margin-bottom: 16px; filter: grayscale(100%); transition: filter 0.3s;"
+            onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+          <span class="sub-text" style="font-size: 0.9rem;">{{ skill.name }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
   </div>
-  {% endfor %}
-</section>
+</div>
 {% endblock %}

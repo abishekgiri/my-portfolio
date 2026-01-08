@@ -98,7 +98,6 @@ def index():
         skills_data[cat] = unique_skills
 
     # Filter Research Papers
-    # Logic: Look for category="ai" AND (title contains "Remote" or "Paper" or tags contains "Research")
     research_papers = []
     normal_projects = []
     
@@ -116,9 +115,7 @@ def index():
 
     return render_template("index.html", 
                            projects=normal_projects, 
-                           research_papers=research_papers,
-                           experience=experience, 
-                           skills=skills_data)
+                           skills=skills_data) # Removed research_papers to keep index clean
 
 @app.route("/projects")
 def projects_page():
@@ -128,6 +125,72 @@ def projects_page():
     with open(projects_path, 'r') as f:
         projects = json.load(f)
     return render_template("projects.html", projects=projects)
+
+@app.route("/publications")
+def publications():
+    import json
+    import os
+    projects_path = os.path.join(app.root_path, 'data', 'projects.json')
+    with open(projects_path, 'r') as f:
+        projects = json.load(f)
+
+    research_papers = []
+    for p in projects:
+        if p.get('category') == 'ai' or 'Research' in p.get('tags', []):
+             if 'Paper' in p.get('title', '') or 'Research' in p.get('title', '') or 'Defense' in p.get('title', '') or 'Failure' in p.get('title', ''):
+                 research_papers.append(p)
+                 
+    return render_template("publications.html", papers=research_papers)
+
+@app.route("/skills")
+def skills():
+    # Dynamic Skills Calculation
+    import json
+    import os
+    from collections import Counter
+
+    # Load projects to count tags
+    data_path = os.path.join(app.root_path, 'data', 'projects.json')
+    with open(data_path, 'r') as f:
+        projects_list = json.load(f)
+
+    # Count all tags
+    tag_counts = Counter()
+    for p in projects_list:
+        if 'tags' in p:
+            tag_counts.update(p['tags'])
+
+    skills_data = {"Languages": [], "Tools": []}
+    
+    for tag, count in tag_counts.items():
+        # Default icon if not found
+        default_icon = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg"
+        config = TAG_CONFIG.get(tag, {"cat": "Tools", "icon": default_icon})
+        
+        level = min(50 + (count * 10), 98)
+        
+        skill_entry = {
+            "name": config.get("name", tag),
+            "icon": config["icon"],
+            "level": level
+        }
+        
+        if config.get("cat") in skills_data:
+            skills_data[config["cat"]].append(skill_entry)
+
+    # Sort by level descending
+    for cat in skills_data:
+        skills_data[cat].sort(key=lambda x: x['level'], reverse=True)
+        # Deduplicate
+        seen = set()
+        unique_skills = []
+        for s in skills_data[cat]:
+            if s['name'] not in seen:
+                unique_skills.append(s)
+                seen.add(s['name'])
+        skills_data[cat] = unique_skills
+    
+    return render_template("skills.html", skills=skills_data)
 
 @app.route("/about")
 def about():
@@ -141,6 +204,25 @@ def about():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
+@app.route("/submit_form", methods=["POST"])
+def submit_form():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    phone = request.form.get("phone")
+    message = request.form.get("message")
+    
+    print(f"New Message from {name} ({email}): {message}")
+    
+    # Save to file
+    with open("messages.txt", "a") as f:
+        f.write(f"Name: {name}\n")
+        f.write(f"Email: {email}\n")
+        f.write(f"Phone: {phone}\n")
+        f.write(f"Message: {message}\n")
+        f.write("-" * 20 + "\n")
+    
+    return f"<h1>Thanks {name}, your message has been received!</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

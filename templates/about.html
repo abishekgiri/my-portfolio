@@ -7,21 +7,41 @@
   <!-- Bio Card -->
   <div class="bento-card col-span-8">
     <h1 class="display-text text-lg" style="margin-bottom: 32px;">Bridging the gap between<br><span
-        style="color: var(--accent);">Research</span> & <span style="color: var(--text-muted);">Engineering</span>.</h1>
-    <p class="sub-text" style="font-size: 1.1rem; margin-bottom: 24px;">
-      I am a software engineer focused on building robust backends and applied machine learning systems.
-      Originally from India, I specialize in distributed systems, scalability, and bringing research ideas to
-      production.
-    </p>
-    <p class="sub-text" style="font-size: 1.1rem;">
-      When not coding, I explore new interface paradigms and study large-scale system architectures.
-    </p>
+        style="color: var(--color-cyan);">Research</span> & <span style="color: var(--color-pink);">Engineering</span>.
+    </h1>
+
+    <div style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);">
+      <p style="margin-bottom: 24px;">
+        I am a software engineer with a strong focus on backend systems, applied machine learning, and data-driven
+        problem solving. My work sits at the intersection of software engineering and research, where I design systems
+        that prioritize reliability, scalability, and measurable impact.
+      </p>
+      <p style="margin-bottom: 24px;">
+        I have experience building end-to-end machine learning pipelines, backend services, and research-oriented
+        projects that emphasize correctness, performance, and reproducibility. My projects often involve working with
+        real-world datasets, implementing evaluation metrics, and translating experimental results into practical system
+        designs.
+      </p>
+      <p style="margin-bottom: 24px;">
+        Alongside development, I am deeply interested in how large software systems fail, how they can be tested more
+        effectively, and how data and machine learning can be used to improve software reliability. This interest has
+        guided my independent research work in areas such as bug prediction, benchmarking, and applied ML for
+        decision-making systems.
+      </p>
+      <p>
+        I aim to pursue advanced study in software engineering and related fields, with long-term interests in scalable
+        systems, testing, and applied AI. I value clarity over complexity, systems over scripts, and long-term
+        engineering principles over short-term trends.
+      </p>
+    </div>
   </div>
 
   <!-- Image Card -->
   <div class="bento-card col-span-4" style="padding: 0; border: none; overflow: hidden;">
-    <img src="{{ url_for('static', filename='img/profile-pic.png') }}" class="parallax-content"
-      style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;" alt="Profile">
+    <!-- Placeholder for profile image if available, using the uploaded one contextually if needed, but keeping simple for now -->
+    <div
+      style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--color-cyan), var(--color-pink)); opacity: 0.1;">
+    </div>
   </div>
 
   <!-- Experience Section -->
@@ -30,12 +50,12 @@
     <div style="display: flex; flex-direction: column; gap: 32px;">
       {% for job in experience %}
       <div
-        style="display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid var(--border-dim); padding-bottom: 32px;">
+        style="display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 32px;">
         <div style="color: var(--text-muted); font-family: var(--font-body);">{{ job.duration }}</div>
         <div>
           <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 4px;">{{ job.role }}</h3>
-          <div style="color: var(--accent); margin-bottom: 12px;">{{ job.company }}</div>
-          <p class="sub-text">{{ job.description }}</p>
+          <div style="color: var(--color-cyan); margin-bottom: 12px;">{{ job.company }}</div>
+          <p style="font-family: var(--font-body); opacity: 0.8; font-size: 0.95rem;">{{ job.description }}</p>
         </div>
       </div>
       {% endfor %}

@@ -33,72 +33,39 @@
     </div>
   </div>
 
-  <!-- Skills Card with Logos (Languages) -->
-  <div class="bento-card col-span-4" style="display: flex; flex-direction: column;">
-    <h3 class="display-text text-md" style="margin-bottom: 24px;">Core Languages</h3>
+  <!-- Tools/Stack Card - Brief Preview -->
+  <div class="bento-card col-span-4" style="display: flex; flex-direction: column; justify-content: center;">
+    <h3 class="display-text text-md" style="margin-bottom: 24px;">Technology</h3>
     <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-      {% for skill in skills['Languages'] %}
+      {% for skill in skills['Languages'][:6] %}
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
         <img src="{{ skill.icon }}" alt="{{ skill.name }}"
-          style="width: 40px; height: 40px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'"
-          onmouseout="this.style.transform='scale(1)'">
-        <span style="font-size: 0.75rem; color: var(--text-muted);">{{ skill.name }}</span>
+          style="width: 32px; height: 32px; filter: grayscale(100%); transition: filter 0.3s;"
+          onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
       </div>
       {% endfor %}
     </div>
+    <a href="/skills" style="margin-top: 20px; color: var(--color-cyan); font-size: 0.9rem;">View All Skills →</a>
   </div>
 
-  <!-- Tools/Stack Card -->
-  <div class="bento-card col-span-4" style="display: flex; flex-direction: column;">
-    <h3 class="display-text text-md" style="margin-bottom: 24px;">Tools & Frameworks</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-      {% for skill in skills['Tools'][:12] %} <!-- Show top tools -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}" style="width: 32px; height: 32px;">
-      </div>
-      {% endfor %}
-    </div>
-    <a href="/about" style="margin-top: auto; color: var(--color-cyan); font-size: 0.9rem; margin-top: 20px;">View full
-      stack →</a>
+  <!-- Research Preview -->
+  <div class="bento-card col-span-4" style="display: flex; flex-direction: column; justify-content: center;">
+    <h3 class="display-text text-md" style="margin-bottom: 12px;">Research Lab</h3>
+    <p class="sub-text" style="margin-bottom: 20px;">Investigating AI Safety & Robustness.</p>
+    <a href="/publications" class="btn-outline" style="align-self: flex-start;">View Publications →</a>
   </div>
 
 </div>
 
-<!-- Research Publications Section (New) -->
-<section style="margin-bottom: 100px;">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px;">
-    <h2 class="display-text text-lg">Research Lab</h2>
-    <span class="sub-text">Safety & Robustness in AI</span>
-  </div>
-
-  <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-    {% for paper in research_papers %}
-    <a href="{{ paper.link }}" target="_blank" style="text-decoration: none;">
-      <div class="bento-card"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 24px 32px; min-height: auto;">
-        <div>
-          <div style="display: flex; gap: 10px; margin-bottom: 8px;">
-            <span
-              style="font-size: 0.7rem; color: var(--color-pink); border: 1px solid rgba(255,0,128,0.3); padding: 2px 8px; border-radius: 4px;">PAPER</span>
-            {% for tag in paper.tags[:2] %}
-            <span style="font-size: 0.7rem; color: var(--text-muted);">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          <h3 class="display-text text-md" style="color: var(--text-main); margin-bottom: 4px;">{{ paper.title }}</h3>
-          <p class="sub-text" style="font-size: 0.95rem; max-width: 600px;">{{ paper.description }}</p>
-        </div>
-        <div style="color: var(--text-muted);">↗</div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>
-
 <!-- Selected Projects Section -->
-<section id="work" style="margin-bottom: 100px;">
-  <h2 class="display-text text-lg" style="margin-bottom: 40px;">Engineering Projects</h2>
+<section id="work" style="margin-bottom: 100px; margin-top: 80px;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px;">
+    <h2 class="display-text text-lg">Engineering Projects</h2>
+    <a href="/projects" style="color: var(--color-cyan);">View All →</a>
+  </div>
+
   <div class="bento-grid">
-    {% for project in projects[:4] %} <!-- Using normal_projects logic from app.py -->
+    {% for project in projects[:4] %}
     <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
       style="text-decoration: none; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; group">
       <div>
