@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Abishek Kumar Giri{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+  <!-- Favicon (Optional, can be added later) -->
 </head>
 
 <body>
   <div class="container">
     <header class="nav-header">
-      <a href="/" class="nav-logo">ABISHEK GIRI</a>
+      <div class="nav-name">ABISHEK GIRI</div>
       <nav class="nav-links">
         <a href="/">Index</a>
         <a href="/projects">Projects</a>
@@ -25,11 +26,7 @@
     </main>
 
     <footer class="footer">
-      <div class="footer-social">
-        <a href="https://github.com/abishekgiri" target="_blank" class="footer-link">GitHub</a>
-        <a href="https://linkedin.com/in/abishekgiri" target="_blank" class="footer-link">LinkedIn</a>
-      </div>
-      <span class="footer-copy">© 2026</span>
+      © 2026 Abishek Kumar Giri
     </footer>
   </div>
 </body>

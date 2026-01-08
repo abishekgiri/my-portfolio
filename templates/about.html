@@ -3,28 +3,29 @@
 {% block title %}About | Abishek Kumar Giri{% endblock %}
 
 {% block content %}
-<section class="hero">
-  <h1>About</h1>
-  <div class="hero-sub">
-    I am a software engineer and researcher with a passion for building scalable systems and exploring the frontiers of
-    Artificial Intelligence.
-  </div>
-</section>
+<div class="about-grid" style="margin-top: 40px;">
+  <div>
+    <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 40px;">
+      I am a software engineer focused on backend systems, machine learning, and data-driven problem solving.
+      <br><br>
+      My interests include system reliability, scalable APIs, and applied ML in real-world products.
+    </p>
 
-<section>
-  <h2>Experience</h2>
-  <div class="exp-list">
-    {% for job in experience %}
-    <div class="exp-item">
-      <div class="exp-period">{{ job.duration }}</div>
-      <div>
-        <div class="exp-role">{{ job.role }}</div>
-        <div class="exp-company">{{ job.company }} <span style="font-size: 0.8em; color: var(--text-muted);">↗</span>
-        </div>
-        <p class="exp-desc">{{ job.description }}</p>
-      </div>
+    <div class="section-label">Education</div>
+    <div style="margin-bottom: 32px;">
+      <div style="font-weight: 500; color: var(--text-main);">Master's in Computer Science</div>
+      <div style="color: var(--text-muted);">University of Example · 2024</div>
     </div>
-    {% endfor %}
+
+    <div class="section-label">Focus Areas</div>
+    <div style="color: var(--text-muted);">
+      Distributed Systems · Machine Learning · Cloud Infrastructure
+    </div>
   </div>
-</section>
+
+  <div>
+    <!-- Profile Picture: Assuming file exists or placeholder -->
+    <img src="{{ url_for('static', filename='img/profile-pic.png') }}" alt="Profile" class="profile-img">
+  </div>
+</div>
 {% endblock %}

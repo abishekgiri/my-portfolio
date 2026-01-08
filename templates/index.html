@@ -1,56 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="hero">
+<section style="margin-top: 80px;">
   <h1>Abishek Kumar Giri</h1>
-  <h2 class="hero-role">Research & Systems</h2>
+  <h2 style="color: var(--text-main); opacity: 0.8; font-weight: 400; font-size: 1.1rem;">Software Engineer · Backend ·
+    ML Systems</h2>
 
-  <div class="hero-sub">
-    AI Researcher and Engineer building <em style="color: var(--text-main);">intelligent systems</em>.
-    Focusing on distributed backends, large-scale ML, and robust data infrastructure.
-  </div>
+  <p style="margin-top: 32px; font-size: 1.1rem; line-height: 1.7; color: var(--text-main);">
+    I build scalable backend systems and applied ML solutions focused on reliability, performance, and data-driven
+    design.
+  </p>
 
-  <a href="/projects" class="btn-text">View Selected Work</a>
-</section>
-
-<section style="margin-bottom: var(--spacing-section);">
-  <h2>Selected Projects</h2>
-
-  <div class="project-list">
-    {% for project in projects[:5] %}
-    <a href="{{ project.link }}" target="_blank" class="project-item">
-      <div class="project-left">
-        <span class="project-title">{{ project.title }}</span>
-        <p class="project-desc">{{ project.description }}</p>
-      </div>
-      <div class="project-meta">
-        <span class="arrow-icon">→</span>
-        {% for tag in project.tags[:1] %}
-        <span>{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-
-  <div style="margin-top: 60px; text-align: center;">
-    <a href="/projects" class="btn-text">Archive</a>
-  </div>
-</section>
-
-<section>
-  <h2>Experience</h2>
-  <div class="exp-list">
-    {% for job in experience %}
-    <div class="exp-item">
-      <div class="exp-period">{{ job.duration.split('-')[0].strip() }}</div>
-      <div>
-        <div class="exp-role">{{ job.role }}</div>
-        <div class="exp-company">{{ job.company }}</div>
-        <p class="exp-desc">{{ job.description }}</p>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
+  <a href="/projects" class="text-link">→ View Projects</a>
 </section>
 {% endblock %}

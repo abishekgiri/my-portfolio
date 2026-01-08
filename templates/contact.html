@@ -3,35 +3,16 @@
 {% block title %}Contact | Abishek Kumar Giri{% endblock %}
 
 {% block content %}
-<section class="hero">
-  <h1>Contact</h1>
-  <p class="text-muted" style="margin-bottom: 40px;">Get in touch for collaborations or just to say hi.</p>
+<section style="margin-top: 40px;">
+  <p style="font-size: 1.1rem; color: var(--text-main);">
+    If you'd like to discuss work, research, or collaboration:
+  </p>
 
-  <div style="max-width: 500px;">
-    <h3 style="margin-bottom: 16px;">Send a message</h3>
-    <form action="/submit_form" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
-      <input type="text" name="name" placeholder="Name" required
-        style="padding: 12px; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); font-family: 'Inter'; border-radius: 4px;">
-
-      <input type="email" name="email" placeholder="Email" required
-        style="padding: 12px; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); font-family: 'Inter'; border-radius: 4px;">
-
-      <input type="tel" name="phone" placeholder="Phone (Optional)"
-        style="padding: 12px; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); font-family: 'Inter'; border-radius: 4px;">
-
-      <textarea name="message" rows="5" placeholder="Message" required
-        style="padding: 12px; background: transparent; border: 1px solid var(--border-color); color: var(--text-main); font-family: 'Inter'; border-radius: 4px; resize: vertical;"></textarea>
-
-      <button type="submit" class="hero-btn" style="width: fit-content; cursor: pointer;">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<section>
-  <h2>Connect</h2>
-  <div style="display: flex; gap: 24px; margin-top: 24px;">
-    <a href="https://github.com/abishekgiri" target="_blank" class="hero-btn">GitHub</a>
-    <a href="https://linkedin.com/in/abishekgiri" target="_blank" class="hero-btn">LinkedIn</a>
+  <div class="contact-links">
+    <a href="mailto:contact@example.com" class="contact-item">Email: contact@example.com</a>
+    <a href="https://github.com/abishekgiri" target="_blank" class="contact-item">GitHub: github.com/abishekgiri</a>
+    <a href="https://linkedin.com/in/abishekgiri" target="_blank" class="contact-item">LinkedIn:
+      linkedin.com/in/abishekgiri</a>
   </div>
 </section>
 {% endblock %}
