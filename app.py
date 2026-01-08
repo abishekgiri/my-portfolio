@@ -115,7 +115,7 @@ def index():
 
     return render_template("index.html", 
                            projects=normal_projects, 
-                           skills=skills_data) # Removed research_papers to keep index clean
+                           skills=skills_data)
 
 @app.route("/projects")
 def projects_page():
@@ -124,7 +124,28 @@ def projects_page():
     projects_path = os.path.join(app.root_path, 'data', 'projects.json')
     with open(projects_path, 'r') as f:
         projects = json.load(f)
-    return render_template("projects.html", projects=projects)
+        
+    # Categorize Projects
+    grouped_projects = {
+        "Distributed Systems & Infrastructure": [],
+        "AI Research & Engineering": [],
+        "Full Stack & Web": []
+    }
+    
+    for p in projects:
+        # Determine category based on tags
+        tags = p.get('tags', [])
+        title = p.get('title', '')
+        category = p.get('category', '')
+        
+        if 'Distributed Systems' in tags or 'Go' in tags or 'Kubernetes' in tags or 'Docker' in tags or 'Kafka' in tags:
+             grouped_projects["Distributed Systems & Infrastructure"].append(p)
+        elif 'AI' in tags or 'ML' in tags or 'NLP' in tags or 'Research' in tags or category == 'ai':
+             grouped_projects["AI Research & Engineering"].append(p)
+        else:
+             grouped_projects["Full Stack & Web"].append(p)
+
+    return render_template("projects.html", grouped_projects=grouped_projects)
 
 @app.route("/publications")
 def publications():

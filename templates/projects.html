@@ -3,32 +3,48 @@
 {% block title %}Work | Abishek{% endblock %}
 
 {% block content %}
-<section style="margin-bottom: 60px;">
-  <h1 class="display-text text-xl">All Works</h1>
-  <p class="sub-text" style="max-width: 600px;">A comprehensive archive of experiments, open source contributions, and
-    production systems.</p>
-</section>
+<div class="container" style="padding-top: 60px;">
 
-<div class="bento-grid">
-  {% for project in projects %}
-  <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
-    style="text-decoration: none; min-height: 280px; display: flex; flex-direction: column;">
-    <div style="margin-bottom: 24px;">
-      <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
+  <section style="margin-bottom: 80px;">
+    <h1 class="display-text text-xl">All Works</h1>
+    <p class="sub-text" style="max-width: 600px;">A comprehensive archive of experiments, open source contributions, and
+      production systems.</p>
+  </section>
+
+  <!-- Loop through Categories -->
+  {% for category, projects in grouped_projects.items() %}
+  {% if projects %}
+  <section style="margin-bottom: 80px;">
+    <div style="display: flex; align-items: baseline; margin-bottom: 30px;">
+      <h2 class="display-text text-lg" style="color: var(--color-cyan);">{{ category }}</h2>
+      <span class="sub-text" style="margin-left: 16px; font-size: 0.9rem;">{{ projects|length }} Projects</span>
     </div>
 
-    <p class="sub-text" style="margin-bottom: 24px; flex-grow: 1;">{{ project.description }}</p>
+    <div class="bento-grid">
+      {% for project in projects %}
+      <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
+        style="text-decoration: none; min-height: 280px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 24px;">
+          <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
+        </div>
 
-    <div
-      style="border-top: 1px solid var(--border-dim); padding-top: 16px; margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-      <div style="display: flex; gap: 8px;">
-        {% for tag in project.tags[:3] %}
-        <span style="font-size: 0.75rem; color: var(--text-muted);">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      <span style="color: var(--accent);">↗</span>
+        <p class="sub-text" style="margin-bottom: 24px; flex-grow: 1;">{{ project.description }}</p>
+
+        <div
+          style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 8px;">
+            {% for tag in project.tags[:3] %}
+            <span style="font-size: 0.75rem; color: var(--text-muted);">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <span style="color: var(--color-cyan);">↗</span>
+        </div>
+      </a>
+      {% endfor %}
     </div>
-  </a>
+  </section>
+  {% endif %}
   {% endfor %}
+
 </div>
 {% endblock %}
