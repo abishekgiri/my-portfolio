@@ -1,21 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}Projects | Abishek Kumar Giri{% endblock %}
+{% block title %}Work | Abishek{% endblock %}
 
 {% block content %}
-<div class="project-list" style="margin-top: 40px;">
+<section style="margin-bottom: 60px;">
+  <h1 class="display-text text-xl">All Works</h1>
+  <p class="sub-text" style="max-width: 600px;">A comprehensive archive of experiments, open source contributions, and
+    production systems.</p>
+</section>
+
+<div class="bento-grid">
   {% for project in projects %}
-  <div class="project-item">
-    <div class="project-title">{{ project.title }}</div>
-    <div class="project-desc">{{ project.description }}</div>
-    <div class="project-meta">
-      {{ project.tags[:4]|join(' · ') }}
+  <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
+    style="text-decoration: none; min-height: 280px; display: flex; flex-direction: column;">
+    <div style="margin-bottom: 24px;">
+      <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
     </div>
-    <div>
-      <a href="{{ project.link }}" target="_blank" class="text-link" style="font-size: 0.85rem; margin-top: 4px;">→
-        GitHub</a>
+
+    <p class="sub-text" style="margin-bottom: 24px; flex-grow: 1;">{{ project.description }}</p>
+
+    <div
+      style="border-top: 1px solid var(--border-dim); padding-top: 16px; margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; gap: 8px;">
+        {% for tag in project.tags[:3] %}
+        <span style="font-size: 0.75rem; color: var(--text-muted);">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <span style="color: var(--accent);">↗</span>
     </div>
-  </div>
+  </a>
   {% endfor %}
 </div>
 {% endblock %}

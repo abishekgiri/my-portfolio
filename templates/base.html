@@ -4,18 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Abishek Kumar Giri{% endblock %}</title>
+  <title>{% block title %}Abishek | Creative Developer{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
-  <!-- Favicon (Optional, can be added later) -->
 </head>
 
 <body>
+  <!-- Overlay & Cursor -->
+  <div class="noise-overlay"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
   <div class="container">
     <header class="nav-header">
-      <div class="nav-name">ABISHEK GIRI</div>
+      <a href="/" class="nav-brand">ABISHEK.DEV</a>
       <nav class="nav-links">
         <a href="/">Index</a>
-        <a href="/projects">Projects</a>
+        <a href="/projects">Work</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
       </nav>
@@ -25,10 +29,13 @@
       {% block content %}{% endblock %}
     </main>
 
-    <footer class="footer">
-      © 2026 Abishek Kumar Giri
+    <footer
+      style="padding: 80px 0; border-top: 1px solid var(--border-dim); margin-top: 80px; color: var(--text-muted); font-size: 0.9rem;">
+      © 2026 Abishek Kumar Giri.
     </footer>
   </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>
