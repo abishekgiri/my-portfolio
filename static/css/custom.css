@@ -109,31 +109,38 @@ body {
 /* Custom Cursor */
 .cursor-dot {
   position: fixed;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: var(--color-cyan);
   border-radius: 50%;
-  z-index: 9999;
+  z-index: 10000;
+  /* Increased z-index */
   pointer-events: none;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--color-cyan);
+  /* Add Glow */
 }
 
 .cursor-outline {
   position: fixed;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(0, 210, 255, 0.5);
+  border: 1px solid rgba(76, 201, 240, 0.8);
+  /* Stronger border */
   border-radius: 50%;
-  z-index: 9999;
+  z-index: 10000;
+  /* Increased z-index */
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background-color 0.2s;
+  mix-blend-mode: screen;
+  /* Ensure it pops against dark backgrounds */
 }
 
 body:hover .cursor-outline.hovered {
   width: 60px;
   height: 60px;
-  background-color: rgba(0, 210, 255, 0.1);
+  background-color: rgba(76, 201, 240, 0.1);
   border-color: transparent;
 }
 

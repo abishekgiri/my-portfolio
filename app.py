@@ -213,71 +213,7 @@ def skills():
     
     return render_template("skills.html", skills=skills_data)
 
-@app.route("/publications")
-def publications():
-    import json
-    import os
-    projects_path = os.path.join(app.root_path, 'data', 'projects.json')
-    with open(projects_path, 'r') as f:
-        projects = json.load(f)
 
-    research_papers = []
-    for p in projects:
-        if p.get('category') == 'ai' or 'Research' in p.get('tags', []):
-             if 'Paper' in p.get('title', '') or 'Research' in p.get('title', '') or 'Defense' in p.get('title', '') or 'Failure' in p.get('title', ''):
-                 research_papers.append(p)
-                 
-    return render_template("publications.html", papers=research_papers)
-
-@app.route("/skills")
-def skills():
-    # Dynamic Skills Calculation
-    import json
-    import os
-    from collections import Counter
-
-    # Load projects to count tags
-    data_path = os.path.join(app.root_path, 'data', 'projects.json')
-    with open(data_path, 'r') as f:
-        projects_list = json.load(f)
-
-    # Count all tags
-    tag_counts = Counter()
-    for p in projects_list:
-        if 'tags' in p:
-            tag_counts.update(p['tags'])
-
-    skills_data = {"Languages": [], "Tools": []}
-    
-    for tag, count in tag_counts.items():
-        # Default icon if not found
-        default_icon = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg"
-        config = TAG_CONFIG.get(tag, {"cat": "Tools", "icon": default_icon})
-        
-        level = min(50 + (count * 10), 98)
-        
-        skill_entry = {
-            "name": config.get("name", tag),
-            "icon": config["icon"],
-            "level": level
-        }
-        
-        if config["cat"] in skills_data:
-            skills_data[config["cat"]].append(skill_entry)
-
-    # Sort by level descending
-    for cat in skills_data:
-        skills_data[cat].sort(key=lambda x: x['level'], reverse=True)
-        # Deduplicate
-        seen = set()
-        unique_skills = []
-        for s in skills_data[cat]:
-            if s['name'] not in seen:
-                unique_skills.append(s)
-                seen.add(s['name'])
-        skills_data[cat] = unique_skills
-    
-    return render_template("skills.html", skills=skills_data)
 
 @app.route("/about")
 def about():
