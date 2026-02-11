@@ -3,7 +3,6 @@
 {% block title %}Work | Abishek{% endblock %}
 
 {% block content %}
-<div class="container" style="padding-top: 60px;">
 
   <section style="margin-bottom: 80px;">
     <h1 class="display-text text-xl">All Works</h1>
@@ -22,7 +21,7 @@
 
     <div class="bento-grid">
       {% for project in projects %}
-      <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
+      <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card col-span-6"
         style="text-decoration: none; min-height: 280px; display: flex; flex-direction: column;">
         <div style="margin-bottom: 24px;">
           <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
@@ -46,5 +45,4 @@
   {% endif %}
   {% endfor %}
 
-</div>
 {% endblock %}

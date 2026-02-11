@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
 
-    // Check if device is touch
+    // Check if device is touch or coarse pointer
     const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    const isCoarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
 
-    if (!isTouch && cursorDot && cursorOutline) {
+    if (!isTouch && !isCoarse && cursorDot && cursorOutline) {
+        document.body.classList.add('custom-cursor');
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
@@ -28,9 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
             el.addEventListener('mouseenter', () => cursorOutline.classList.add('hovered'));
             el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hovered'));
         });
+    } else {
+        if (cursorDot) cursorDot.style.display = 'none';
+        if (cursorOutline) cursorOutline.style.display = 'none';
     }
 
     // 3D Tilt Effect for Bento Cards
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
     const cards = document.querySelectorAll('.bento-card');
 
     cards.forEach(card => {
@@ -46,14 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Calculate rotation
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -5; // Max 5 deg
-            const rotateY = ((x - centerX) / centerX) * 5;
+            const rotateX = ((y - centerY) / centerY) * -3; // Max 3 deg
+            const rotateY = ((x - centerX) / centerX) * 3;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transform = `perspective(1000px) translateY(-2px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
         });
 
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            card.style.transform = '';
         });
     });
 });

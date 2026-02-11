@@ -5,23 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Abishek | Backend Engineer{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
   <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 
 <body class="has-scroll-smooth">
 
+  <!-- Mesh Background -->
+  <div class="mesh-background"></div>
+
   <!-- Grain Overlay -->
   <div class="noise-overlay"></div>
 
   <!-- Custom Cursor Elements -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" aria-hidden="true"></div>
 
   <div class="container">
 
     <!-- Navbar -->
-    <nav class="nav-header">
+    <nav class="nav-header" aria-label="Primary">
       <a href="/" class="nav-brand">ABISHEK K GIRI</a>
       <div class="nav-links">
         <a href="/">Index</a>
@@ -33,14 +37,15 @@
       </div>
     </nav>
 
-    {% block content %}{% endblock %}
+    <main class="page">
+      {% block content %}{% endblock %}
+    </main>
 
-    <footer
-      style="margin-top: 120px; padding: 40px 0; border-top: 2px solid var(--border-strong); display: flex; justify-content: space-between;">
+    <footer class="site-footer">
       <div class="body-text">© 2026 Abishek Kumar Giri</div>
-      <div class="nav-links" style="display: flex; gap: 20px;">
-        <a href="https://github.com/abishekgiri" target="_blank" style="margin: 0;">GitHub</a>
-        <a href="https://linkedin.com/in/abishekgiri" target="_blank" style="margin: 0;">LinkedIn</a>
+      <div class="nav-links">
+        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </footer>
 

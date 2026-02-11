@@ -3,7 +3,6 @@
 {% block title %}Publications | Abishek{% endblock %}
 
 {% block content %}
-<div class="container" style="padding-top: 60px;">
 
     <div class="bento-grid">
         <div class="col-span-12" style="margin-bottom: 40px;">
@@ -16,12 +15,11 @@
         <div class="col-span-12">
             <!-- List -->
             {% for paper in papers %}
-            <div class="bento-card"
-                style="margin-bottom: 24px; display: grid; grid-template-columns: 100px 1fr 150px; align-items: center; padding: 30px;">
+            <div class="bento-card publication-row" style="margin-bottom: 24px; padding: 30px;">
 
                 <div class="sub-text" style="font-weight: 700; color: var(--color-cyan);">2024</div>
 
-                <div style="padding-right: 40px;">
+                <div class="publication-body">
                     <div style="display: flex; gap: 12px; margin-bottom: 12px;">
                         <span
                             style="font-size: 0.75rem; color: var(--color-pink); border: 1px solid var(--color-pink); padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">PAPER</span>
@@ -35,8 +33,8 @@
                     <p class="sub-text" style="max-width: 800px;">{{ paper.description }}</p>
                 </div>
 
-                <div style="text-align: right;">
-                    <a href="{{ paper.link }}" target="_blank" class="btn-outline"
+                <div class="publication-actions">
+                    <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="btn-outline"
                         style="font-size: 0.8rem; padding: 8px 16px;">Read PDF</a>
                 </div>
 
@@ -45,5 +43,4 @@
 
         </div>
     </div>
-</div>
 {% endblock %}

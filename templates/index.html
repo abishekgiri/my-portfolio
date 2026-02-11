@@ -5,28 +5,24 @@
 <div class="bento-grid">
 
   <!-- Title Card (Wide) without Status/Location -->
-  <div class="bento-card col-span-8 row-span-2"
-    style="display: flex; flex-direction: column; justify-content: flex-end; min-height: 520px; overflow: visible;">
+  <div class="bento-card col-span-8 row-span-2 hero-card">
     <!-- Electric Glow Background -->
-    <div
-      style="position: absolute; top: -100px; right: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(127, 0, 255, 0.25) 0%, transparent 65%); filter: blur(70px);">
-    </div>
+    <div class="hero-glow"></div>
 
     <div style="position: relative; z-index: 2; margin-top: auto;">
-      <h1 class="display-text"
-        style="font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; color: var(--text-main);">
+      <h1 class="display-text hero-title">
         Abishek Kumar Giri
       </h1>
-      <h2 class="display-text text-gradient" style="font-size: 2rem; margin-bottom: 30px; line-height: 1.2;">
+      <h2 class="display-text text-gradient hero-subtitle">
         Backend Software Engineer
       </h2>
 
-      <p class="sub-text" style="max-width: 500px; margin-bottom: 40px; font-size: 1.15rem;">
+      <p class="sub-text hero-copy">
         Based in the <span style="color: var(--text-main);">USA</span>. I architect high-performance distributed systems
         and conduct AI safety research.
       </p>
 
-      <div style="display: flex; gap: 20px;">
+      <div class="hero-actions">
         <a href="#work" class="btn-primary">View my Work</a>
         <a href="/about" class="btn-outline">About Me</a>
       </div>
@@ -39,7 +35,7 @@
     <div style="display: flex; flex-wrap: wrap; gap: 16px;">
       {% for skill in skills['Languages'][:6] %}
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}"
+        <img src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async"
           style="width: 32px; height: 32px; filter: grayscale(100%); transition: filter 0.3s;"
           onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
       </div>
@@ -66,8 +62,8 @@
 
   <div class="bento-grid">
     {% for project in projects[:4] %}
-    <a href="{{ project.link }}" target="_blank" class="bento-card col-span-6"
-      style="text-decoration: none; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; group">
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card col-span-6"
+      style="text-decoration: none; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
       <div>
         <div style="display: flex; gap: 8px; margin-bottom: 16px;">
           {% for tag in project.tags[:2] %}
