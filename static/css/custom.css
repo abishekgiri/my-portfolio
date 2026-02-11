@@ -528,6 +528,7 @@ body:hover .cursor-outline.hovered {
 
 /* Responsive */
 @media (max-width: 1024px) {
+
   .col-span-4,
   .col-span-6,
   .col-span-8 {
@@ -601,6 +602,7 @@ body:hover .cursor-outline.hovered {
 }
 
 @media (pointer: coarse) {
+
   .cursor-dot,
   .cursor-outline {
     display: none;
