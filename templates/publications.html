@@ -4,43 +4,38 @@
 
 {% block content %}
 
-    <div class="bento-grid">
-        <div class="col-span-12" style="margin-bottom: 40px;">
+<section class="section">
+    <div class="section-head">
+        <div>
             <h1 class="display-text text-lg">Research Lab.</h1>
-            <p class="sub-text" style="max-width: 600px; margin-top: 16px; font-size: 1.2rem;">
+            <p class="sub-text" style="max-width: 600px; margin-top: 16px;">
                 Investigating safety, robustness, and failure modes in large-scale AI systems.
             </p>
         </div>
-
-        <div class="col-span-12">
-            <!-- List -->
-            {% for paper in papers %}
-            <div class="bento-card publication-row" style="margin-bottom: 24px; padding: 30px;">
-
-                <div class="sub-text" style="font-weight: 700; color: var(--color-cyan);">2024</div>
-
-                <div class="publication-body">
-                    <div style="display: flex; gap: 12px; margin-bottom: 12px;">
-                        <span
-                            style="font-size: 0.75rem; color: var(--color-pink); border: 1px solid var(--color-pink); padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">PAPER</span>
-                        {% for tag in paper.tags[:3] %}
-                        <span
-                            style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; padding-top: 3px;">{{
-                            tag }}</span>
-                        {% endfor %}
-                    </div>
-                    <h2 class="display-text text-md" style="margin-bottom: 12px;">{{ paper.title }}</h2>
-                    <p class="sub-text" style="max-width: 800px;">{{ paper.description }}</p>
-                </div>
-
-                <div class="publication-actions">
-                    <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="btn-outline"
-                        style="font-size: 0.8rem; padding: 8px 16px;">Read PDF</a>
-                </div>
-
-            </div>
-            {% endfor %}
-
-        </div>
     </div>
+
+    <div>
+        {% for paper in papers %}
+        <div class="bento-card publication-row" style="margin-bottom: 24px;">
+            <div class="sub-text" style="font-weight: 700; color: var(--color-indigo);">2024</div>
+
+            <div class="publication-body">
+                <div class="publication-tags">
+                    <span>PAPER</span>
+                    {% for tag in paper.tags[:3] %}
+                    <span>{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <h2 class="display-text text-md" style="margin-bottom: 12px;">{{ paper.title }}</h2>
+                <p class="sub-text" style="max-width: 800px;">{{ paper.description }}</p>
+            </div>
+
+            <div class="publication-actions">
+                <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="btn-outline"
+                    style="font-size: 0.8rem; padding: 8px 16px;">Read PDF</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

@@ -3,64 +3,73 @@
 {% block title %}About | Abishek{% endblock %}
 
 {% block content %}
-<div class="bento-grid">
-  <!-- Combined Editorial Card -->
-  <div class="bento-card col-span-12 book-container">
+<section class="section">
+  <div class="bento-card about-card">
+    <div class="about-grid">
+      <div>
+        <h1 class="display-text text-lg" style="margin-bottom: 28px;">
+          Bridging the gap between<br>
+          <span style="color: var(--color-indigo);">Research</span> &
+          <span style="color: var(--color-pink);">Engineering</span>.
+        </h1>
 
-    <!-- Profile Image (Floated Right) -->
-    <div class="profile-float">
-      <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Abishek Kumar Giri" loading="lazy" decoding="async">
-    </div>
+        <div class="book-text">
+          <p>
+            I am a software engineer with a strong focus on backend systems, applied machine learning, and data-driven
+            problem solving. My work sits at the intersection of software engineering and research, where I design
+            systems
+            that prioritize reliability, scalability, and measurable impact.
+          </p>
+          <p>
+            I have experience building end-to-end machine learning pipelines, backend services, and research-oriented
+            projects that emphasize correctness, performance, and reproducibility. My projects often involve working
+            with
+            real-world datasets, implementing evaluation metrics, and translating experimental results into practical
+            system
+            designs.
+          </p>
+          <p>
+            Alongside development, I am deeply interested in how large software systems fail, how they can be tested
+            more
+            effectively, and how data and machine learning can be used to improve software reliability. This interest
+            has
+            guided my independent research work in areas such as bug prediction, benchmarking, and applied ML for
+            decision-making systems.
+          </p>
+          <p>
+            I aim to pursue advanced study in software engineering and related fields, with long-term interests in
+            scalable
+            systems, testing, and applied AI. I value clarity over complexity, systems over scripts, and long-term
+            engineering principles over short-term trends.
+          </p>
+        </div>
+      </div>
 
-    <!-- Title / Header -->
-    <h1 class="display-text text-lg" style="margin-bottom: 32px; max-width: 800px;">
-      Bridging the gap between<br>
-      <span style="color: var(--color-cyan);">Research</span> &
-      <span style="color: var(--color-pink);">Engineering</span>.
-    </h1>
-
-    <!-- Book-style Text Content -->
-    <div class="book-text">
-      <p>
-        I am a software engineer with a strong focus on backend systems, applied machine learning, and data-driven
-        problem solving. My work sits at the intersection of software engineering and research, where I design systems
-        that prioritize reliability, scalability, and measurable impact.
-      </p>
-      <p>
-        I have experience building end-to-end machine learning pipelines, backend services, and research-oriented
-        projects that emphasize correctness, performance, and reproducibility. My projects often involve working with
-        real-world datasets, implementing evaluation metrics, and translating experimental results into practical system
-        designs.
-      </p>
-      <p>
-        Alongside development, I am deeply interested in how large software systems fail, how they can be tested more
-        effectively, and how data and machine learning can be used to improve software reliability. This interest has
-        guided my independent research work in areas such as bug prediction, benchmarking, and applied ML for
-        decision-making systems.
-      </p>
-      <p>
-        I aim to pursue advanced study in software engineering and related fields, with long-term interests in scalable
-        systems, testing, and applied AI. I value clarity over complexity, systems over scripts, and long-term
-        engineering principles over short-term trends.
-      </p>
+      <div class="about-media">
+        <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Abishek Kumar Giri" loading="lazy"
+          decoding="async">
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Experience Section -->
-  <div class="bento-card col-span-12">
-    <h2 class="display-text text-md" style="margin-bottom: 32px;">Experience</h2>
+<section class="section">
+  <div class="bento-card">
+    <div class="section-head">
+      <h2 class="display-text text-md">Experience</h2>
+    </div>
     <div style="display: flex; flex-direction: column; gap: 32px;">
       {% for job in experience %}
       <div class="experience-row">
         <div style="color: var(--text-muted); font-family: var(--font-body);">{{ job.duration }}</div>
         <div>
           <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 4px;">{{ job.role }}</h3>
-          <div style="color: var(--color-cyan); margin-bottom: 12px;">{{ job.company }}</div>
-          <p style="font-family: var(--font-body); opacity: 0.8; font-size: 0.95rem;">{{ job.description }}</p>
+          <div style="color: var(--color-indigo); margin-bottom: 12px;">{{ job.company }}</div>
+          <p style="font-family: var(--font-body); opacity: 0.85; font-size: 0.95rem;">{{ job.description }}</p>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-</div>
+</section>
 {% endblock %}

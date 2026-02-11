@@ -4,45 +4,40 @@
 
 {% block content %}
 
-  <div class="bento-grid">
-    <div class="col-span-12" style="margin-bottom: 40px;">
+<section class="section">
+  <div class="section-head">
+    <div>
       <h1 class="display-text text-lg">Competencies.</h1>
       <p class="sub-text">A catalog of languages, frameworks, and tools used in production.</p>
     </div>
-
-    <!-- Languages Column -->
-    <div class="col-span-12">
-      <h2 class="display-text text-md" style="margin-bottom: 30px; color: var(--color-cyan);">Languages</h2>
-      <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
-        {% for skill in skills['Languages'] %}
-        <div class="bento-card skill-card"
-          style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
-          <!-- Removed grayscale filter -->
-          <img src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async"
-            style="width: 50px; height: 50px; margin-bottom: 16px; transition: transform 0.3s;">
-          <span class="sub-text" style="font-weight: 500; font-size: 1rem; color: var(--text-main);">{{ skill.name
-            }}</span>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <!-- Tools Column -->
-    <div class="col-span-12" style="margin-top: 60px;">
-      <h2 class="display-text text-md" style="margin-bottom: 30px; color: var(--color-pink);">Infrastructure & Tools
-      </h2>
-      <div class="bento-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
-        {% for skill in skills['Tools'] %}
-        <div class="bento-card skill-card"
-          style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
-          <!-- Removed grayscale filter -->
-          <img src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async"
-            style="width: 40px; height: 40px; margin-bottom: 16px; transition: transform 0.3s;">
-          <span class="sub-text" style="font-size: 0.9rem;">{{ skill.name }}</span>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
   </div>
+
+  <div style="margin-bottom: 50px;">
+    <h2 class="display-text text-md" style="margin-bottom: 24px; color: var(--color-indigo);">Languages</h2>
+    <div class="skills-grid">
+      {% for skill in skills['Languages'] %}
+      <div class="bento-card skill-card">
+        <img src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async"
+          style="width: 50px; height: 50px;">
+        <span class="sub-text" style="font-weight: 500; font-size: 1rem; color: var(--text-main);">{{ skill.name
+          }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div>
+    <h2 class="display-text text-md" style="margin-bottom: 24px; color: var(--color-pink);">Infrastructure & Tools
+    </h2>
+    <div class="skills-grid">
+      {% for skill in skills['Tools'] %}
+      <div class="bento-card skill-card">
+        <img src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async"
+          style="width: 42px; height: 42px;">
+        <span class="sub-text" style="font-size: 0.95rem;">{{ skill.name }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}

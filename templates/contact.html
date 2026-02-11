@@ -3,24 +3,23 @@
 {% block title %}Contact | Abishek{% endblock %}
 
 {% block content %}
-<div class="bento-grid">
-  <div class="bento-card col-span-12 contact-card">
-    <div
-      style="width: 100px; height: 100px; background: var(--accent); border-radius: 50%; filter: blur(60px); opacity: 0.2; margin-bottom: -50px;">
-    </div>
+<section class="section">
+  <div class="bento-card contact-card">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-orb" aria-hidden="true"></div>
+        <h1 class="display-text text-xl" style="margin-bottom: 18px;">Let's Connect</h1>
+        <p class="sub-text" style="max-width: 520px;">
+          Interested in collaboration, research discussion, or just saying hi? My inbox is always open.
+        </p>
+      </div>
 
-    <h1 class="display-text text-xl" style="margin-bottom: 24px;">Let's Connect</h1>
-    <p class="sub-text" style="max-width: 500px; margin-bottom: 48px;">
-      Interested in collaboration, research discussion, or just saying hi? My inbox is always open.
-    </p>
-
-    <div class="contact-actions">
-      <a href="mailto:giriabishekkumar5@gmail.com" class="btn-magnetic">Send Email</a>
-      <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic"
-        style="background: transparent; border: 1px solid var(--border-dim); color: var(--text-main);">LinkedIn</a>
-      <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic"
-        style="background: transparent; border: 1px solid var(--border-dim); color: var(--text-main);">GitHub</a>
+      <div class="contact-actions">
+        <a href="mailto:giriabishekkumar5@gmail.com" class="btn-primary">Send Email</a>
+        <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic">LinkedIn</a>
+        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic">GitHub</a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}

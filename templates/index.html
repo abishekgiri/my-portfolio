@@ -1,73 +1,63 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Bento Hero Section -->
-<div class="bento-grid">
+<section class="hero">
+  <div class="hero-grid">
+    <div class="bento-card hero-card">
+      <div class="hero-glow"></div>
+      <div class="hero-orbit" aria-hidden="true"></div>
 
-  <!-- Title Card (Wide) without Status/Location -->
-  <div class="bento-card col-span-8 row-span-2 hero-card">
-    <!-- Electric Glow Background -->
-    <div class="hero-glow"></div>
+      <div>
+        <h1 class="display-text hero-title">Abishek Kumar Giri</h1>
+        <h2 class="display-text text-gradient hero-subtitle">Backend Software Engineer</h2>
 
-    <div style="position: relative; z-index: 2; margin-top: auto;">
-      <h1 class="display-text hero-title">
-        Abishek Kumar Giri
-      </h1>
-      <h2 class="display-text text-gradient hero-subtitle">
-        Backend Software Engineer
-      </h2>
+        <p class="sub-text hero-copy">
+          Based in the <span style="color: var(--text-main);">USA</span>. I architect high-performance distributed
+          systems
+          and conduct AI safety research.
+        </p>
 
-      <p class="sub-text hero-copy">
-        Based in the <span style="color: var(--text-main);">USA</span>. I architect high-performance distributed systems
-        and conduct AI safety research.
-      </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary">View my Work</a>
+          <a href="/about" class="btn-outline">About Me</a>
+        </div>
+      </div>
+    </div>
 
-      <div class="hero-actions">
-        <a href="#work" class="btn-primary">View my Work</a>
-        <a href="/about" class="btn-outline">About Me</a>
+    <div class="hero-aside">
+      <div class="bento-card">
+        <h3 class="display-text text-md" style="margin-bottom: 20px;">Technology</h3>
+        <div class="tech-icons">
+          {% for skill in skills['Languages'][:6] %}
+          <img class="tech-icon" src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async">
+          {% endfor %}
+        </div>
+        <a href="/skills" class="text-link" style="margin-top: 18px; display: inline-block;">View All Skills →</a>
+      </div>
+
+      <div class="bento-card">
+        <h3 class="display-text text-md" style="margin-bottom: 12px;">Research Lab</h3>
+        <p class="sub-text" style="margin-bottom: 20px;">Investigating AI Safety & Robustness.</p>
+        <a href="/publications" class="btn-outline">View Publications →</a>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Tools/Stack Card - Brief Preview -->
-  <div class="bento-card col-span-4" style="display: flex; flex-direction: column; justify-content: center;">
-    <h3 class="display-text text-md" style="margin-bottom: 24px;">Technology</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-      {% for skill in skills['Languages'][:6] %}
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <img src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async"
-          style="width: 32px; height: 32px; filter: grayscale(100%); transition: filter 0.3s;"
-          onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
-      </div>
-      {% endfor %}
-    </div>
-    <a href="/skills" style="margin-top: 20px; color: var(--color-cyan); font-size: 0.9rem;">View All Skills →</a>
-  </div>
-
-  <!-- Research Preview -->
-  <div class="bento-card col-span-4" style="display: flex; flex-direction: column; justify-content: center;">
-    <h3 class="display-text text-md" style="margin-bottom: 12px;">Research Lab</h3>
-    <p class="sub-text" style="margin-bottom: 20px;">Investigating AI Safety & Robustness.</p>
-    <a href="/publications" class="btn-outline" style="align-self: flex-start;">View Publications →</a>
-  </div>
-
-</div>
-
-<!-- Selected Projects Section -->
-<section id="work" style="margin-bottom: 100px; margin-top: 80px;">
-  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px;">
+<section id="work" class="section">
+  <div class="section-head">
     <h2 class="display-text text-lg">Engineering Projects</h2>
-    <a href="/projects" style="color: var(--color-cyan);">View All →</a>
+    <a href="/projects" class="text-link">View All →</a>
   </div>
 
-  <div class="bento-grid">
+  <div class="cards-grid">
     {% for project in projects[:4] %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card col-span-6"
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card"
       style="text-decoration: none; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
       <div>
-        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
           {% for tag in project.tags[:2] %}
-          <span class="skill-tag" style="font-size: 0.75rem; padding: 4px 12px;">{{ tag }}</span>
+          <span class="skill-tag">{{ tag }}</span>
           {% endfor %}
         </div>
         <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
