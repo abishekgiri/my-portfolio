@@ -573,18 +573,7 @@ body:hover .cursor-outline.hovered {
 }
 
 .about-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 4fr);
-  gap: 36px;
-  align-items: start;
-}
-
-.about-media {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lift);
-  border: 1px solid var(--border-dim);
-  background: var(--bg-card-solid);
+  max-width: 860px;
 }
 
 .book-text p {
