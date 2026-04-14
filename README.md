@@ -2,8 +2,6 @@
 
 A futuristic, high-performance personal portfolio website built with Flask and Tailwind CSS. Designed to showcase projects and skills with a premium, dynamic aesthetic.
 
-![Portfolio Preview](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg) *(Replace with actual screenshot)*
-
 ## Features
 
 *   **Futuristic Design**: Glassmorphism, neon accents, and smooth animations.
