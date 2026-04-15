@@ -5,12 +5,12 @@
 {% block content %}
 
 <section class="section">
-  <div class="section-head">
+  <div class="page-intro">
     <div>
-      <h1 class="display-text text-xl">All Works</h1>
-      <p class="sub-text" style="max-width: 600px;">A comprehensive archive of experiments, open source contributions,
-        and
-        production systems.</p>
+      <div class="eyebrow">Work archive</div>
+      <h1 class="display-text text-xl">A portfolio built around systems depth.</h1>
+      <p class="sub-text" style="max-width: 680px;">Distributed systems, research-heavy work, full-stack experiments,
+        and production-style engineering projects collected in one place.</p>
     </div>
   </div>
 </section>
@@ -26,24 +26,23 @@
     </div>
   </div>
 
-  <div class="cards-grid">
+  <div class="cards-grid archive-grid">
     {% for project in projects %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card"
-      style="text-decoration: none; min-height: 280px; display: flex; flex-direction: column;">
-      <div style="margin-bottom: 24px;">
-        <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card project-card project-card-compact">
+      <div class="project-card-head">
+        <span class="project-number">{{ "%02d"|format(loop.index) }}</span>
+        <span class="project-open">Open ↗</span>
       </div>
 
-      <p class="sub-text" style="margin-bottom: 24px; flex-grow: 1;">{{ project.description }}</p>
+      <div class="project-card-body">
+        <h3 class="display-text text-md">{{ project.title }}</h3>
+        <p class="sub-text">{{ project.description }}</p>
+      </div>
 
-      <div
-        style="border-top: 1px solid rgba(15, 23, 42, 0.08); padding-top: 16px; margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          {% for tag in project.tags[:3] %}
-          <span style="font-size: 0.75rem; color: var(--text-muted);">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        <span style="color: var(--color-indigo);">↗</span>
+      <div class="project-tags">
+        {% for tag in project.tags[:4] %}
+        <span class="skill-tag">{{ tag }}</span>
+        {% endfor %}
       </div>
     </a>
     {% endfor %}

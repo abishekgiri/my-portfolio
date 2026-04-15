@@ -4,22 +4,31 @@
 
 {% block content %}
 <section class="section">
-  <div class="bento-card contact-card">
-    <div class="contact-grid">
-      <div>
-        <div class="contact-orb" aria-hidden="true"></div>
-        <h1 class="display-text text-xl" style="margin-bottom: 18px;">Let's Connect</h1>
-        <p class="sub-text" style="max-width: 520px;">
-          Interested in collaboration, research discussion, or just saying hi? My inbox is always open.
-        </p>
-      </div>
+  <div class="contact-shell">
+    <div class="contact-copy">
+      <div class="eyebrow">Contact</div>
+      <h1 class="display-text text-xl">If you’re hiring for backend systems work, let’s talk.</h1>
+      <p class="sub-text">
+        I’m currently looking for software engineering internship opportunities and I’m happy to talk about backend
+        engineering, distributed systems, research, or open-source work.
+      </p>
+    </div>
 
-      <div class="contact-actions">
-        <a href="mailto:giriabishekkumar5@gmail.com" class="btn-primary">Send Email</a>
-        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer" class="btn-magnetic">Resume PDF</a>
-        <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic">LinkedIn</a>
-        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic">GitHub</a>
+    <div class="bento-card contact-panel">
+      <div class="contact-grid">
+        <div>
+          <div class="contact-orb" aria-hidden="true"></div>
+          <h2 class="display-text text-md">Open channels</h2>
+          <p class="sub-text">Email is the fastest way to reach me, but LinkedIn and GitHub work too.</p>
+        </div>
+
+        <div class="contact-actions">
+          <a href="mailto:giriabishekkumar5@gmail.com" class="btn-primary">Send Email</a>
+          <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+            rel="noopener noreferrer" class="btn-magnetic">Resume PDF</a>
+          <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic">LinkedIn</a>
+          <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer" class="btn-magnetic">GitHub</a>
+        </div>
       </div>
     </div>
   </div>

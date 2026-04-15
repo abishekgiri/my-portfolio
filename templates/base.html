@@ -10,25 +10,20 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 
-<body class="has-scroll-smooth">
+<body>
 
-  <!-- Mesh Background -->
-  <div class="mesh-background"></div>
-
-  <!-- Grain Overlay -->
-  <div class="noise-overlay"></div>
-
-  <!-- Custom Cursor Elements -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-outline" aria-hidden="true"></div>
+  <div class="page-backdrop" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
 
   <div class="container">
 
-    <!-- Navbar -->
     <nav class="nav-header" aria-label="Primary">
-      <a href="/" class="nav-brand">ABISHEK K GIRI</a>
+      <div class="nav-brand-block">
+        <a href="/" class="nav-brand">Abishek Kumar Giri</a>
+        <div class="nav-status"><span></span>Open to software engineering internships</div>
+      </div>
       <div class="nav-links">
-        <a href="/">Index</a>
+        <a href="/">Home</a>
         <a href="/projects">Work</a>
         <a href="/skills">Skills</a>
         <a href="/publications">Publications</a>
@@ -44,7 +39,10 @@
     </main>
 
     <footer class="site-footer">
-      <div class="body-text">© 2026 Abishek Kumar Giri</div>
+      <div>
+        <div class="footer-heading">Backend engineering, distributed systems, and applied AI.</div>
+        <div class="body-text">Built for internship recruiting, technical depth, and clear signal.</div>
+      </div>
       <div class="nav-links">
         <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -55,7 +53,6 @@
 
   </div>
 
-  <!-- Scripts -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 

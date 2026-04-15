@@ -1,46 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="hero">
+<section class="hero section">
   <div class="hero-grid">
-    <div class="bento-card hero-card">
-      <div class="hero-glow"></div>
-      <div class="hero-orbit" aria-hidden="true"></div>
+    <div class="hero-copy-block">
+      <div class="eyebrow">Backend engineering • distributed systems • AI robustness</div>
+      <p class="hero-name">Abishek Kumar Giri</p>
+      <h1 class="display-text hero-title">Reliable systems, clear thinking, real engineering.</h1>
+      <p class="sub-text hero-copy">
+        Computer Science student focused on backend engineering and building reliable, scalable systems. Experienced in
+        distributed systems and real-world applications, and currently seeking software engineering internship
+        opportunities.
+      </p>
 
-      <div>
-        <h1 class="display-text hero-title">Abishek Kumar Giri</h1>
-        <h2 class="display-text text-gradient hero-subtitle">Backend Software Engineer</h2>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">Explore selected work</a>
+        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+          rel="noopener noreferrer" class="btn-outline">Resume PDF</a>
+        <a href="/contact" class="btn-outline">Get in touch</a>
+      </div>
 
-        <p class="sub-text hero-copy">
-          Computer Science student focused on backend engineering and building reliable, scalable systems. Experienced
-          in developing distributed systems and real-world applications, and currently seeking software engineering
-          internship opportunities.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#work" class="btn-primary">View my Work</a>
-          <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-            rel="noopener noreferrer" class="btn-outline">View Resume</a>
-          <a href="/about" class="btn-outline">About Me</a>
+      <div class="hero-stat-grid">
+        <div class="info-card stat-card">
+          <span class="eyebrow">Focus</span>
+          <strong>Backend & platform engineering</strong>
+        </div>
+        <div class="info-card stat-card">
+          <span class="eyebrow">Depth</span>
+          <strong>Distributed systems and reliability</strong>
+        </div>
+        <div class="info-card stat-card">
+          <span class="eyebrow">Current</span>
+          <strong>Seeking software engineering internships</strong>
         </div>
       </div>
     </div>
 
-    <div class="hero-aside">
-      <div class="bento-card">
-        <h3 class="display-text text-md" style="margin-bottom: 20px;">Technology</h3>
+    <div class="hero-side">
+      <div class="info-card info-card-highlight">
+        <span class="eyebrow">Now</span>
+        <h2 class="display-text text-md">Building systems that are meant to hold up under load.</h2>
+        <p class="sub-text">Release governance, Raft-based storage, idempotent ledgers, and job orchestration.</p>
+      </div>
+
+      <div class="info-card">
+        <span class="eyebrow">Core stack</span>
         <div class="tech-icons">
           {% for skill in skills['Languages'][:6] %}
           <img class="tech-icon" src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async">
           {% endfor %}
         </div>
-        <a href="/skills" class="text-link" style="margin-top: 18px; display: inline-block;">View All Skills →</a>
+        <a href="/skills" class="text-link">See full toolkit ↗</a>
       </div>
 
-      <div class="bento-card">
-        <h3 class="display-text text-md" style="margin-bottom: 12px;">Research Lab</h3>
-        <p class="sub-text" style="margin-bottom: 20px;">Investigating AI Safety & Robustness.</p>
-        <a href="/publications" class="btn-outline">View Publications →</a>
+      <div class="info-card">
+        <span class="eyebrow">Research</span>
+        <p class="sub-text">Investigating AI safety, robustness, and failure modes alongside systems work.</p>
+        <a href="/publications" class="text-link">Open publications ↗</a>
       </div>
     </div>
   </div>
@@ -48,25 +64,50 @@
 
 <section id="work" class="section">
   <div class="section-head">
-    <h2 class="display-text text-lg">Engineering Projects</h2>
-    <a href="/projects" class="text-link">View All →</a>
+    <div>
+      <div class="eyebrow">Selected work</div>
+      <h2 class="display-text text-lg">Projects with real constraints, not just demos.</h2>
+    </div>
+    <a href="/projects" class="text-link">Browse full archive ↗</a>
   </div>
 
-  <div class="cards-grid">
+  <div class="project-feature-grid">
     {% for project in projects[:4] %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card"
-      style="text-decoration: none; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
-          {% for tag in project.tags[:2] %}
-          <span class="skill-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        <h3 class="display-text text-md" style="color: var(--text-main);">{{ project.title }}</h3>
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
+      class="bento-card project-card {% if loop.first %}project-card-lead{% endif %}">
+      <div class="project-card-head">
+        <span class="project-number">0{{ loop.index }}</span>
+        <span class="project-open">Source ↗</span>
       </div>
-      <p class="sub-text">{{ project.description }}</p>
+      <div class="project-card-body">
+        <h3 class="display-text text-md">{{ project.title }}</h3>
+        <p class="sub-text">{{ project.description }}</p>
+      </div>
+      <div class="project-tags">
+        {% for tag in project.tags[:4] %}
+          <span class="skill-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
     </a>
     {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="split-rail">
+    <div class="bento-card rail-card">
+      <div class="eyebrow">Approach</div>
+      <h2 class="display-text text-md">I optimize for systems that can be explained, tested, and trusted.</h2>
+      <p class="sub-text">The through-line across the portfolio is reliability: deterministic behavior, clear system
+        boundaries, and verification beyond happy-path demos.</p>
+    </div>
+
+    <div class="bento-card rail-card">
+      <div class="eyebrow">Open source</div>
+      <h2 class="display-text text-md">Active contributions across large public codebases.</h2>
+      <p class="sub-text">Recent work spans iii, OpenSearch, Bazel, Kubernetes, FastAPI, GraphQL.js, Dapr, and
+        Appwrite.</p>
+    </div>
   </div>
 </section>
 {% endblock %}

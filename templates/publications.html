@@ -5,19 +5,21 @@
 {% block content %}
 
 <section class="section">
-    <div class="section-head">
+    <div class="page-intro">
         <div>
-            <h1 class="display-text text-lg">Research Lab.</h1>
-            <p class="sub-text" style="max-width: 600px; margin-top: 16px;">
-                Investigating safety, robustness, and failure modes in large-scale AI systems.
+            <div class="eyebrow">Research</div>
+            <h1 class="display-text text-lg">AI systems, robustness, and failure modes.</h1>
+            <p class="sub-text" style="max-width: 680px; margin-top: 16px;">
+                Publications and research-driven projects exploring safety, reliability, and behavior under stress in
+                large-scale AI systems.
             </p>
         </div>
     </div>
 
-    <div>
+    <div class="publication-list">
         {% for paper in papers %}
-        <div class="bento-card publication-row" style="margin-bottom: 24px;">
-            <div class="sub-text" style="font-weight: 700; color: var(--color-indigo);">2024</div>
+        <div class="bento-card publication-row">
+            <div class="publication-year">2024</div>
 
             <div class="publication-body">
                 <div class="publication-tags">
@@ -26,13 +28,12 @@
                     <span>{{ tag }}</span>
                     {% endfor %}
                 </div>
-                <h2 class="display-text text-md" style="margin-bottom: 12px;">{{ paper.title }}</h2>
-                <p class="sub-text" style="max-width: 800px;">{{ paper.description }}</p>
+                <h2 class="display-text text-md">{{ paper.title }}</h2>
+                <p class="sub-text">{{ paper.description }}</p>
             </div>
 
             <div class="publication-actions">
-                <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="btn-outline"
-                    style="font-size: 0.8rem; padding: 8px 16px;">Read PDF</a>
+                <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="btn-outline">Read PDF</a>
             </div>
         </div>
         {% endfor %}
