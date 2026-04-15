@@ -4,57 +4,64 @@
 
 {% block content %}
 <section class="section">
-  <div class="page-surface about-card">
+  <div class="page-intro">
     <div class="eyebrow">About</div>
-    <h1 class="display-text text-lg about-heading">Backend engineering with a systems and research mindset.</h1>
+    <h1 class="display-text text-xl">Backend engineering with a systems lens and a bias toward reliability.</h1>
+  </div>
+</section>
 
-    <div class="book-text">
-      <p>
-        I am a software engineer with a strong focus on backend systems, applied machine learning, and data-driven
-        problem solving. My work sits at the intersection of software engineering and research, where I design systems
-        that prioritize reliability, scalability, and measurable impact.
-      </p>
-      <p>
-        I have experience building end-to-end machine learning pipelines, backend services, and research-oriented
-        projects that emphasize correctness, performance, and reproducibility. My projects often involve working with
-        real-world datasets, implementing evaluation metrics, and translating experimental results into practical
-        system designs.
-      </p>
-      <p>
-        Alongside development, I am deeply interested in how large software systems fail, how they can be tested more
-        effectively, and how data and machine learning can be used to improve software reliability. This interest has
-        guided my independent research work in areas such as bug prediction, benchmarking, and applied ML for
-        decision-making systems.
-      </p>
-      <p>
-        I aim to pursue advanced study in software engineering and related fields, with long-term interests in scalable
-        systems, testing, and applied AI. I value clarity over complexity, systems over scripts, and long-term
-        engineering principles over short-term trends.
-      </p>
+<section class="section">
+  <div class="project-grid-two">
+    <div>
+      <div class="surface-block">
+        <p class="sub-text">I’m a Computer Science student building backend systems, distributed infrastructure, and
+          research-oriented software that has to make sense under load, under failure, and under review.</p>
+        <p class="sub-text">A lot of my work is shaped by the same instincts: make state transitions explicit, make
+          behavior testable, and make failure easier to reason about than success-path demos usually allow.</p>
+      </div>
+
+      <div class="surface-block">
+        <p class="sub-text">That has led me toward projects in release governance, Raft-based storage, financial
+          ledgers, schedulers, AI robustness research, and open-source contributions across larger public codebases.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="surface-block">
+        <div class="eyebrow">What I’m looking for</div>
+        <p class="sub-text">Software engineering internships where backend depth, systems thinking, and engineering
+          clarity matter more than surface polish.</p>
+      </div>
+
+      <div class="surface-block">
+        <div class="eyebrow">Long-term</div>
+        <p class="sub-text">I’m especially interested in scalable systems, software reliability, and how applied AI
+          can improve engineering without making systems less understandable.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="page-surface">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Experience</div>
-        <h2 class="display-text text-md">Work that sharpened communication and ownership.</h2>
-      </div>
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Timeline</div>
+      <h2 class="display-text text-lg">Work that sharpened ownership, communication, and calm under pressure.</h2>
     </div>
-    <div class="timeline-list">
-      {% for job in experience %}
-      <div class="experience-row">
-        <div class="experience-date">{{ job.duration }}</div>
-        <div class="timeline-card">
-          <h3 class="timeline-title">{{ job.role }}</h3>
-          <div class="timeline-company">{{ job.company }}</div>
-          <p class="sub-text">{{ job.description }}</p>
-        </div>
+  </div>
+
+  <div class="timeline-list">
+    {% for job in experience %}
+    <div class="timeline-row">
+      <div class="timeline-date">{{ job.duration }}</div>
+      <div class="timeline-main">
+        <h3 class="display-text">{{ job.role }}</h3>
+        <div class="body-text">{{ job.company }}</div>
+        <p class="sub-text">{{ job.description }}</p>
       </div>
-      {% endfor %}
+      <div class="project-meta">{{ job.type|title }}</div>
     </div>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}

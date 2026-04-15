@@ -2,62 +2,19 @@
 
 {% block content %}
 <section class="hero section">
-  <div class="hero-grid">
-    <div class="hero-copy-block">
-      <div class="eyebrow">Backend engineering • distributed systems • AI robustness</div>
-      <p class="hero-name">Abishek Kumar Giri</p>
-      <h1 class="display-text hero-title">Reliable systems, clear thinking, real engineering.</h1>
-      <p class="sub-text hero-copy">
+  <div class="hero-stage">
+    <div class="hero-signal" aria-hidden="true"></div>
+    <a href="/contact" class="hero-contact">Get in touch -></a>
+
+    <div class="hero-copy">
+      <div class="hero-kicker">Abishek Kumar Giri</div>
+      <h1 class="display-text hero-title">Backend systems built to survive real load.</h1>
+      <p class="sub-text hero-subcopy">
         Computer Science student focused on backend engineering and building reliable, scalable systems. Experienced in
-        distributed systems and real-world applications, and currently seeking software engineering internship
-        opportunities.
+        developing distributed systems and real-world applications, and currently seeking software engineering
+        internship opportunities.
       </p>
-
-      <div class="hero-actions">
-        <a href="#work" class="btn-primary">Explore selected work</a>
-        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer" class="btn-outline">Resume PDF</a>
-        <a href="/contact" class="btn-outline">Get in touch</a>
-      </div>
-
-      <div class="hero-stat-grid">
-        <div class="info-card stat-card">
-          <span class="eyebrow">Focus</span>
-          <strong>Backend & platform engineering</strong>
-        </div>
-        <div class="info-card stat-card">
-          <span class="eyebrow">Depth</span>
-          <strong>Distributed systems and reliability</strong>
-        </div>
-        <div class="info-card stat-card">
-          <span class="eyebrow">Current</span>
-          <strong>Seeking software engineering internships</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-side">
-      <div class="info-card info-card-highlight">
-        <span class="eyebrow">Now</span>
-        <h2 class="display-text text-md">Building systems that are meant to hold up under load.</h2>
-        <p class="sub-text">Release governance, Raft-based storage, idempotent ledgers, and job orchestration.</p>
-      </div>
-
-      <div class="info-card">
-        <span class="eyebrow">Core stack</span>
-        <div class="tech-icons">
-          {% for skill in skills['Languages'][:6] %}
-          <img class="tech-icon" src="{{ skill.icon }}" alt="{{ skill.name }}" loading="lazy" decoding="async">
-          {% endfor %}
-        </div>
-        <a href="/skills" class="text-link">See full toolkit ↗</a>
-      </div>
-
-      <div class="info-card">
-        <span class="eyebrow">Research</span>
-        <p class="sub-text">Investigating AI safety, robustness, and failure modes alongside systems work.</p>
-        <a href="/publications" class="text-link">Open publications ↗</a>
-      </div>
+      <div class="hero-range">2022 - Future</div>
     </div>
   </div>
 </section>
@@ -66,47 +23,60 @@
   <div class="section-head">
     <div>
       <div class="eyebrow">Selected work</div>
-      <h2 class="display-text text-lg">Projects with real constraints, not just demos.</h2>
+      <h2 class="display-text text-lg">Projects with failure modes, constraints, and clear system boundaries.</h2>
     </div>
-    <a href="/projects" class="text-link">Browse full archive ↗</a>
+    <a href="/projects" class="text-link">Full archive ↗</a>
   </div>
 
-  <div class="project-feature-grid">
+  <div class="project-list">
     {% for project in projects[:4] %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
-      class="bento-card project-card {% if loop.first %}project-card-lead{% endif %}">
-      <div class="project-card-head">
-        <span class="project-number">0{{ loop.index }}</span>
-        <span class="project-open">Source ↗</span>
-      </div>
-      <div class="project-card-body">
-        <h3 class="display-text text-md">{{ project.title }}</h3>
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-row">
+      <div class="project-index">{{ "%02d"|format(loop.index) }}</div>
+      <div class="project-main">
+        <h3 class="display-text">{{ project.title }}</h3>
         <p class="sub-text">{{ project.description }}</p>
+        <div class="project-tags">
+          {% for tag in project.tags[:4] %}
+          <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
       </div>
-      <div class="project-tags">
-        {% for tag in project.tags[:4] %}
-          <span class="skill-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+      <div class="project-arrow">Source ↗</div>
     </a>
     {% endfor %}
   </div>
 </section>
 
 <section class="section">
-  <div class="split-rail">
-    <div class="bento-card rail-card">
+  <div class="project-grid-two">
+    <div>
       <div class="eyebrow">Approach</div>
-      <h2 class="display-text text-md">I optimize for systems that can be explained, tested, and trusted.</h2>
-      <p class="sub-text">The through-line across the portfolio is reliability: deterministic behavior, clear system
-        boundaries, and verification beyond happy-path demos.</p>
+      <div class="surface-block">
+        <h2 class="display-text text-md">I optimize for systems that can be explained, tested, and trusted.</h2>
+        <p class="sub-text">Release governance, transactional storage, idempotent ledgers, and schedulers are the
+          through-line here. The goal is usually the same: remove ambiguity, keep behavior deterministic, and make
+          failure visible.</p>
+      </div>
+      <div class="surface-block">
+        <h2 class="display-text text-md">Current direction</h2>
+        <p class="sub-text">Actively looking for software engineering internships where backend depth, systems
+          thinking, and clear engineering judgment matter.</p>
+      </div>
     </div>
 
-    <div class="bento-card rail-card">
-      <div class="eyebrow">Open source</div>
-      <h2 class="display-text text-md">Active contributions across large public codebases.</h2>
-      <p class="sub-text">Recent work spans iii, OpenSearch, Bazel, Kubernetes, FastAPI, GraphQL.js, Dapr, and
-        Appwrite.</p>
+    <div>
+      <div class="eyebrow">Signals</div>
+      <div class="surface-block">
+        <h2 class="display-text text-md">Open source across real external codebases.</h2>
+        <p class="sub-text">Contributions and pull requests across iii, OpenSearch, Bazel, Kubernetes, FastAPI,
+          GraphQL.js, Dapr, and Appwrite.</p>
+      </div>
+      <div class="surface-block">
+        <h2 class="display-text text-md">Toolkit</h2>
+        <p class="sub-text">Python, Go, PostgreSQL, Redis, FastAPI, Docker, observability tooling, and distributed
+          systems fundamentals show up repeatedly across the portfolio.</p>
+        <a href="/skills" class="text-link">See full stack ↗</a>
+      </div>
     </div>
   </div>
 </section>

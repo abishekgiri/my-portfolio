@@ -3,52 +3,46 @@
 {% block title %}Work | Abishek{% endblock %}
 
 {% block content %}
-
 <section class="section">
   <div class="page-intro">
     <div>
       <div class="eyebrow">Work archive</div>
-      <h1 class="display-text text-xl">A portfolio built around systems depth.</h1>
-      <p class="sub-text" style="max-width: 680px;">Distributed systems, research-heavy work, full-stack experiments,
-        and production-style engineering projects collected in one place.</p>
+      <h1 class="display-text text-xl">A portfolio organized by systems depth, research, and shipped application work.</h1>
+      <p class="sub-text">The strongest thread in the archive is backend and distributed systems, but the range also
+        includes applied AI, data work, and full-stack products.</p>
     </div>
   </div>
 </section>
 
-<!-- Loop through Categories -->
 {% for category, projects in grouped_projects.items() %}
 {% if projects %}
 <section class="section">
   <div class="section-head">
-    <div class="section-title">
-      <h2 class="display-text text-lg" style="color: var(--color-indigo);">{{ category }}</h2>
+    <div>
+      <div class="eyebrow">Category</div>
+      <h2 class="display-text text-lg">{{ category }}</h2>
       <span class="count-pill">{{ projects|length }} Projects</span>
     </div>
   </div>
 
-  <div class="cards-grid archive-grid">
+  <div class="archive-list">
     {% for project in projects %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="bento-card project-card project-card-compact">
-      <div class="project-card-head">
-        <span class="project-number">{{ "%02d"|format(loop.index) }}</span>
-        <span class="project-open">Open ↗</span>
-      </div>
-
-      <div class="project-card-body">
-        <h3 class="display-text text-md">{{ project.title }}</h3>
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-row">
+      <div class="project-index">{{ "%02d"|format(loop.index) }}</div>
+      <div class="project-main">
+        <h3 class="display-text">{{ project.title }}</h3>
         <p class="sub-text">{{ project.description }}</p>
+        <div class="project-tags">
+          {% for tag in project.tags[:4] %}
+          <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
       </div>
-
-      <div class="project-tags">
-        {% for tag in project.tags[:4] %}
-        <span class="skill-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+      <div class="project-arrow">Open ↗</div>
     </a>
     {% endfor %}
   </div>
 </section>
 {% endif %}
 {% endfor %}
-
 {% endblock %}

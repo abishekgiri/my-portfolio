@@ -6,31 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Abishek | Backend Engineer{% endblock %}</title>
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
-  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 
 <body>
-
   <div class="page-backdrop" aria-hidden="true"></div>
   <div class="noise-overlay" aria-hidden="true"></div>
 
   <div class="container">
-
     <nav class="nav-header" aria-label="Primary">
-      <div class="nav-brand-block">
-        <a href="/" class="nav-brand">Abishek Kumar Giri</a>
-        <div class="nav-status"><span></span>Open to software engineering internships</div>
+      <a href="/" class="nav-mark" aria-label="Home">
+        <span>AG</span>
+      </a>
+
+      <div class="nav-directory">
+        <div class="nav-column">
+          <div class="nav-label">Archive</div>
+          <a href="/">Index</a>
+          <a href="/projects">Works</a>
+          <a href="/publications">Research</a>
+        </div>
+
+        <div class="nav-column">
+          <div class="nav-label">Narrative</div>
+          <a href="/about">About</a>
+          <a href="/skills">Stack</a>
+          <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+            rel="noopener noreferrer">Resume</a>
+        </div>
+
+        <div class="nav-column">
+          <div class="nav-label">Liaison</div>
+          <a href="/contact">Connect</a>
+          <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
       </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/projects">Work</a>
-        <a href="/skills">Skills</a>
-        <a href="/publications">Publications</a>
-        <a href="/about">About</a>
-        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer">Resume</a>
-        <a href="/contact">Contact</a>
+
+      <div class="nav-meta">
+        <span class="live-time" data-zone="America/New_York">--:--</span>
+        <strong>Open to internships</strong>
+        <span>USA / EST</span>
       </div>
     </nav>
 
@@ -39,18 +55,21 @@
     </main>
 
     <footer class="site-footer">
-      <div>
-        <div class="footer-heading">Backend engineering, distributed systems, and applied AI.</div>
-        <div class="body-text">Built for internship recruiting, technical depth, and clear signal.</div>
+      <div class="footer-block">
+        <div class="footer-note">Abishek Kumar Giri</div>
+        <div class="body-text">Backend engineering, distributed systems, and production-style software systems.</div>
       </div>
-      <div class="nav-links">
+
+      <div class="footer-block footer-links">
+        <a href="/projects">Work</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
         <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
           rel="noopener noreferrer">Resume</a>
       </div>
     </footer>
-
   </div>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
