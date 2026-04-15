@@ -1,5 +1,56 @@
 [
     {
+        "title": "ReleaseGate",
+        "description": "Jira-native release governance engine with declarative policy enforcement, immutable audit snapshots, and offline-verifiable proof packs.",
+        "link": "https://github.com/abishekgiri/change-risk-predictor-",
+        "category": "systems",
+        "tags": [
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "Redis",
+            "Security"
+        ]
+    },
+    {
+        "title": "ShardDB",
+        "description": "Fault-tolerant transactional key-value store with custom Raft, 2PC, snapshots, and chaos-tested linearizability checks.",
+        "link": "https://github.com/abishekgiri/sharddb",
+        "category": "systems",
+        "tags": [
+            "Go",
+            "Distributed Systems",
+            "Raft",
+            "2PC",
+            "Snapshotting"
+        ]
+    },
+    {
+        "title": "MIDAS Ledger",
+        "description": "Concurrency-safe financial ledger with double-entry accounting, idempotent transfers, and invariant-based stress testing.",
+        "link": "https://github.com/abishekgiri/MIDAS-Ledger",
+        "category": "systems",
+        "tags": [
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "Distributed Systems"
+        ]
+    },
+    {
+        "title": "Job Orchestrator",
+        "description": "Multi-tenant job orchestration system with race-free leasing, fairness controls, transactional outbox delivery, and observability.",
+        "link": "https://github.com/abishekgiri/job_orchestrator-",
+        "category": "systems",
+        "tags": [
+            "Python",
+            "PostgreSQL",
+            "Redis",
+            "Distributed Systems",
+            "Prometheus"
+        ]
+    },
+    {
         "title": "Travel Buddies",
         "description": "Social travel platform for finding travel companions.",
         "link": "https://github.com/abishekgiri/Travel-Buddies",
@@ -241,27 +292,6 @@
         ]
     },
     {
-        "title": "Job Orchestrator",
-        "description": "Distributed job orchestration system.",
-        "link": "https://github.com/abishekgiri/job_orchestrator-",
-        "category": "data",
-        "tags": [
-            "Python",
-            "Distributed Systems"
-        ]
-    },
-    {
-        "title": "MIDAS Ledger",
-        "description": "High-throughput ledger system.",
-        "link": "https://github.com/abishekgiri/MIDAS-Ledger",
-        "category": "data",
-        "tags": [
-            "Blockchain",
-            "Ledger",
-            "Python"
-        ]
-    },
-    {
         "title": "Research Paper",
         "description": "Academic research paper repository.",
         "link": "https://github.com/abishekgiri/Research-Paper",
@@ -334,17 +364,6 @@
             "Flink",
             "Kafka",
             "Java"
-        ]
-    },
-    {
-        "title": "ShardDB",
-        "description": "Sharded database implementation.",
-        "link": "https://github.com/abishekgiri/sharddb",
-        "category": "data",
-        "tags": [
-            "Database",
-            "Sharding",
-            "Go"
         ]
     },
     {

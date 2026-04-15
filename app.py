@@ -147,7 +147,7 @@ def projects_page():
         title = p.get('title', '')
         category = p.get('category', '')
         
-        if 'Distributed Systems' in tags or 'Go' in tags or 'Kubernetes' in tags or 'Docker' in tags or 'Kafka' in tags:
+        if category == 'systems' or 'Distributed Systems' in tags or 'Go' in tags or 'Kubernetes' in tags or 'Docker' in tags or 'Kafka' in tags:
              grouped_projects["Distributed Systems & Infrastructure"].append(p)
         elif 'AI' in tags or 'ML' in tags or 'NLP' in tags or 'Research' in tags or category == 'ai':
              grouped_projects["AI Research & Engineering"].append(p)
