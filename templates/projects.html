@@ -7,9 +7,9 @@
   <div class="page-intro">
     <div>
       <div class="eyebrow">Work archive</div>
-      <h1 class="display-text text-xl">A portfolio organized by systems depth, research, and shipped application work.</h1>
-      <p class="sub-text">The strongest thread in the archive is backend and distributed systems, but the range also
-        includes applied AI, data work, and full-stack products.</p>
+      <h1 class="page-title">Projects organized by systems depth, research, and shipped application work.</h1>
+      <p class="section-description">The strongest thread in the archive is backend and distributed systems, but the
+        portfolio also includes applied AI, data work, and full-stack products.</p>
     </div>
   </div>
 </section>
@@ -17,28 +17,28 @@
 {% for category, projects in grouped_projects.items() %}
 {% if projects %}
 <section class="section">
-  <div class="section-head">
+  <div class="section-header">
     <div>
       <div class="eyebrow">Category</div>
-      <h2 class="display-text text-lg">{{ category }}</h2>
+      <h2 class="section-title">{{ category }}</h2>
       <span class="count-pill">{{ projects|length }} Projects</span>
     </div>
   </div>
 
-  <div class="archive-list">
+  <div class="card-grid project-grid">
     {% for project in projects %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-row">
-      <div class="project-index">{{ "%02d"|format(loop.index) }}</div>
-      <div class="project-main">
-        <h3 class="display-text">{{ project.title }}</h3>
-        <p class="sub-text">{{ project.description }}</p>
-        <div class="project-tags">
-          {% for tag in project.tags[:4] %}
-          <span>{{ tag }}</span>
-          {% endfor %}
-        </div>
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="surface-card project-card">
+      <div class="project-card-top">
+        <span class="project-index">{{ "%02d"|format(loop.index) }}</span>
+        <span class="section-link">GitHub ↗</span>
       </div>
-      <div class="project-arrow">Open ↗</div>
+      <h3 class="entry-title">{{ project.title }}</h3>
+      <p class="entry-description">{{ project.description }}</p>
+      <div class="pill-list">
+          {% for tag in project.tags[:4] %}
+          <span class="pill">{{ tag }}</span>
+          {% endfor %}
+      </div>
     </a>
     {% endfor %}
   </div>

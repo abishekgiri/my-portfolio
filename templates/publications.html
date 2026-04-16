@@ -7,30 +7,30 @@
   <div class="page-intro">
     <div>
       <div class="eyebrow">Research</div>
-      <h1 class="display-text text-xl">AI systems, robustness, and failure modes.</h1>
-      <p class="sub-text">Publications and research-driven work exploring safety, reliability, benchmarking, and
-        behavior under stress in large-scale software and AI systems.</p>
+      <h1 class="page-title">AI systems, robustness, and failure modes.</h1>
+      <p class="section-description">Publications and research-driven work exploring safety, reliability,
+        benchmarking, and behavior under stress in large-scale software and AI systems.</p>
     </div>
   </div>
 
   <div class="publication-list">
     {% for paper in papers %}
-    <div class="publication-row">
-      <div class="publication-year">2024</div>
-      <div class="publication-main">
+    <article class="surface-card publication-card">
+      <div class="timeline-top">
+        <span class="timeline-type">Paper</span>
+        <span class="timeline-date">2024</span>
+      </div>
+      <div>
         <div class="publication-tags">
-          <span>PAPER</span>
           {% for tag in paper.tags[:3] %}
-          <span>{{ tag }}</span>
+          <span class="pill">{{ tag }}</span>
           {% endfor %}
         </div>
-        <h2 class="display-text">{{ paper.title }}</h2>
-        <p class="sub-text">{{ paper.description }}</p>
+        <h2 class="entry-title">{{ paper.title }}</h2>
+        <p class="entry-description">{{ paper.description }}</p>
       </div>
-      <div class="publication-actions">
-        <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="btn-outline">Open ↗</a>
-      </div>
-    </div>
+      <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="button button-secondary">Open ↗</a>
+    </article>
     {% endfor %}
   </div>
 </section>

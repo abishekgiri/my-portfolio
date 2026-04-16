@@ -6,61 +6,62 @@
 <section class="section">
   <div class="page-intro">
     <div class="eyebrow">About</div>
-    <h1 class="display-text text-xl">Backend engineering with a systems lens and a bias toward reliability.</h1>
+    <h1 class="page-title">Backend engineering with a systems lens and a bias toward reliability.</h1>
+    <p class="section-description">This page fills in the context behind the projects: how I think about systems, what
+      I’m trying to learn, and the work that shaped how I operate.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="project-grid-two">
-    <div>
-      <div class="surface-block">
-        <p class="sub-text">I’m a Computer Science student building backend systems, distributed infrastructure, and
-          research-oriented software that has to make sense under load, under failure, and under review.</p>
-        <p class="sub-text">A lot of my work is shaped by the same instincts: make state transitions explicit, make
-          behavior testable, and make failure easier to reason about than success-path demos usually allow.</p>
-      </div>
+  <div class="two-column-grid">
+    <article class="surface-card prose-card">
+      <p>I’m a Computer Science student building backend systems, distributed infrastructure, and research-oriented
+        software that has to make sense under load, under failure, and under review.</p>
+      <p>A lot of my work is shaped by the same instincts: make state transitions explicit, make behavior testable, and
+        make failure easier to reason about than success-path demos usually allow.</p>
+      <p>That has led me toward release governance, Raft-based storage, financial ledgers, schedulers, AI robustness
+        research, and open-source contributions across larger public codebases.</p>
+    </article>
 
-      <div class="surface-block">
-        <p class="sub-text">That has led me toward projects in release governance, Raft-based storage, financial
-          ledgers, schedulers, AI robustness research, and open-source contributions across larger public codebases.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="surface-block">
-        <div class="eyebrow">What I’m looking for</div>
-        <p class="sub-text">Software engineering internships where backend depth, systems thinking, and engineering
-          clarity matter more than surface polish.</p>
-      </div>
-
-      <div class="surface-block">
-        <div class="eyebrow">Long-term</div>
-        <p class="sub-text">I’m especially interested in scalable systems, software reliability, and how applied AI
-          can improve engineering without making systems less understandable.</p>
-      </div>
-    </div>
+    <article class="surface-card">
+      <h2 class="card-title">What I’m looking for</h2>
+      <ul class="detail-list">
+        <li>
+          <span>Roles</span>
+          <strong>Software engineering internships with backend or platform depth</strong>
+        </li>
+        <li>
+          <span>Interests</span>
+          <strong>Scalable systems, software reliability, and applied AI</strong>
+        </li>
+        <li>
+          <span>Working style</span>
+          <strong>Clear communication, explicit tradeoffs, and pragmatic execution</strong>
+        </li>
+      </ul>
+    </article>
   </div>
 </section>
 
 <section class="section">
-  <div class="section-head">
+  <div class="section-header">
     <div>
       <div class="eyebrow">Timeline</div>
-      <h2 class="display-text text-lg">Work that sharpened ownership, communication, and calm under pressure.</h2>
+      <h2 class="section-title">Experience and leadership</h2>
     </div>
   </div>
 
   <div class="timeline-list">
     {% for job in experience %}
-    <div class="timeline-row">
-      <div class="timeline-date">{{ job.duration }}</div>
-      <div class="timeline-main">
-        <h3 class="display-text">{{ job.role }}</h3>
-        <div class="body-text">{{ job.company }}</div>
-        <p class="sub-text">{{ job.description }}</p>
+    <article class="surface-card timeline-item">
+      <div class="timeline-top">
+        <span class="timeline-type">{{ job.type|title }}</span>
+        <span class="timeline-date">{{ job.duration }}</span>
       </div>
-      <div class="project-meta">{{ job.type|title }}</div>
-    </div>
+      <h3 class="entry-title">{{ job.role }}</h3>
+      <p class="entry-subtitle">{{ job.company }}</p>
+      <p class="entry-description">{{ job.description }}</p>
+    </article>
     {% endfor %}
   </div>
 </section>

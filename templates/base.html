@@ -11,56 +11,37 @@
 
 <body>
   <div class="page-backdrop" aria-hidden="true"></div>
-  <div class="noise-overlay" aria-hidden="true"></div>
 
-  <div class="container">
-    <nav class="nav-header" aria-label="Primary">
-      <a href="/" class="nav-mark" aria-label="Home">
-        <span>AG</span>
+  <div class="site-shell">
+    <header class="site-header" aria-label="Primary">
+      <a href="/" class="brand">
+        <span class="brand-name">Abishek Kumar Giri</span>
+        <span class="brand-role">Backend engineer</span>
       </a>
 
-      <div class="nav-directory">
-        <div class="nav-column">
-          <div class="nav-label">Archive</div>
-          <a href="/">Index</a>
-          <a href="/projects">Works</a>
-          <a href="/publications">Research</a>
-        </div>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/skills">Skills</a>
+        <a href="/publications">Research</a>
+        <a href="/contact">Contact</a>
+        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+          rel="noopener noreferrer">Resume</a>
+      </nav>
+    </header>
 
-        <div class="nav-column">
-          <div class="nav-label">Narrative</div>
-          <a href="/about">About</a>
-          <a href="/skills">Stack</a>
-          <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-            rel="noopener noreferrer">Resume</a>
-        </div>
-
-        <div class="nav-column">
-          <div class="nav-label">Liaison</div>
-          <a href="/contact">Connect</a>
-          <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </div>
-
-      <div class="nav-meta">
-        <span class="live-time" data-zone="America/New_York">--:--</span>
-        <strong>Open to internships</strong>
-        <span>USA / EST</span>
-      </div>
-    </nav>
-
-    <main class="page">
+    <main class="page-content">
       {% block content %}{% endblock %}
     </main>
 
     <footer class="site-footer">
-      <div class="footer-block">
-        <div class="footer-note">Abishek Kumar Giri</div>
-        <div class="body-text">Backend engineering, distributed systems, and production-style software systems.</div>
+      <div>
+        <div class="eyebrow">Currently seeking software engineering internships</div>
+        <p class="footer-copy">Backend engineering, distributed systems, and production-style software systems.</p>
       </div>
 
-      <div class="footer-block footer-links">
+      <div class="footer-links">
         <a href="/projects">Work</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>

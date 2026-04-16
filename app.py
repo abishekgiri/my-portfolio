@@ -107,7 +107,6 @@ def index():
         skills_data[cat] = unique_skills
 
     # Filter Research Papers
-    research_papers = []
     normal_projects = []
     
     for p in projects:
@@ -116,15 +115,17 @@ def index():
              if 'Paper' in p.get('title', '') or 'Research' in p.get('title', '') or 'Defense' in p.get('title', '') or 'Failure' in p.get('title', ''):
                  is_research = True
         
-        if is_research:
-            research_papers.append(p)
-        else:
+        if not is_research:
             normal_projects.append(p)
 
+    featured_experience = [item for item in experience if item.get("type") != "education"][:3]
+    education_entries = [item for item in experience if item.get("type") == "education"]
 
     return render_template("index.html", 
                            projects=normal_projects, 
-                           skills=skills_data)
+                           skills=skills_data,
+                           experience=featured_experience,
+                           education=education_entries)
 
 @app.route("/projects")
 def projects_page():
