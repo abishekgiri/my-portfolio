@@ -135,9 +135,14 @@ button:focus-visible {
   color: var(--accent);
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a.nav-active {
   border-color: var(--border);
   background: rgba(255, 255, 255, 0.7);
+}
+
+.site-nav a.nav-active {
+  color: var(--accent);
 }
 
 .page-content {
@@ -485,6 +490,85 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  border-color: var(--border-strong);
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.form-row {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--text-soft);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-optional {
+  color: var(--text-soft);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  font: 1rem/1.6 var(--font-body);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.form-success {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  border-radius: 12px;
+  background: rgba(22, 163, 74, 0.08);
+  color: #166534;
+  font-size: 0.95rem;
+}
+
+.contact-form button {
+  cursor: pointer;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -507,7 +591,8 @@ button:focus-visible {
   .hero-grid,
   .two-column-grid,
   .card-grid-two,
-  .project-grid {
+  .project-grid,
+  .form-row {
     grid-template-columns: 1fr;
     display: grid;
   }

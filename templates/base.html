@@ -20,12 +20,12 @@
       </a>
 
       <nav class="site-nav">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/projects">Projects</a>
-        <a href="/skills">Skills</a>
-        <a href="/publications">Research</a>
-        <a href="/contact">Contact</a>
+        <a href="/" class="{{ 'nav-active' if request.path == '/' else '' }}">Home</a>
+        <a href="/about" class="{{ 'nav-active' if request.path == '/about' else '' }}">About</a>
+        <a href="/projects" class="{{ 'nav-active' if request.path == '/projects' else '' }}">Projects</a>
+        <a href="/skills" class="{{ 'nav-active' if request.path == '/skills' else '' }}">Skills</a>
+        <a href="/publications" class="{{ 'nav-active' if request.path == '/publications' else '' }}">Research</a>
+        <a href="/contact" class="{{ 'nav-active' if request.path == '/contact' else '' }}">Contact</a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
           rel="noopener noreferrer">Resume</a>
       </nav>
@@ -46,7 +46,7 @@
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
         <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
           rel="noopener noreferrer">Resume</a>
       </div>
