@@ -5,38 +5,44 @@
 {% block content %}
 <section class="section">
   <div class="page-intro">
-    <div class="eyebrow"><span class="eyebrow-num">00</span> Toolkit</div>
+    <span class="section-num">§ 00 · Toolkit</span>
     <h1 class="page-title">
-      The stack, <span class="italic" style="font-style: italic; color: var(--accent);">mapped</span>.
+      The stack, <em>mapped.</em>
     </h1>
-    <p class="section-description" style="margin-top: 28px;">
-      These are the tools and languages that show up repeatedly across the portfolio — especially in distributed
-      systems, reliability work, and backend services.
+    <p class="section-description" style="margin-top: 28px; font-size: 1.1rem; color: var(--ink);">
+      Tools and languages that show up repeatedly across the portfolio — especially in distributed systems,
+      reliability work, and backend services.
     </p>
   </div>
 </section>
 
 <section class="section">
-  <div class="card-grid card-grid-two">
-    <article class="surface-card">
-      <div class="eyebrow"><span class="eyebrow-num">01</span> Languages</div>
-      <h2 class="card-title">Core implementation languages</h2>
-      <div class="pill-list" style="margin-top: 22px;">
-        {% for skill in skills['Languages'] %}
-        <span class="pill">{{ skill.name }}</span>
-        {% endfor %}
-      </div>
-    </article>
+  <div class="section-header">
+    <div>
+      <span class="section-num">§ 01</span>
+      <h2 class="section-title">Languages</h2>
+    </div>
+    <span class="count-pill">{{ skills['Languages']|length }} entries</span>
+  </div>
+  <div class="pill-list" style="margin-top: 4px;">
+    {% for skill in skills['Languages'] %}
+    <span class="pill">{{ skill.name }}</span>
+    {% endfor %}
+  </div>
+</section>
 
-    <article class="surface-card">
-      <div class="eyebrow"><span class="eyebrow-num">02</span> Infrastructure</div>
-      <h2 class="card-title">Frameworks, storage & systems</h2>
-      <div class="pill-list" style="margin-top: 22px;">
-        {% for skill in skills['Tools'] %}
-        <span class="pill">{{ skill.name }}</span>
-        {% endfor %}
-      </div>
-    </article>
+<section class="section">
+  <div class="section-header">
+    <div>
+      <span class="section-num">§ 02</span>
+      <h2 class="section-title">Infrastructure &amp; Tools</h2>
+    </div>
+    <span class="count-pill">{{ skills['Tools']|length }} entries</span>
+  </div>
+  <div class="pill-list" style="margin-top: 4px;">
+    {% for skill in skills['Tools'] %}
+    <span class="pill">{{ skill.name }}</span>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}

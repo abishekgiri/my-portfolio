@@ -5,41 +5,44 @@
 {% block content %}
 <section class="section">
   <div class="page-intro">
-    <div class="eyebrow"><span class="eyebrow-num">00</span> Research</div>
+    <span class="section-num">§ 00 · Research</span>
     <h1 class="page-title">
-      AI systems, <span class="italic" style="font-style: italic; color: var(--accent);">stress-tested</span>.
+      AI systems,<br><em>stress-tested.</em>
     </h1>
-    <p class="section-description" style="margin-top: 28px;">
-      Publications and research-driven work exploring safety, reliability, benchmarking, and behavior under stress in
-      large-scale software and AI systems.
+    <p class="section-description" style="margin-top: 28px; font-size: 1.1rem; color: var(--ink);">
+      Research-driven work exploring safety, reliability, benchmarking, and behavior under stress in large-scale
+      software and AI systems.
     </p>
   </div>
 </section>
 
 <section class="section">
+  <div class="section-header">
+    <div>
+      <span class="section-num">§ 01</span>
+      <h2 class="section-title">Selected entries</h2>
+    </div>
+    <span class="count-pill">{{ papers|length }} entries</span>
+  </div>
+
   <div class="publication-list">
     {% for paper in papers %}
-    <article class="surface-card publication-card">
-      <div class="project-card-top">
-        <span class="project-index">{{ "%02d"|format(loop.index) }} / Research</span>
-        <span class="timeline-date">2024 – 2025</span>
-      </div>
+    <article class="publication-card">
+      <span class="project-index">N<sup>o</sup> {{ "%02d"|format(loop.index) }} · 2024–2025</span>
       <div>
         <div class="publication-tags">
           {% for tag in paper.tags[:4] %}
-          <span class="pill">{{ tag }}</span>
+          <span class="tag">{{ tag }}</span>
           {% endfor %}
         </div>
-        <h2 class="entry-title" style="font-size: 1.4rem;">{{ paper.title }}</h2>
+        <h2 class="entry-title" style="font-size: 1.6rem;">{{ paper.title }}</h2>
         <p class="entry-description">{{ paper.description }}</p>
       </div>
-      <div>
-        <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="button button-secondary">Read more →</a>
-      </div>
+      <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="button button-secondary">Read →</a>
     </article>
     {% else %}
-    <article class="surface-card">
-      <p class="entry-description">No research entries available yet.</p>
+    <article class="publication-card">
+      <p class="entry-description">No entries available yet.</p>
     </article>
     {% endfor %}
   </div>

@@ -2,48 +2,59 @@
 
 {% block content %}
 <section class="section hero-section">
-  <div class="hero-top">
-    <div class="status-chip">
-      <span class="status-dot" aria-hidden="true"></span>
-      Seeking SWE internships · Summer 2026
+  <div class="hero-masthead">
+    <div class="hero-meta-top">
+      <div>Dispatch N<sup>o</sup> <strong>01</strong> · Backend &amp; Distributed Systems</div>
+      <div>Est. 2003 · <strong>Portfolio 2026</strong></div>
     </div>
-  </div>
 
-  <h1 class="display-heading" style="margin-top: 28px;">
-    Backend systems,<br>
-    built for the <span class="italic">real world</span>.
-  </h1>
+    <h1 class="display-heading">
+      Backend,<br>
+      Built <em>right.</em>
+    </h1>
 
-  <p class="hero-description">
-    I'm <strong style="color: var(--text);">Abishek</strong> — a Computer Science student building distributed systems,
-    financial ledgers, and the kind of reliability-focused infrastructure that holds up under load, failure, and
-    review.
-  </p>
+    <div class="hero-grid-bottom">
+      <div>
+        <p class="hero-lede">
+          Computer Science student building distributed systems, financial ledgers, and the quiet infrastructure
+          that holds up under load, failure, and review.
+        </p>
 
-  <div class="button-row">
-    <a href="#work" class="button button-primary">View selected work →</a>
-    <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-      rel="noopener noreferrer" class="button button-secondary">Resume (PDF)</a>
-  </div>
+        <div class="button-row">
+          <a href="#work" class="button button-primary">Selected work →</a>
+          <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+            rel="noopener noreferrer" class="button button-secondary">Resume (PDF)</a>
+        </div>
 
-  <div class="inline-links">
-    <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-    <a href="mailto:giriabishekkumar5@gmail.com">giriabishekkumar5@gmail.com</a>
-  </div>
+        <div class="inline-links">
+          <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="mailto:giriabishekkumar5@gmail.com">Email ↗</a>
+        </div>
+      </div>
 
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Focus</span>
-      <div class="hero-meta-value">Distributed systems · Reliability · Backend</div>
-    </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Stack</span>
-      <div class="hero-meta-value">Python · Go · PostgreSQL · Redis · Kubernetes</div>
-    </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Based in</span>
-      <div class="hero-meta-value">New Jersey, USA</div>
+      <div class="hero-dossier">
+        <div class="dossier-row">
+          <span class="dossier-label">Status</span>
+          <div class="dossier-value">Seeking Summer 2026 internships</div>
+        </div>
+        <div class="dossier-row">
+          <span class="dossier-label">Focus</span>
+          <div class="dossier-value">Distributed systems, reliability, backend</div>
+        </div>
+        <div class="dossier-row">
+          <span class="dossier-label">Stack</span>
+          <div class="dossier-value">Python · Go · PostgreSQL · Redis · Kubernetes</div>
+        </div>
+        <div class="dossier-row">
+          <span class="dossier-label">Based</span>
+          <div class="dossier-value">New Jersey, USA</div>
+        </div>
+        <div class="dossier-row">
+          <span class="dossier-label">Reach</span>
+          <div class="dossier-value"><a href="mailto:giriabishekkumar5@gmail.com">giriabishekkumar5@gmail.com</a></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -51,65 +62,63 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-num">01</span> About</div>
-      <h2 class="section-title">What I care about</h2>
+      <span class="section-num">§ 01</span>
+      <h2 class="section-title">On the bench</h2>
     </div>
     <a href="/about" class="section-link">Full background →</a>
   </div>
 
   <div class="two-column-grid">
-    <article class="surface-card prose-card">
-      <p>I'm drawn to systems that can be explained, tested, and trusted. That shows up in my work through release
-        governance, transactional storage, idempotent ledgers, distributed coordination, and explicit failure
-        handling.</p>
-      <p>Alongside backend work, I explore research-heavy engineering problems, AI robustness, and open-source
-        collaboration inside real, production-scale codebases.</p>
-    </article>
+    <div class="prose-card">
+      <p style="font-size: 1.08rem; line-height: 1.7; color: var(--ink);">
+        I care about systems that can be <strong>explained</strong>, <strong>tested</strong>, and
+        <strong>trusted</strong>. That shows up in my work through release governance, transactional storage,
+        idempotent ledgers, distributed coordination, and explicit failure handling.
+      </p>
+      <p style="margin-top: 20px; color: var(--ink-muted);">
+        Alongside backend engineering, I explore research-heavy problems in AI robustness and contribute to
+        open-source projects inside real, production-scale codebases.
+      </p>
+    </div>
 
-    <article class="surface-card">
-      <h3 class="card-title">Current priorities</h3>
-      <ul class="detail-list">
-        <li>
-          <span>Systems</span>
-          <strong>ReleaseGate, ShardDB, MIDAS Ledger, Job Orchestrator</strong>
-        </li>
-        <li>
-          <span>Research</span>
-          <strong>AI safety, failure modes, and software reliability</strong>
-        </li>
-        <li>
-          <span>Goal</span>
-          <strong>Internship roles where backend depth and engineering judgment matter</strong>
-        </li>
-      </ul>
-    </article>
+    <ul class="detail-list">
+      <li>
+        <span>Systems</span>
+        <strong>ReleaseGate, ShardDB, MIDAS Ledger, Job Orchestrator</strong>
+      </li>
+      <li>
+        <span>Research</span>
+        <strong>AI safety, failure modes, software reliability</strong>
+      </li>
+      <li>
+        <span>Goal</span>
+        <strong>Internship roles where backend depth and engineering judgment matter</strong>
+      </li>
+      <li>
+        <span>OSS</span>
+        <strong>Merged into iii · PRs across OpenSearch, Bazel, Kubernetes, FastAPI</strong>
+      </li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="work">
   <div class="section-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-num">02</span> Selected work</div>
-      <h2 class="section-title">The systems I've been building</h2>
+      <span class="section-num">§ 02</span>
+      <h2 class="section-title">Selected work</h2>
     </div>
-    <a href="/projects" class="section-link">All projects →</a>
+    <a href="/projects" class="section-link">All work →</a>
   </div>
 
-  <div class="bento-grid">
-    {% for project in projects[:4] %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
-      class="project-card {% if loop.index == 1 %}bento-wide{% endif %}">
-      <div class="project-card-top">
-        <span class="project-index">{{ "%02d"|format(loop.index) }} / Project</span>
-        <span class="arrow" aria-hidden="true">↗</span>
-      </div>
-      <h3 class="entry-title">{{ project.title }}</h3>
-      <p class="entry-description">{{ project.description }}</p>
-      <div class="pill-list">
-        {% for tag in project.tags[:5] %}
-        <span class="pill">{{ tag }}</span>
-        {% endfor %}
-      </div>
+  <div class="work-index">
+    {% for project in projects[:6] %}
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="work-row">
+      <span class="work-num">N<sup>o</sup> {{ "%02d"|format(loop.index) }}</span>
+      <span class="work-year">2025</span>
+      <span class="work-title">{{ project.title }}</span>
+      <span class="work-stack">{{ project.tags[:4]|join(' · ') }}</span>
+      <span class="arrow" aria-hidden="true">↗</span>
     </a>
     {% endfor %}
   </div>
@@ -118,8 +127,8 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-num">03</span> Experience</div>
-      <h2 class="section-title">Where I've sharpened ownership</h2>
+      <span class="section-num">§ 03</span>
+      <h2 class="section-title">Experience</h2>
     </div>
     <a href="/about" class="section-link">Full timeline →</a>
   </div>
@@ -144,26 +153,26 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-num">04</span> Education</div>
-      <h2 class="section-title">Academic background</h2>
+      <span class="section-num">§ 04</span>
+      <h2 class="section-title">Education</h2>
     </div>
   </div>
 
   <div class="card-grid card-grid-two">
-    <article class="surface-card entry-card">
+    <article class="entry-card">
       <div class="entry-meta">
         <div>
           <h3 class="entry-title">Stockton University</h3>
-          <p class="entry-subtitle">B.S. in Computer Science</p>
+          <p class="entry-subtitle">B.S. Computer Science</p>
         </div>
-        <span class="date-pill">Expected May 2026</span>
+        <span class="date-pill">Expected · May 2026</span>
       </div>
       <p class="entry-description">Building depth in backend engineering, distributed systems, and applied AI through
         projects, research, open-source work, and systems-focused implementation.</p>
     </article>
 
     {% for item in education %}
-    <article class="surface-card entry-card">
+    <article class="entry-card">
       <div class="entry-meta">
         <div>
           <h3 class="entry-title">{{ item.role }}</h3>
@@ -180,55 +189,41 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-num">05</span> Stack</div>
-      <h2 class="section-title">Tools that show up repeatedly</h2>
+      <span class="section-num">§ 05</span>
+      <h2 class="section-title">Stack</h2>
     </div>
     <a href="/skills" class="section-link">Full stack →</a>
   </div>
 
-  <div class="card-grid card-grid-two">
-    <article class="surface-card">
-      <div class="eyebrow">Languages</div>
-      <h3 class="card-title">Core implementation languages</h3>
-      <div class="pill-list" style="margin-top: 20px;">
+  <div class="two-column-grid">
+    <div>
+      <span class="label">Languages</span>
+      <div class="pill-list" style="margin-top: 18px;">
         {% for skill in skills['Languages'][:10] %}
         <span class="pill">{{ skill.name }}</span>
         {% endfor %}
       </div>
-    </article>
-
-    <article class="surface-card">
-      <div class="eyebrow">Infrastructure</div>
-      <h3 class="card-title">Frameworks, storage, and systems</h3>
-      <div class="pill-list" style="margin-top: 20px;">
-        {% for skill in skills['Tools'][:14] %}
+    </div>
+    <div>
+      <span class="label">Infrastructure &amp; Tools</span>
+      <div class="pill-list" style="margin-top: 18px;">
+        {% for skill in skills['Tools'][:16] %}
         <span class="pill">{{ skill.name }}</span>
         {% endfor %}
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="two-column-grid">
-    <article class="surface-card">
-      <div class="eyebrow"><span class="eyebrow-num">06</span> Open source</div>
-      <h2 class="card-title">Contributions beyond my own repos</h2>
-      <p class="entry-description" style="margin-top: 14px;">Merged contributions to <span class="pill-accent pill"
-          style="display: inline-flex; padding: 2px 8px;">iii</span> and active pull requests across OpenSearch, Bazel,
-        Kubernetes, FastAPI, GraphQL.js, Dapr, and Appwrite.</p>
-    </article>
-
-    <article class="surface-card">
-      <div class="eyebrow"><span class="eyebrow-num">07</span> Get in touch</div>
-      <h2 class="card-title">Hiring for backend systems work? Let's talk.</h2>
-      <p class="entry-description" style="margin-top: 14px;">Email is the fastest route — but LinkedIn, GitHub, and the
-        resume PDF are all one click away.</p>
-      <div class="button-row compact-row">
-        <a href="mailto:giriabishekkumar5@gmail.com" class="button button-primary">Email me →</a>
-        <a href="/contact" class="button button-secondary">Contact page</a>
-      </div>
-    </article>
+<section class="section contact-cta">
+  <span class="section-num">§ 06 · Get in touch</span>
+  <h2 class="display-heading" style="margin-top: 20px;">
+    Let's build <em>something</em><br>
+    that matters.
+  </h2>
+  <div class="button-row" style="margin-top: 40px;">
+    <a href="mailto:giriabishekkumar5@gmail.com" class="button button-primary">Email me →</a>
+    <a href="/contact" class="button button-secondary">Contact page</a>
   </div>
 </section>
 {% endblock %}
