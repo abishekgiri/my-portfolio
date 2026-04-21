@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import os
 
 app = Flask(__name__)
@@ -165,12 +165,11 @@ def publications():
     with open(projects_path, 'r') as f:
         projects = json.load(f)
 
-    research_papers = []
-    for p in projects:
-        if p.get('category') == 'ai' or 'Research' in p.get('tags', []):
-             if 'Paper' in p.get('title', '') or 'Research' in p.get('title', '') or 'Defense' in p.get('title', '') or 'Failure' in p.get('title', ''):
-                 research_papers.append(p)
-                 
+    research_papers = [
+        p for p in projects
+        if p.get('category') == 'ai' or 'Research' in p.get('tags', [])
+    ]
+
     return render_template("publications.html", papers=research_papers)
 
 @app.route("/skills")
@@ -236,26 +235,28 @@ def about():
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    sent = request.args.get("sent") == "1"
+    return render_template("contact.html", sent=sent)
 
 @app.route("/submit_form", methods=["POST"])
 def submit_form():
-    name = request.form.get("name")
-    email = request.form.get("email")
-    phone = request.form.get("phone")
-    message = request.form.get("message")
-    
-    print(f"New Message from {name} ({email}): {message}")
-    
-    # Save to file
-    with open("messages.txt", "a") as f:
+    name = (request.form.get("name") or "").strip()[:200]
+    email = (request.form.get("email") or "").strip()[:200]
+    phone = (request.form.get("phone") or "").strip()[:60]
+    message = (request.form.get("message") or "").strip()[:2000]
+
+    if not name or not email or not message:
+        return redirect(url_for("contact"))
+
+    messages_path = os.path.join(app.root_path, "messages.txt")
+    with open(messages_path, "a") as f:
         f.write(f"Name: {name}\n")
         f.write(f"Email: {email}\n")
         f.write(f"Phone: {phone}\n")
         f.write(f"Message: {message}\n")
         f.write("-" * 20 + "\n")
-    
-    return f"<h1>Thanks {name}, your message has been received!</h1>"
+
+    return redirect(url_for("contact", sent="1"))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5050)

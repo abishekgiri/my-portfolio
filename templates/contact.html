@@ -30,12 +30,50 @@
       <div class="eyebrow">Profiles</div>
       <h2 class="card-title">Open channels</h2>
       <div class="link-stack">
-        <a href="https://linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
           rel="noopener noreferrer">Resume PDF ↗</a>
       </div>
     </article>
   </div>
+</section>
+
+<section class="section">
+  <article class="surface-card">
+    <div class="eyebrow">Message</div>
+    <h2 class="card-title">Or send a message from here</h2>
+
+    {% if sent %}
+    <div class="form-success" role="status">Thanks — your message has been received. I'll reply soon.</div>
+    {% endif %}
+
+    <form class="contact-form" action="{{ url_for('submit_form') }}" method="POST" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" maxlength="120">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" maxlength="200">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone <span class="form-optional">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required maxlength="2000"></textarea>
+      </div>
+
+      <div class="button-row compact-row">
+        <button type="submit" class="button button-primary">Send message</button>
+      </div>
+    </form>
+  </article>
 </section>
 {% endblock %}
