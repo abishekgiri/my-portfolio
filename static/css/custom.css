@@ -199,6 +199,54 @@ textarea:focus-visible {
   color: var(--accent-ink);
 }
 
+/* Hamburger toggle (mobile only) */
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: calc(50% - 6px);
+}
+
+.nav-toggle span:nth-child(3) {
+  top: calc(50% + 6px);
+}
+
+.is-nav-open .nav-toggle span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.is-nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.is-nav-open .nav-toggle span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 /* ---------- Typography helpers ---------- */
 .eyebrow {
   display: inline-flex;
@@ -992,20 +1040,6 @@ textarea:focus-visible {
     --section-gap: 88px;
   }
 
-  .site-header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-    border-radius: 20px;
-    padding: 14px 18px;
-  }
-
-  .site-nav {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-  }
-
   .two-column-grid,
   .card-grid-two,
   .project-grid,
@@ -1026,6 +1060,7 @@ textarea:focus-visible {
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 24px 0;
   }
 
   .section-header {
@@ -1035,31 +1070,164 @@ textarea:focus-visible {
 
   .hero-meta {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 0;
+    margin-top: 48px;
   }
 
   .hero-meta-item {
-    padding: 0 0 18px 0 !important;
+    padding: 18px 0 !important;
     border-right: 0 !important;
     border-bottom: 1px solid var(--border);
   }
 
+  .hero-meta-item:first-child {
+    padding-top: 24px !important;
+  }
+
   .hero-meta-item:last-child {
     border-bottom: 0;
-    padding-bottom: 0 !important;
   }
 
   .site-footer {
     grid-template-columns: 1fr;
     gap: 32px;
+    margin-top: 96px;
+    padding-top: 40px;
+  }
+
+  .footer-links {
+    margin-top: 0;
   }
 }
 
-@media (max-width: 640px) {
+/* ---------- Mobile nav breakpoint ---------- */
+@media (max-width: 720px) {
+  :root {
+    --section-gap: 72px;
+  }
+
   .site-shell {
     width: min(var(--shell-width), calc(100vw - 24px));
   }
 
+  .site-header {
+    margin: 12px 0 28px;
+    padding: 10px 12px 10px 14px;
+    border-radius: 18px;
+  }
+
+  .brand-role {
+    display: none;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .brand-name {
+    font-size: 0.88rem;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav {
+    display: none;
+    position: fixed;
+    inset: 82px 16px auto 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px;
+    background: rgba(10, 10, 12, 0.96);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid var(--border-strong);
+    border-radius: 20px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+    z-index: 60;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .is-nav-open .site-nav {
+    display: flex;
+    animation: nav-in 0.22s ease;
+  }
+
+  @keyframes nav-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .site-nav a {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-nav .nav-cta {
+    margin-left: 0;
+    margin-top: 6px;
+    justify-content: center;
+  }
+
+  /* Hero compression */
+  .display-heading {
+    font-size: clamp(2.6rem, 12vw, 4.4rem);
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 10vw, 3.6rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .hero-description {
+    margin-top: 22px;
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding-top: 4px;
+  }
+
+  .hero-top {
+    margin-top: 0;
+  }
+
+  .status-chip {
+    font-size: 0.68rem;
+    padding: 6px 12px 6px 10px;
+  }
+
+  /* Button row stacks full-width */
+  .button-row {
+    margin-top: 28px;
+    width: 100%;
+  }
+
+  .button-row .button {
+    flex: 1 1 100%;
+  }
+
+  .inline-links {
+    gap: 14px;
+    row-gap: 10px;
+  }
+
+  /* Cards, pills, padding */
   .surface-card,
   .project-card {
     padding: 22px;
@@ -1068,6 +1236,7 @@ textarea:focus-visible {
 
   .bento-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .bento-grid > .project-card,
@@ -1075,12 +1244,97 @@ textarea:focus-visible {
     grid-column: span 1;
   }
 
-  .button {
-    width: 100%;
+  .bento-wide .entry-title {
+    font-size: 1.3rem;
   }
 
-  .hero-description {
-    font-size: 1.02rem;
+  .project-card .arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Form: inputs at 16px prevent iOS auto-zoom */
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+  /* Section separators breathe less */
+  .section-header {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    gap: 12px;
+  }
+
+  /* Timeline rail inline on mobile */
+  .timeline-rail {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Footer tightens */
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .footer-brand .display-heading {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  /* Cleaner link-stack rows */
+  .link-stack a {
+    padding: 16px 0;
+    min-height: 48px;
+  }
+
+  /* Disable hover lifts that get stuck on touch */
+  .project-card:hover,
+  .surface-card:hover,
+  .button-primary:hover {
+    transform: none;
+  }
+
+  .link-stack a:hover {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --section-gap: 64px;
+  }
+
+  .site-shell {
+    width: min(var(--shell-width), calc(100vw - 16px));
+  }
+
+  body {
+    font-size: 14.5px;
+  }
+
+  .display-heading {
+    font-size: clamp(2.2rem, 13vw, 3.4rem);
+  }
+
+  .surface-card,
+  .project-card {
+    padding: 20px;
+  }
+
+  .hero-meta-label {
+    font-size: 0.66rem;
+  }
+
+  .hero-meta-value {
+    font-size: 0.92rem;
+  }
+
+  .pill {
+    font-size: 0.66rem;
   }
 }
 

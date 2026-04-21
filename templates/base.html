@@ -27,7 +27,12 @@
         </span>
       </a>
 
-      <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="/" class="{{ 'nav-active' if request.path == '/' else '' }}">Home</a>
         <a href="/about" class="{{ 'nav-active' if request.path == '/about' else '' }}">About</a>
         <a href="/projects" class="{{ 'nav-active' if request.path == '/projects' else '' }}">Work</a>
