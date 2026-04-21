@@ -2,70 +2,68 @@
 
 {% block content %}
 <section class="section hero-section">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow">Computer Science student · Backend engineering · Distributed systems</div>
-      <h1 class="page-title">Hi, I'm Abishek. I build reliable backend systems and real-world software.</h1>
-      <p class="section-description hero-description">
-        Computer Science student focused on backend engineering and building reliable, scalable systems. Experienced in
-        developing distributed systems and real-world applications, and currently seeking software engineering
-        internship opportunities.
-      </p>
-
-      <div class="button-row">
-        <a href="#projects" class="button button-primary">View projects</a>
-        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer" class="button button-secondary">Resume PDF</a>
-        <a href="/contact" class="button button-secondary">Contact</a>
-      </div>
-
-      <div class="inline-links">
-        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      </div>
+  <div class="hero-top">
+    <div class="status-chip">
+      <span class="status-dot" aria-hidden="true"></span>
+      Seeking SWE internships · Summer 2026
     </div>
+  </div>
 
-    <aside class="surface-card summary-card">
-      <div class="eyebrow">At a glance</div>
-      <div class="summary-list">
-        <div class="summary-item">
-          <span>Focus</span>
-          <strong>Backend, distributed systems, reliability</strong>
-        </div>
-        <div class="summary-item">
-          <span>Primary stack</span>
-          <strong>Python, Go, FastAPI, PostgreSQL, Redis, Docker</strong>
-        </div>
-        <div class="summary-item">
-          <span>Current</span>
-          <strong>Seeking software engineering internships</strong>
-        </div>
-        <div class="summary-item">
-          <span>Open source</span>
-          <strong>Merged work in iii, active PRs across major public repos</strong>
-        </div>
-      </div>
-    </aside>
+  <h1 class="display-heading" style="margin-top: 28px;">
+    Backend systems,<br>
+    built for the <span class="italic">real world</span>.
+  </h1>
+
+  <p class="hero-description">
+    I'm <strong style="color: var(--text);">Abishek</strong> — a Computer Science student building distributed systems,
+    financial ledgers, and the kind of reliability-focused infrastructure that holds up under load, failure, and
+    review.
+  </p>
+
+  <div class="button-row">
+    <a href="#work" class="button button-primary">View selected work →</a>
+    <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+      rel="noopener noreferrer" class="button button-secondary">Resume (PDF)</a>
+  </div>
+
+  <div class="inline-links">
+    <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a href="mailto:giriabishekkumar5@gmail.com">giriabishekkumar5@gmail.com</a>
+  </div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Focus</span>
+      <div class="hero-meta-value">Distributed systems · Reliability · Backend</div>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Stack</span>
+      <div class="hero-meta-value">Python · Go · PostgreSQL · Redis · Kubernetes</div>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Based in</span>
+      <div class="hero-meta-value">New Jersey, USA</div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow">About</div>
-      <h2 class="section-title">What I’m optimizing for</h2>
-      <p class="section-description">I care about correctness, explicit failure handling, and systems that hold up under
-        load and review — not just on the happy path.</p>
+      <div class="eyebrow"><span class="eyebrow-num">01</span> About</div>
+      <h2 class="section-title">What I care about</h2>
     </div>
+    <a href="/about" class="section-link">Full background →</a>
   </div>
 
   <div class="two-column-grid">
     <article class="surface-card prose-card">
-      <p>I care about systems that can be explained, tested, and trusted. That shows up in the projects here through
-        release governance, transactional storage, idempotent ledgers, distributed coordination, and explicit failure
+      <p>I'm drawn to systems that can be explained, tested, and trusted. That shows up in my work through release
+        governance, transactional storage, idempotent ledgers, distributed coordination, and explicit failure
         handling.</p>
-      <p>Alongside backend work, I’m interested in research-heavy engineering problems, AI robustness, and open-source
-        collaboration inside real external codebases.</p>
+      <p>Alongside backend work, I explore research-heavy engineering problems, AI robustness, and open-source
+        collaboration inside real, production-scale codebases.</p>
     </article>
 
     <article class="surface-card">
@@ -88,25 +86,56 @@
   </div>
 </section>
 
+<section class="section" id="work">
+  <div class="section-header">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-num">02</span> Selected work</div>
+      <h2 class="section-title">The systems I've been building</h2>
+    </div>
+    <a href="/projects" class="section-link">All projects →</a>
+  </div>
+
+  <div class="bento-grid">
+    {% for project in projects[:4] %}
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
+      class="project-card {% if loop.index == 1 %}bento-wide{% endif %}">
+      <div class="project-card-top">
+        <span class="project-index">{{ "%02d"|format(loop.index) }} / Project</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </div>
+      <h3 class="entry-title">{{ project.title }}</h3>
+      <p class="entry-description">{{ project.description }}</p>
+      <div class="pill-list">
+        {% for tag in project.tags[:5] %}
+        <span class="pill">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow">Experience</div>
-      <h2 class="section-title">Work that sharpened communication and ownership</h2>
+      <div class="eyebrow"><span class="eyebrow-num">03</span> Experience</div>
+      <h2 class="section-title">Where I've sharpened ownership</h2>
     </div>
-    <a href="/about" class="section-link">Full background ↗</a>
+    <a href="/about" class="section-link">Full timeline →</a>
   </div>
 
   <div class="timeline-list">
     {% for item in experience %}
-    <article class="surface-card timeline-item">
-      <div class="timeline-top">
+    <article class="timeline-item">
+      <div class="timeline-rail">
         <span class="timeline-type">{{ item.type|title }}</span>
         <span class="timeline-date">{{ item.duration }}</span>
       </div>
-      <h3 class="entry-title">{{ item.role }}</h3>
-      <p class="entry-subtitle">{{ item.company }}</p>
-      <p class="entry-description">{{ item.description }}</p>
+      <div class="timeline-content">
+        <h3 class="entry-title">{{ item.role }}</h3>
+        <p class="entry-subtitle">{{ item.company }}</p>
+        <p class="entry-description">{{ item.description }}</p>
+      </div>
     </article>
     {% endfor %}
   </div>
@@ -115,7 +144,7 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow">Education</div>
+      <div class="eyebrow"><span class="eyebrow-num">04</span> Education</div>
       <h2 class="section-title">Academic background</h2>
     </div>
   </div>
@@ -151,78 +180,52 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow">Skills</div>
-      <h2 class="section-title">Core tools that show up repeatedly</h2>
+      <div class="eyebrow"><span class="eyebrow-num">05</span> Stack</div>
+      <h2 class="section-title">Tools that show up repeatedly</h2>
     </div>
-    <a href="/skills" class="section-link">Full stack ↗</a>
+    <a href="/skills" class="section-link">Full stack →</a>
   </div>
 
   <div class="card-grid card-grid-two">
     <article class="surface-card">
-      <h3 class="card-title">Languages</h3>
-      <div class="pill-list">
-        {% for skill in skills['Languages'][:8] %}
+      <div class="eyebrow">Languages</div>
+      <h3 class="card-title">Core implementation languages</h3>
+      <div class="pill-list" style="margin-top: 20px;">
+        {% for skill in skills['Languages'][:10] %}
         <span class="pill">{{ skill.name }}</span>
         {% endfor %}
       </div>
     </article>
 
     <article class="surface-card">
-      <h3 class="card-title">Infrastructure and tools</h3>
-      <div class="pill-list">
-        {% for skill in skills['Tools'][:12] %}
+      <div class="eyebrow">Infrastructure</div>
+      <h3 class="card-title">Frameworks, storage, and systems</h3>
+      <div class="pill-list" style="margin-top: 20px;">
+        {% for skill in skills['Tools'][:14] %}
         <span class="pill">{{ skill.name }}</span>
         {% endfor %}
       </div>
     </article>
-  </div>
-</section>
-
-<section class="section" id="projects">
-  <div class="section-header">
-    <div>
-      <div class="eyebrow">Projects</div>
-      <h2 class="section-title">Selected work</h2>
-      <p class="section-description">The strongest signal here is backend and systems work, not toy demos.</p>
-    </div>
-    <a href="/projects" class="section-link">All projects ↗</a>
-  </div>
-
-  <div class="card-grid project-grid">
-    {% for project in projects[:4] %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="surface-card project-card">
-      <div class="project-card-top">
-        <span class="project-index">{{ "%02d"|format(loop.index) }}</span>
-        <span class="section-link">GitHub ↗</span>
-      </div>
-      <h3 class="entry-title">{{ project.title }}</h3>
-      <p class="entry-description">{{ project.description }}</p>
-      <div class="pill-list">
-        {% for tag in project.tags[:4] %}
-        <span class="pill">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </a>
-    {% endfor %}
   </div>
 </section>
 
 <section class="section">
   <div class="two-column-grid">
     <article class="surface-card">
-      <div class="eyebrow">Open source</div>
-      <h2 class="card-title">Contributions beyond personal repositories</h2>
-      <p class="entry-description">Merged contributions to iii and active pull requests across OpenSearch, Bazel,
+      <div class="eyebrow"><span class="eyebrow-num">06</span> Open source</div>
+      <h2 class="card-title">Contributions beyond my own repos</h2>
+      <p class="entry-description" style="margin-top: 14px;">Merged contributions to <span class="pill-accent pill"
+          style="display: inline-flex; padding: 2px 8px;">iii</span> and active pull requests across OpenSearch, Bazel,
         Kubernetes, FastAPI, GraphQL.js, Dapr, and Appwrite.</p>
     </article>
 
     <article class="surface-card">
-      <div class="eyebrow">Contact</div>
-      <h2 class="card-title">If you’re hiring for backend systems work, let’s talk.</h2>
-      <p class="entry-description">Email is the fastest route, but LinkedIn, GitHub, and the resume PDF are all one
-        click away.</p>
+      <div class="eyebrow"><span class="eyebrow-num">07</span> Get in touch</div>
+      <h2 class="card-title">Hiring for backend systems work? Let's talk.</h2>
+      <p class="entry-description" style="margin-top: 14px;">Email is the fastest route — but LinkedIn, GitHub, and the
+        resume PDF are all one click away.</p>
       <div class="button-row compact-row">
-        <a href="mailto:giriabishekkumar5@gmail.com" class="button button-primary">Email me</a>
+        <a href="mailto:giriabishekkumar5@gmail.com" class="button button-primary">Email me →</a>
         <a href="/contact" class="button button-secondary">Contact page</a>
       </div>
     </article>

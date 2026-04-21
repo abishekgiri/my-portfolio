@@ -4,8 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Abishek | Backend Engineer{% endblock %}</title>
+  <meta name="description"
+    content="Abishek Kumar Giri — backend engineer focused on distributed systems, reliability, and production-grade infrastructure.">
+  <meta name="theme-color" content="#09090b">
+  <title>{% block title %}Abishek Kumar Giri — Backend Engineer{% endblock %}</title>
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 </head>
 
@@ -14,20 +19,21 @@
 
   <div class="site-shell">
     <header class="site-header" aria-label="Primary">
-      <a href="/" class="brand">
-        <span class="brand-name">Abishek Kumar Giri</span>
-        <span class="brand-role">Backend engineer</span>
+      <a href="/" class="brand" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>
+          <span class="brand-name">Abishek Kumar Giri</span>
+          <span class="brand-role">Backend engineer</span>
+        </span>
       </a>
 
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="/" class="{{ 'nav-active' if request.path == '/' else '' }}">Home</a>
         <a href="/about" class="{{ 'nav-active' if request.path == '/about' else '' }}">About</a>
-        <a href="/projects" class="{{ 'nav-active' if request.path == '/projects' else '' }}">Projects</a>
-        <a href="/skills" class="{{ 'nav-active' if request.path == '/skills' else '' }}">Skills</a>
+        <a href="/projects" class="{{ 'nav-active' if request.path == '/projects' else '' }}">Work</a>
+        <a href="/skills" class="{{ 'nav-active' if request.path == '/skills' else '' }}">Stack</a>
         <a href="/publications" class="{{ 'nav-active' if request.path == '/publications' else '' }}">Research</a>
-        <a href="/contact" class="{{ 'nav-active' if request.path == '/contact' else '' }}">Contact</a>
-        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer">Resume</a>
+        <a href="/contact" class="nav-cta {{ 'nav-active' if request.path == '/contact' else '' }}">Contact</a>
       </nav>
     </header>
 
@@ -36,19 +42,33 @@
     </main>
 
     <footer class="site-footer">
-      <div>
-        <div class="eyebrow">Currently seeking software engineering internships</div>
-        <p class="footer-copy">Backend engineering, distributed systems, and production-style software systems.</p>
+      <div class="footer-brand">
+        <div class="status-chip">
+          <span class="status-dot" aria-hidden="true"></span>
+          Available for Summer 2026
+        </div>
+        <h2 class="display-heading" style="margin-top: 20px;">Let's <span class="italic">build</span>.</h2>
+        <p class="footer-copy">Backend engineering, distributed systems, and the unglamorous infrastructure work that
+          keeps things running.</p>
       </div>
 
       <div class="footer-links">
-        <a href="/projects">Work</a>
+        <a href="/">Home</a>
         <a href="/about">About</a>
+        <a href="/projects">Work</a>
+        <a href="/skills">Stack</a>
+        <a href="/publications">Research</a>
         <a href="/contact">Contact</a>
-        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="mailto:giriabishekkumar5@gmail.com">Email ↗</a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer">Resume</a>
+          rel="noopener noreferrer">Resume ↗</a>
+      </div>
+
+      <div class="footer-legal">
+        <span>© 2026 Abishek Kumar Giri</span>
+        <span>Built with Flask · Deployed on Vercel</span>
       </div>
     </footer>
   </div>
