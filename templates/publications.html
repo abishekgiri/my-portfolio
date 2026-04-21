@@ -1,35 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}Publications | Abishek{% endblock %}
+{% block title %}Research — Abishek Kumar Giri{% endblock %}
 
 {% block content %}
 <section class="section">
   <div class="page-intro">
-    <div>
-      <div class="eyebrow">Research</div>
-      <h1 class="page-title">AI systems, robustness, and failure modes.</h1>
-      <p class="section-description">Publications and research-driven work exploring safety, reliability,
-        benchmarking, and behavior under stress in large-scale software and AI systems.</p>
-    </div>
+    <div class="eyebrow"><span class="eyebrow-num">00</span> Research</div>
+    <h1 class="page-title">
+      AI systems, <span class="italic" style="font-style: italic; color: var(--accent);">stress-tested</span>.
+    </h1>
+    <p class="section-description" style="margin-top: 28px;">
+      Publications and research-driven work exploring safety, reliability, benchmarking, and behavior under stress in
+      large-scale software and AI systems.
+    </p>
   </div>
+</section>
 
+<section class="section">
   <div class="publication-list">
     {% for paper in papers %}
     <article class="surface-card publication-card">
-      <div class="timeline-top">
-        <span class="timeline-type">Paper</span>
-        <span class="timeline-date">2024</span>
+      <div class="project-card-top">
+        <span class="project-index">{{ "%02d"|format(loop.index) }} / Research</span>
+        <span class="timeline-date">2024 – 2025</span>
       </div>
       <div>
         <div class="publication-tags">
-          {% for tag in paper.tags[:3] %}
+          {% for tag in paper.tags[:4] %}
           <span class="pill">{{ tag }}</span>
           {% endfor %}
         </div>
-        <h2 class="entry-title">{{ paper.title }}</h2>
+        <h2 class="entry-title" style="font-size: 1.4rem;">{{ paper.title }}</h2>
         <p class="entry-description">{{ paper.description }}</p>
       </div>
-      <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="button button-secondary">Open ↗</a>
+      <div>
+        <a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer" class="button button-secondary">Read more →</a>
+      </div>
+    </article>
+    {% else %}
+    <article class="surface-card">
+      <p class="entry-description">No research entries available yet.</p>
     </article>
     {% endfor %}
   </div>

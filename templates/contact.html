@@ -1,39 +1,52 @@
 {% extends "base.html" %}
 
-{% block title %}Contact | Abishek{% endblock %}
+{% block title %}Contact — Abishek Kumar Giri{% endblock %}
 
 {% block content %}
 <section class="section">
   <div class="page-intro">
-    <div class="eyebrow">Contact</div>
-    <h1 class="page-title">If you’re hiring for backend systems work, let’s talk.</h1>
-    <p class="section-description">I’m currently looking for software engineering internship opportunities and I’m
-      happy to talk about backend engineering, distributed systems, research, or open-source work.</p>
+    <div class="eyebrow"><span class="eyebrow-num">00</span> Contact</div>
+    <h1 class="page-title">
+      Let's <span class="italic" style="font-style: italic; color: var(--accent);">talk</span>.
+    </h1>
+    <p class="section-description" style="margin-top: 28px;">
+      I'm looking for software engineering internship opportunities and happy to talk about backend engineering,
+      distributed systems, research, or open-source work.
+    </p>
   </div>
 </section>
 
 <section class="section">
   <div class="card-grid card-grid-two">
     <article class="surface-card">
-      <div class="eyebrow">Best route</div>
-      <h2 class="card-title">Email is the fastest path.</h2>
-      <p class="entry-description">Resume, GitHub, and LinkedIn are linked here as well if you want a quick read
-        before reaching out.</p>
+      <div class="eyebrow"><span class="eyebrow-num">01</span> Fastest route</div>
+      <h2 class="card-title">Email is the quickest path</h2>
+      <p class="entry-description" style="margin-top: 14px;">Resume, GitHub, and LinkedIn are linked here as well if
+        you want a quick read before reaching out.</p>
       <div class="button-row compact-row">
-        <a href="mailto:giriabishekkumar5@gmail.com" class="button button-primary">Send email</a>
+        <a href="mailto:giriabishekkumar5@gmail.com" class="button button-primary">Send email →</a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer" class="button button-secondary">Resume PDF</a>
+          rel="noopener noreferrer" class="button button-secondary">Resume (PDF)</a>
       </div>
     </article>
 
     <article class="surface-card">
-      <div class="eyebrow">Profiles</div>
+      <div class="eyebrow"><span class="eyebrow-num">02</span> Profiles</div>
       <h2 class="card-title">Open channels</h2>
       <div class="link-stack">
-        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">
+          <span>LinkedIn</span><span>→</span>
+        </a>
+        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span><span>→</span>
+        </a>
+        <a href="mailto:giriabishekkumar5@gmail.com">
+          <span>giriabishekkumar5@gmail.com</span><span>→</span>
+        </a>
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer">Resume PDF ↗</a>
+          rel="noopener noreferrer">
+          <span>Resume (PDF)</span><span>→</span>
+        </a>
       </div>
     </article>
   </div>
@@ -41,37 +54,40 @@
 
 <section class="section">
   <article class="surface-card">
-    <div class="eyebrow">Message</div>
-    <h2 class="card-title">Or send a message from here</h2>
+    <div class="eyebrow"><span class="eyebrow-num">03</span> Direct message</div>
+    <h2 class="card-title">Or send a note from here</h2>
 
     {% if sent %}
-    <div class="form-success" role="status">Thanks — your message has been received. I'll reply soon.</div>
+    <div class="form-success" role="status">✓ Message received. I'll reply soon.</div>
     {% endif %}
 
     <form class="contact-form" action="{{ url_for('submit_form') }}" method="POST" novalidate>
       <div class="form-row">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="name" maxlength="120">
+          <input type="text" id="name" name="name" required autocomplete="name" maxlength="120"
+            placeholder="Your name">
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" maxlength="200">
+          <input type="email" id="email" name="email" required autocomplete="email" maxlength="200"
+            placeholder="you@company.com">
         </div>
       </div>
 
       <div class="form-group">
         <label for="phone">Phone <span class="form-optional">(optional)</span></label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40">
+        <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40" placeholder="Optional">
       </div>
 
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required maxlength="2000"></textarea>
+        <textarea id="message" name="message" rows="6" required maxlength="2000"
+          placeholder="What's on your mind?"></textarea>
       </div>
 
       <div class="button-row compact-row">
-        <button type="submit" class="button button-primary">Send message</button>
+        <button type="submit" class="button button-primary">Send message →</button>
       </div>
     </form>
   </article>
