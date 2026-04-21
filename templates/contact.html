@@ -5,22 +5,22 @@
 {% block content %}
 <section class="section">
   <div class="page-intro">
-    <div class="eyebrow"><span class="eyebrow-num">00</span> Contact</div>
+    <span class="section-num">§ 00 · Contact</span>
     <h1 class="page-title">
-      Let's <span class="italic" style="font-style: italic; color: var(--accent);">talk</span>.
+      Let's <em>talk.</em>
     </h1>
-    <p class="section-description" style="margin-top: 28px;">
-      I'm looking for software engineering internship opportunities and happy to talk about backend engineering,
+    <p class="section-description" style="margin-top: 28px; font-size: 1.1rem; color: var(--ink);">
+      Looking for software engineering internship opportunities — happy to talk about backend engineering,
       distributed systems, research, or open-source work.
     </p>
   </div>
 </section>
 
 <section class="section">
-  <div class="card-grid card-grid-two">
-    <article class="surface-card">
-      <div class="eyebrow"><span class="eyebrow-num">01</span> Fastest route</div>
-      <h2 class="card-title">Email is the quickest path</h2>
+  <div class="two-column-grid">
+    <div>
+      <span class="label">§ 01 · Fastest route</span>
+      <h2 class="card-title" style="margin-top: 14px; font-size: 1.8rem;">Email is the quickest path.</h2>
       <p class="entry-description" style="margin-top: 14px;">Resume, GitHub, and LinkedIn are linked here as well if
         you want a quick read before reaching out.</p>
       <div class="button-row compact-row">
@@ -28,11 +28,10 @@
         <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
           rel="noopener noreferrer" class="button button-secondary">Resume (PDF)</a>
       </div>
-    </article>
+    </div>
 
-    <article class="surface-card">
-      <div class="eyebrow"><span class="eyebrow-num">02</span> Profiles</div>
-      <h2 class="card-title">Open channels</h2>
+    <div>
+      <span class="label">§ 02 · Channels</span>
       <div class="link-stack">
         <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">
           <span>LinkedIn</span><span>→</span>
@@ -48,48 +47,49 @@
           <span>Resume (PDF)</span><span>→</span>
         </a>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <article class="surface-card">
-    <div class="eyebrow"><span class="eyebrow-num">03</span> Direct message</div>
-    <h2 class="card-title">Or send a note from here</h2>
+  <div class="section-header">
+    <div>
+      <span class="section-num">§ 03</span>
+      <h2 class="section-title">Send a note</h2>
+    </div>
+  </div>
 
-    {% if sent %}
-    <div class="form-success" role="status">✓ Message received. I'll reply soon.</div>
-    {% endif %}
+  {% if sent %}
+  <div class="form-success" role="status">✓ Message received. I'll reply soon.</div>
+  {% endif %}
 
-    <form class="contact-form" action="{{ url_for('submit_form') }}" method="POST" novalidate>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="name" maxlength="120"
-            placeholder="Your name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" maxlength="200"
-            placeholder="you@company.com">
-        </div>
-      </div>
-
+  <form class="contact-form" action="{{ url_for('submit_form') }}" method="POST" novalidate>
+    <div class="form-row">
       <div class="form-group">
-        <label for="phone">Phone <span class="form-optional">(optional)</span></label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40" placeholder="Optional">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name" maxlength="120" placeholder="Your name">
       </div>
-
       <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required maxlength="2000"
-          placeholder="What's on your mind?"></textarea>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" maxlength="200"
+          placeholder="you@company.com">
       </div>
+    </div>
 
-      <div class="button-row compact-row">
-        <button type="submit" class="button button-primary">Send message →</button>
-      </div>
-    </form>
-  </article>
+    <div class="form-group">
+      <label for="phone">Phone <span class="form-optional">(optional)</span></label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40" placeholder="Optional">
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required maxlength="2000"
+        placeholder="What's on your mind?"></textarea>
+    </div>
+
+    <div class="button-row compact-row">
+      <button type="submit" class="button button-primary">Send message →</button>
+    </div>
+  </form>
 </section>
 {% endblock %}

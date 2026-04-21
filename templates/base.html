@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Abishek Kumar Giri — backend engineer focused on distributed systems, reliability, and production-grade infrastructure.">
-  <meta name="theme-color" content="#09090b">
+    content="Abishek Kumar Giri — backend engineer. Distributed systems, reliability, and production-grade infrastructure.">
+  <meta name="theme-color" content="#efece3">
   <title>{% block title %}Abishek Kumar Giri — Backend Engineer{% endblock %}</title>
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,17 +15,32 @@
 </head>
 
 <body>
-  <div class="page-backdrop" aria-hidden="true"></div>
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Available for Summer 2026</span>
+      <span>Backend Engineering</span>
+      <span>Distributed Systems</span>
+      <span>Based in New Jersey</span>
+      <span>Seeking SWE internships</span>
+      <span>Available for Summer 2026</span>
+      <span>Backend Engineering</span>
+      <span>Distributed Systems</span>
+      <span>Based in New Jersey</span>
+      <span>Seeking SWE internships</span>
+    </div>
+  </div>
 
   <div class="site-shell">
     <header class="site-header" aria-label="Primary">
       <a href="/" class="brand" aria-label="Home">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span>
-          <span class="brand-name">Abishek Kumar Giri</span>
-          <span class="brand-role">Backend engineer</span>
-        </span>
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Abishek Giri</span>
+        <span class="brand-role">Backend Engineer</span>
       </a>
+
+      <div class="header-issue">
+        N<sup>o</sup> <strong>01</strong> · Vol. 2026 · <strong>Portfolio</strong>
+      </div>
 
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
         aria-controls="site-nav">
@@ -33,7 +48,7 @@
       </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-        <a href="/" class="{{ 'nav-active' if request.path == '/' else '' }}">Home</a>
+        <a href="/" class="{{ 'nav-active' if request.path == '/' else '' }}">Index</a>
         <a href="/about" class="{{ 'nav-active' if request.path == '/about' else '' }}">About</a>
         <a href="/projects" class="{{ 'nav-active' if request.path == '/projects' else '' }}">Work</a>
         <a href="/skills" class="{{ 'nav-active' if request.path == '/skills' else '' }}">Stack</a>
@@ -47,33 +62,37 @@
     </main>
 
     <footer class="site-footer">
-      <div class="footer-brand">
-        <div class="status-chip">
-          <span class="status-dot" aria-hidden="true"></span>
-          Available for Summer 2026
-        </div>
-        <h2 class="display-heading" style="margin-top: 20px;">Let's <span class="italic">build</span>.</h2>
-        <p class="footer-copy">Backend engineering, distributed systems, and the unglamorous infrastructure work that
-          keeps things running.</p>
-      </div>
+      <div class="footer-masthead" aria-hidden="true">ABISHEK GIRI</div>
 
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/projects">Work</a>
-        <a href="/skills">Stack</a>
-        <a href="/publications">Research</a>
-        <a href="/contact">Contact</a>
-        <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="mailto:giriabishekkumar5@gmail.com">Email ↗</a>
-        <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
-          rel="noopener noreferrer">Resume ↗</a>
+      <div class="footer-meta">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="/">Index</a>
+          <a href="/about">About</a>
+          <a href="/projects">Work</a>
+          <a href="/skills">Stack</a>
+          <a href="/publications">Research</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <a href="https://github.com/abishekgiri" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/abishekgiri" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="mailto:giriabishekkumar5@gmail.com">Email ↗</a>
+          <a href="{{ url_for('static', filename='files/Abishek_Giri_Resume.pdf') }}" target="_blank"
+            rel="noopener noreferrer">Resume (PDF) ↗</a>
+        </div>
+        <div class="footer-col">
+          <h4>Colophon</h4>
+          <p>Set in Archivo &amp; JetBrains Mono.</p>
+          <p>Built with Flask. Deployed on Vercel.</p>
+          <p>Published irregularly since 2024.</p>
+        </div>
       </div>
 
       <div class="footer-legal">
-        <span>© 2026 Abishek Kumar Giri</span>
-        <span>Built with Flask · Deployed on Vercel</span>
+        <span>© 2026 Abishek Kumar Giri — All rights reserved</span>
+        <span>Dispatched from New Jersey, USA</span>
       </div>
     </footer>
   </div>

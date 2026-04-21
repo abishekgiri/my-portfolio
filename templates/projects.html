@@ -5,13 +5,13 @@
 {% block content %}
 <section class="section">
   <div class="page-intro">
-    <div class="eyebrow"><span class="eyebrow-num">00</span> Work archive</div>
+    <span class="section-num">§ 00 · Archive</span>
     <h1 class="page-title">
-      Projects by <span class="italic" style="font-style: italic; color: var(--accent);">depth</span>, not count.
+      Work, in <em>full</em>.
     </h1>
-    <p class="section-description" style="margin-top: 28px;">
-      The strongest thread in the archive is backend and distributed systems, but the portfolio also includes applied
-      AI, data work, and full-stack products.
+    <p class="section-description" style="margin-top: 28px; font-size: 1.1rem; color: var(--ink);">
+      The strongest thread is backend and distributed systems, but the archive also includes applied AI, data work,
+      and full-stack products.
     </p>
   </div>
 </section>
@@ -23,26 +23,26 @@
 <section class="section">
   <div class="section-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-num">{{ "%02d"|format(category_num.value) }}</span> Category</div>
+      <span class="section-num">§ {{ "%02d"|format(category_num.value) }}</span>
       <h2 class="section-title">{{ category }}</h2>
     </div>
-    <span class="count-pill">{{ projects|length }} Projects</span>
+    <span class="count-pill">{{ projects|length }} entries</span>
   </div>
 
-  <div class="card-grid project-grid">
+  <div class="project-list">
     {% for project in projects %}
-    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-card">
-      <div class="project-card-top">
-        <span class="project-index">{{ "%02d"|format(loop.index) }} / {{ category.split(' ')[0] }}</span>
-        <span class="arrow" aria-hidden="true">↗</span>
+    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-row">
+      <span class="project-num">N<sup>o</sup> {{ "%02d"|format(loop.index) }}</span>
+      <div class="project-body">
+        <h3 class="entry-title">{{ project.title }}</h3>
+        <p class="entry-description">{{ project.description }}</p>
+        <div class="project-tags">
+          {% for tag in project.tags[:6] %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
       </div>
-      <h3 class="entry-title">{{ project.title }}</h3>
-      <p class="entry-description">{{ project.description }}</p>
-      <div class="pill-list">
-        {% for tag in project.tags[:5] %}
-        <span class="pill">{{ tag }}</span>
-        {% endfor %}
-      </div>
+      <span class="arrow" aria-hidden="true">↗</span>
     </a>
     {% endfor %}
   </div>
